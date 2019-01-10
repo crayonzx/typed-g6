@@ -106,7 +106,7 @@ function fadeOut(group, callback) {
   });
 }
 
-module.exports = {
+export = {
   enterScaleIn({ item, element }) {
     if (!element.isItemContainer || !item.getKeyShape()) return;
     scaleIn(item);

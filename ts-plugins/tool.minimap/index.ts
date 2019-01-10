@@ -28,4 +28,4 @@ G6.Plugins['tool.minimap'] = Plugin;
 
 G6.Components.Minimap = Minimap;
 
-module.exports = Plugin;
+export = Plugin;

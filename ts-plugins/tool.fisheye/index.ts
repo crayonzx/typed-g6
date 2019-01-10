@@ -63,4 +63,4 @@ class Plugin {
 
 G6.Plugins['tool.fisheye'] = Plugin;
 
-module.exports = Plugin;
+export = Plugin;

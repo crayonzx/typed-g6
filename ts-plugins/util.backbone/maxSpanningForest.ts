@@ -109,4 +109,4 @@ function dfs(start, nodes, callback) {
     });
   }
 }
-module.exports = maxSpanningForest;
+export = maxSpanningForest;

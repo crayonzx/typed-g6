@@ -162,4 +162,4 @@ BaseUtil.Array = {
   }
 };
 
-module.exports = BaseUtil;
+export = BaseUtil;

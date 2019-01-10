@@ -48,4 +48,4 @@ Mixin.AUGMENT = {
     animateController.run();
   }
 };
-module.exports = Mixin;
+export = Mixin;

@@ -181,4 +181,4 @@ class Plugin {
 
 G6.Plugins['tool.grid'] = Plugin;
 
-module.exports = Plugin;
+export = Plugin;

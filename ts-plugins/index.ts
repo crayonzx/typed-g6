@@ -1,4 +1,4 @@
-module.exports = {
+export = {
   'behaviour.analysis': require('./behaviour.analysis/'),
   'edge.polyline': require('./edge.polyline'),
   'edge.quadraticCurve': require('./edge.quadraticCurve/'),

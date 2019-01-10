@@ -21,4 +21,4 @@ Mixin.AUGMENT = {
     });
   }
 };
-module.exports = Mixin;
+export = Mixin;

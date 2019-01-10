@@ -86,4 +86,4 @@ function Polar2Rect(p, theta) {
   const y = p * Math.sin(theta);
   return { x, y };
 }
-module.exports = Tool;
+export = Tool;

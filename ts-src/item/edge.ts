@@ -204,4 +204,4 @@ class Edge extends Item {
   }
 }
 
-module.exports = Edge;
+export = Edge;

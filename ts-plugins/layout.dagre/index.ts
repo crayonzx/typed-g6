@@ -22,4 +22,4 @@ class Plugin {
 
 G6.Plugins['layout.dagre'] = Plugin;
 
-module.exports = Plugin;
+export = Plugin;

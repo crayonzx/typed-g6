@@ -889,4 +889,4 @@ class Graph extends Base {
 Mixins.forEach(Mixin => {
   Util.mix(Graph.prototype, Mixin.AUGMENT);
 });
-module.exports = Graph;
+export = Graph;

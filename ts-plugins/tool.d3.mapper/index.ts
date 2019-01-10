@@ -258,4 +258,4 @@ class Plugin {
 
 G6.Plugins['tool.d3.mapper'] = Plugin;
 
-module.exports = Plugin;
+export = Plugin;

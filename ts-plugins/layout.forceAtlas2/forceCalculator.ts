@@ -332,4 +332,4 @@ class ForceCalculator {
 }
 
 
-module.exports = ForceCalculator;
+export = ForceCalculator;

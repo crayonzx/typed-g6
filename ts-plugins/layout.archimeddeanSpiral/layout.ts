@@ -72,4 +72,4 @@ class Layout {
     });
   }
 }
-module.exports = Layout;
+export = Layout;

@@ -68,4 +68,4 @@ function maxSpanningTree(connectedSubset) {
   };
 }
 
-module.exports = maxSpanningTree;
+export = maxSpanningTree;

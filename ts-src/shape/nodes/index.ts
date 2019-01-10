@@ -3,7 +3,7 @@
  * @author huangtonger@aliyun.com
  */
 
-module.exports = {
+export = {
   common: require('./common'),
   html: require('./html')
 };

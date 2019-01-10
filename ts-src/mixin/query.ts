@@ -84,4 +84,4 @@ Mixin.AUGMENT = {
     return item;
   }
 };
-module.exports = Mixin;
+export = Mixin;

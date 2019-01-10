@@ -314,4 +314,4 @@ class Controller extends Base {
     };
   }
 }
-module.exports = Controller;
+export = Controller;

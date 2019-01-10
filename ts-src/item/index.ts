@@ -3,7 +3,7 @@
  * @author huangtonger@aliyun.com
  */
 
-module.exports = {
+export = {
   Node: require('./node'),
   Edge: require('./edge'),
   Group: require('./group'),

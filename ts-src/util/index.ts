@@ -11,4 +11,4 @@ const DomUtil = require('./dom');
 const GraphUtil = require('./graph');
 const GraphicUtil = require('./graphic');
 BaseUtil.mix(Util, BaseUtil, GraphUtil, GraphicUtil, DomUtil, PathUtil, MathUtil);
-module.exports = Util;
+export = Util;

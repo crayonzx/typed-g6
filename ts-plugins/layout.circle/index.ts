@@ -26,4 +26,4 @@ class Plugin {
 
 G6.Plugins['layout.circle'] = Plugin;
 
-module.exports = Plugin;
+export = Plugin;

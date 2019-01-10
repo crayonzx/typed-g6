@@ -125,4 +125,4 @@ class Graph2Canvas {
   }
 }
 
-module.exports = Graph2Canvas;
+export = Graph2Canvas;

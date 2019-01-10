@@ -26,4 +26,4 @@ Util.augment(Mixin, {
 
 Util.mixin(G.Shape, [ Mixin ]);
 
-module.exports = Mixin;
+export = Mixin;

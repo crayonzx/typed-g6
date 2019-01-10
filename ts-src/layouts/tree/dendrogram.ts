@@ -13,4 +13,4 @@ class DendrogramTreeLayout extends TreeBase {
   }
 }
 
-module.exports = DendrogramTreeLayout;
+export = DendrogramTreeLayout;

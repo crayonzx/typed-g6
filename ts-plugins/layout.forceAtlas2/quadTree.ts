@@ -88,4 +88,4 @@ class QuadTree {
     }
   }
 }
-module.exports = QuadTree;
+export = QuadTree;

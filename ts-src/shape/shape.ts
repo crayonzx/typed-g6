@@ -51,4 +51,4 @@ Shape.registerShapeManager = function(type, cfg) {
   return shapeManager;
 };
 
-module.exports = Shape;
+export = Shape;

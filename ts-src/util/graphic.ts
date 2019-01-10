@@ -240,4 +240,4 @@ const GraphicUtil = {
   }
 };
 
-module.exports = GraphicUtil;
+export = GraphicUtil;

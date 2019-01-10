@@ -85,4 +85,4 @@ BaseUtil.mix(DomUtil, {
     return container;
   }
 });
-module.exports = DomUtil;
+export = DomUtil;

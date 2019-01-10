@@ -153,4 +153,4 @@ class Plugin {
 
 G6.Plugins['tool.tooltip'] = Plugin;
 
-module.exports = Plugin;
+export = Plugin;

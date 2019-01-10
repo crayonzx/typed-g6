@@ -441,4 +441,4 @@ class Plugin {
 }
 
 G6.Plugins['tool.mapper'] = Plugin;
-module.exports = Plugin;
+export = Plugin;

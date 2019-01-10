@@ -18,4 +18,4 @@ class Base {
   destroy() {}
 }
 
-module.exports = Base;
+export = Base;

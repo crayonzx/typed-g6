@@ -78,4 +78,4 @@ Util.augment(Mixin, {
 });
 
 Util.mixin(G.Group, [ Mixin ]);
-module.exports = Mixin;
+export = Mixin;

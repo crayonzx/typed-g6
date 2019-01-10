@@ -91,4 +91,4 @@ class Body {
   }
 }
 
-module.exports = Body;
+export = Body;

@@ -220,4 +220,4 @@ const MathUtil = {
     return Math.acos((x1 * x2 + y1 * y2) / (v1 * v2));
   }
 };
-module.exports = BaseUtil.mix({}, BaseUtil, MathUtil);
+export = BaseUtil.mix({}, BaseUtil, MathUtil);

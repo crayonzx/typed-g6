@@ -8,4 +8,4 @@ class Base {
     throw new Error('please override this method');
   }
 }
-module.exports = Base;
+export = Base;

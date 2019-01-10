@@ -352,4 +352,4 @@ class Minimap {
   }
 }
 
-module.exports = Minimap;
+export = Minimap;

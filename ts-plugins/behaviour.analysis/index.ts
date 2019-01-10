@@ -161,4 +161,4 @@ G6.registerBehaviour('wheelZoom', graph => {
   }
 });
 
-module.exports = true;
+export = true;

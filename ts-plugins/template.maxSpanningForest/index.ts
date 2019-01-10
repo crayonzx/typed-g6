@@ -261,4 +261,4 @@ class Plugin {
 
 G6.Plugins['template.maxSpanningForest'] = Plugin;
 
-module.exports = Plugin;
+export = Plugin;

@@ -13,4 +13,4 @@ class IndentedTreeLayout extends TreeBase {
   }
 }
 
-module.exports = IndentedTreeLayout;
+export = IndentedTreeLayout;

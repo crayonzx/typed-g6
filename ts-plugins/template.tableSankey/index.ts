@@ -344,4 +344,4 @@ class Plugin {
 
 G6.Plugins['template.tableSankey'] = Plugin;
 
-module.exports = Plugin;
+export = Plugin;

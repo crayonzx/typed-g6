@@ -106,4 +106,4 @@ class Plugin {
 }
 
 G6.Plugins['tool.highlightSubgraph'] = Plugin;
-module.exports = Plugin;
+export = Plugin;

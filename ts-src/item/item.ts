@@ -324,4 +324,4 @@ class Item {
   }
 }
 
-module.exports = Item;
+export = Item;

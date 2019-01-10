@@ -18,4 +18,4 @@ class Guide extends Item {
   }
 }
 
-module.exports = Guide;
+export = Guide;

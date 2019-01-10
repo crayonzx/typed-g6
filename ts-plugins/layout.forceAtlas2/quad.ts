@@ -94,4 +94,4 @@ class Quad {
     return SE;
   }
 }
-module.exports = Quad;
+export = Quad;

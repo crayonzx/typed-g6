@@ -33,4 +33,4 @@ const Handler = {
   }
 };
 
-module.exports = Handler;
+export = Handler;

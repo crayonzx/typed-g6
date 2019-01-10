@@ -22,4 +22,4 @@ class Plugin {
 
 G6.Plugins['layout.grid'] = Plugin;
 
-module.exports = Plugin;
+export = Plugin;

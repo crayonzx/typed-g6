@@ -23,4 +23,4 @@ class Plugin {
 
 G6.Plugins['layout.archimeddeanSpiral'] = Plugin;
 
-module.exports = Plugin;
+export = Plugin;

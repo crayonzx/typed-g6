@@ -34,4 +34,4 @@ class Base extends EventEmitter {
   }
 }
 
-module.exports = Base;
+export = Base;

@@ -26,4 +26,4 @@ require('./nodes/');
 require('./edges/');
 require('./groups/');
 require('./guides/');
-module.exports = Shape;
+export = Shape;

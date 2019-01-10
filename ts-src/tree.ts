@@ -371,4 +371,4 @@ class Tree extends Graph {
   }
 }
 
-module.exports = Tree;
+export = Tree;

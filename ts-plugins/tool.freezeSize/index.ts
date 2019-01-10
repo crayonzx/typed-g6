@@ -51,4 +51,4 @@ class Plugin {
 }
 
 G6.Plugins['tool.freezeSize'] = Plugin;
-module.exports = Plugin;
+export = Plugin;

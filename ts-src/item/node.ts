@@ -157,4 +157,4 @@ class Node extends Item {
     return this._anchorPoints;
   }
 }
-module.exports = Node;
+export = Node;

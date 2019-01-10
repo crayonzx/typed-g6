@@ -5,7 +5,7 @@
 
 const BaseUtil = require('./base');
 
-module.exports = {
+export = {
   /**
    * determine whether a node
    * @param  {object}  item item

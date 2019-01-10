@@ -23,4 +23,4 @@ class CompactBoxTreeLayout extends Base {
   }
 }
 
-module.exports = CompactBoxTreeLayout;
+export = CompactBoxTreeLayout;

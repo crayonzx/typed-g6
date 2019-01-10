@@ -45,4 +45,4 @@ BaseUtil.mix(PathUtil, G.PathUtil, {
   }
 });
 
-module.exports = PathUtil;
+export = PathUtil;

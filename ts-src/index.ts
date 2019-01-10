@@ -30,4 +30,4 @@ const G6 = {
 };
 require('./track');
 
-module.exports = G6;
+export = G6;

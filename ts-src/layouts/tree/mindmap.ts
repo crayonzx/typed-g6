@@ -13,4 +13,4 @@ class MindmapLayout extends TreeBase {
   }
 }
 
-module.exports = MindmapLayout;
+export = MindmapLayout;

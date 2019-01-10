@@ -88,4 +88,4 @@ class Menu {
   }
 }
 
-module.exports = Menu;
+export = Menu;

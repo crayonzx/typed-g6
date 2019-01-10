@@ -110,4 +110,4 @@ Mixin.AUGMENT = {
     this._eventCache = {};
   }
 };
-module.exports = Mixin;
+export = Mixin;

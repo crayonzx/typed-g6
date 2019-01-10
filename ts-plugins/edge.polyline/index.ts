@@ -436,4 +436,4 @@ G6.registerEdge('polyline-round', {
   }
 }, 'polyline');
 
-module.exports = true;
+export = true;

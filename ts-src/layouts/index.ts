@@ -3,7 +3,7 @@
  * @author huangtonger@aliyun.com
  */
 
-module.exports = {
+export = {
   CompactBoxTree: require('./tree/compact-box'),
   Dendrogram: require('./tree/dendrogram'),
   IndentedTree: require('./tree/indented'),

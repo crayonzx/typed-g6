@@ -21,4 +21,4 @@ Util.augment(Mixin, {
 
 Util.mixin(G.Dom, [ Mixin ]);
 
-module.exports = Mixin;
+export = Mixin;

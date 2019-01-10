@@ -88,4 +88,4 @@ class Group extends Node {
   }
 }
 
-module.exports = Group;
+export = Group;

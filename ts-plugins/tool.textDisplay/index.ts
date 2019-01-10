@@ -57,4 +57,4 @@ class Plugin {
 }
 
 G6.Plugins['tool.textDisplay'] = Plugin;
-module.exports = Plugin;
+export = Plugin;
