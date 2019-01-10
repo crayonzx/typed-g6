@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     // "rootDir": "ts-src",
+    "rootDirs": ["ts-src", "ts-plugins"],
     "outDir": "./lib",
     "module": "commonjs",
     "target": "es5",
@@ -16,10 +17,12 @@
     "strictNullChecks": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "plugins": [{
-      "name": "typescript-tslint-plugin",
-      "configFile": "../../tslint.json",
-    }]
-  },
-  "include": ["./ts-src/**/*", "./ts-plugins/**/*", "./types/**/*"],
+    // "watch": true,
+    "plugins": [
+      {
+        "name": "typescript-tslint-plugin",
+        "configFile": "../../tslint.json"
+      }
+    ]
+  }
 }
