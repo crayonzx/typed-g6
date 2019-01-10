@@ -4,6 +4,6 @@
  */
 
 export = {
-  common: require('./common'),
-  html: require('./html')
+  common: require('./common') as typeof import('./common'),
+  html: require('./html') as typeof import('./html')
 };

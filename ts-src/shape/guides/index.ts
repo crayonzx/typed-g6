@@ -4,5 +4,5 @@
  */
 
 export = {
-  common: require('./common')
+  common: require('./common') as typeof import('./common')
 };

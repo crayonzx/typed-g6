@@ -12,10 +12,10 @@ Math.sign = function(x) {
   }
   return x > 0 ? 1 : -1;
 };
-const BaseUtil = {
+const BaseUtil: typeof Util = {
   ...Util,
-  throttle: require('lodash/throttle'),
-  debounce: require('lodash/debounce'),
+  throttle: require('lodash/throttle') as typeof import('lodash/throttle'),
+  debounce: require('lodash/debounce') as typeof import('lodash/debounce'),
   /**
    * The opposite of pick; this method creates an object composed of the own and inherited enumerable property paths of object that are not omitted.
    * var object = { 'a': 1, 'b': '2', 'c': 3 };
@@ -24,8 +24,8 @@ const BaseUtil = {
    * @param  {function}    array - condition array
    * @return  {object}     result object
    */
-  omit(object, array) {
-    const rst = {};
+  omit(object: object, array: any[]) {
+    const rst = {} as object;
     Util.each(object, (value, key) => {
       if (array.indexOf(key) === -1) {
         rst[key] = value;
@@ -40,7 +40,7 @@ const BaseUtil = {
    * @param  {function}    getChild    get child function
    * @param  {boolean}     runSelf     callback run self or not
    */
-  traverseTree(parent, callback, getChild, runSelf = false) {
+  traverseTree(parent: object, callback, getChild, runSelf = false) {
     const children = getChild(parent);
     runSelf && callback(parent, null, null);
     children && BaseUtil.each(children, (child, index) => {

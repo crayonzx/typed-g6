@@ -9,10 +9,10 @@ import version = require('./version');
 import G = require('@antv/g/lib');
 
 const G6 = {
-  Graph: require('./graph'),
-  Tree: require('./tree'),
-  Util: require('./util/'),
-  Layouts: require('./layouts/'),
+  Graph: require('./graph') as typeof import('./graph'),
+  Tree: require('./tree') as typeof import('./tree'),
+  Util: require('./util/') as typeof import('./util/'),
+  Layouts: require('./layouts/') as typeof import('./layouts/'),
   G,
   Plugins: {},
   Components: {},

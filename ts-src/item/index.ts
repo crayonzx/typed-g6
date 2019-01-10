@@ -4,8 +4,8 @@
  */
 
 export = {
-  Node: require('./node'),
-  Edge: require('./edge'),
-  Group: require('./group'),
-  Guide: require('./guide')
+  Node: require('./node') as typeof import('./node'),
+  Edge: require('./edge') as typeof import('./edge'),
+  Group: require('./group') as typeof import('./group'),
+  Guide: require('./guide') as typeof import('./guide')
 };
