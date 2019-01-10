@@ -3,7 +3,7 @@
  * @author huangtonger@aliyun.com
  */
 
-const Shape = require('../shape');
+import Shape = require('../shape');
 
 Shape.registerGuide('common', {
   draw() {

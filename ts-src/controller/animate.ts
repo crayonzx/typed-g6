@@ -3,10 +3,10 @@
  * @author huangtonger@aliyun.com
  */
 
-const Base = require('./base');
-const Animation = require('../animation/');
-const Util = require('../util/');
-const Global = require('../global');
+import Base = require('./base');
+import Animation = require('../animation/');
+import Util = require('../util/');
+import Global = require('../global');
 const INVALID_ATTRS = [ 'matrix', 'fillStyle', 'strokeStyle', 'endArrow', 'startArrow' ];
 
 class Controller extends Base {

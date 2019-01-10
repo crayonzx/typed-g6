@@ -1,6 +1,6 @@
-const Body = require('./body');
-const Quad = require('./quad');
-const QuadTree = require('./quadTree');
+import Body = require('./body');
+import Quad = require('./quad');
+import QuadTree = require('./quadTree');
 
 class ForceCalculator {
 

@@ -2,7 +2,7 @@
  * @fileOverview global config
  * @author huangtonger@aliyun.com
  */
-const version = require('./version');
+import version = require('./version');
 
 export = {
   track: false,

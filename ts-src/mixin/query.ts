@@ -4,7 +4,7 @@
  */
 
 
-const Util = require('../util/');
+import Util = require('../util/');
 const Mixin = {};
 
 Mixin.AUGMENT = {

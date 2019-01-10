@@ -4,7 +4,7 @@
  * @see https://github.com/lodash/lodash
  */
 const MAX_LEVEL = 5;
-const Util = require('@antv/util/lib');
+import Util = require('@antv/util/lib');
 Math.sign = function(x) {
   x = +x;
   if (x === 0 || isNaN(x)) {

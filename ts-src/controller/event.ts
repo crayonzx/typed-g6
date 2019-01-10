@@ -3,8 +3,8 @@
  * @author wuyue.lwy <wyueliu@gmail.com>
  */
 
-const Base = require('./base');
-const Util = require('../util/');
+import Base = require('./base');
+import Util = require('../util/');
 const EVENT = {
   MOUSEMOVE: 'mousemove',
   MOUSEDOWN: 'mousedown',

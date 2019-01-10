@@ -3,7 +3,7 @@
  * show the table in sankey view
  * @author huangtonger@aliyun.com
  */
-const G6 = require('@antv/g6');
+import G6 = require('@antv/g6');
 const {
   sankey,
   sankeyLeft,

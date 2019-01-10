@@ -3,8 +3,8 @@
  * @author huangtonger@aliyun.com
  */
 
-const Base = require('./base');
-const Util = require('../util/');
+import Base = require('./base');
+import Util = require('../util/');
 const CHANNEL_NAMES = [ 'color', 'shape', 'size', 'label', 'style' ];
 
 class Controller extends Base {

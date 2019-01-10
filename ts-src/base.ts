@@ -4,8 +4,8 @@
  * @author huangtonger@aliyun.com
  */
 
-const Util = require('./util/');
-const EventEmitter = require('wolfy87-eventemitter');
+import Util = require('./util/');
+import EventEmitter = require('wolfy87-eventemitter');
 
 class Base extends EventEmitter {
 

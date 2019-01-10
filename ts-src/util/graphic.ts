@@ -3,8 +3,8 @@
  * @author huangtonger@aliyun.com
  */
 
-const MathUtil = require('./math');
-const BaseUtil = require('./base');
+import MathUtil = require('./math');
+import BaseUtil = require('./base');
 
 const GraphicUtil = {
   /**

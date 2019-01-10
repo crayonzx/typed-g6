@@ -3,7 +3,7 @@
  * @author huangtonger@aliyun.com
  */
 
-const Util = require('../util/');
+import Util = require('../util/');
 function getCollapsedParent(node, dataMap) {
   const parent = dataMap[node.parent];
   if (!parent) {

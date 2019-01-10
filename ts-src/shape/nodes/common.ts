@@ -3,9 +3,9 @@
  * @author huangtonger@aliyun.com
  */
 
-const Shape = require('../shape');
-const Util = require('../../util/');
-const Global = require('../../global');
+import Shape = require('../shape');
+import Util = require('../../util/');
+import Global = require('../../global');
 
 Shape.registerNode('common', {
   draw(item) {

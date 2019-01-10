@@ -3,7 +3,7 @@
  * @author huangtonger@aliyun.com
  */
 
-const BaseUtil = require('./base');
+import BaseUtil = require('./base');
 const DomUtil = {};
 BaseUtil.mix(DomUtil, {
   /**

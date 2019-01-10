@@ -3,8 +3,8 @@
  * @author huangtonger@aliyun.com
  */
 
-const Util = require('../util/');
-const Animate = require('../controller/animate');
+import Util = require('../util/');
+import Animate = require('../controller/animate');
 const Mixin = {};
 Mixin.INIT = '_initAnimate';
 Mixin.CFG = {

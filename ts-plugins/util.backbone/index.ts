@@ -3,8 +3,8 @@
  * @author huangtonger@aliyun.com
  */
 
-const G6 = require('@antv/g6');
-const maxSpanningForest = require('./maxSpanningForest');
+import G6 = require('@antv/g6');
+import maxSpanningForest = require('./maxSpanningForest');
 const Util = G6.Util;
 
 const backbone = {

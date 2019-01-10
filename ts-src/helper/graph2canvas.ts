@@ -3,9 +3,9 @@
  * @author huangtonger@aliyun.com
  */
 
-const Util = require('../util/');
-const G = require('@antv/g/lib');
-const domToImage = require('dom-to-image');
+import Util = require('../util/');
+import G = require('@antv/g/lib');
+import domToImage = require('dom-to-image');
 
 class Graph2Canvas {
   constructor(options) {

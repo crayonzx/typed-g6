@@ -4,7 +4,7 @@
  */
 
 
-const Shape = require('./shape');
+import Shape = require('./shape');
 
 Shape.registerShapeManager('node', {
   defaultShapeType: 'common'

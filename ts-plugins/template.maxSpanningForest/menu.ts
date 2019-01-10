@@ -2,7 +2,7 @@
  * @fileOverview body
  * @author shiwu.wyy@antfin.com
  */
-const G6 = require('@antv/g6');
+import G6 = require('@antv/g6');
 const Util = G6.Util;
 
 // represents a body(a point mass) and its position

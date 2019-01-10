@@ -3,9 +3,9 @@
  * @author huangtonger@aliyun.com
  */
 
-const Util = require('./util/');
-const Graph = require('./graph');
-const Layouts = require('./layouts/');
+import Util = require('./util/');
+import Graph = require('./graph');
+import Layouts = require('./layouts/');
 
 class Tree extends Graph {
   constructor(inputCfg) {

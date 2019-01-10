@@ -1,5 +1,5 @@
 
-const ForceCal = require('./forceCalculator');
+import ForceCal = require('./forceCalculator');
 onmessage = function(event) {
   const forceCal = new ForceCal();
   const nodes = forceCal.updateNodesByForces(event.data);

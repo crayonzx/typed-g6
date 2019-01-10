@@ -4,7 +4,7 @@
  */
 
 const Mixin = {};
-const Controller = require('../controller/event');
+import Controller = require('../controller/event');
 Mixin.INIT = '_initEvents';
 Mixin.CFG = {
   /**

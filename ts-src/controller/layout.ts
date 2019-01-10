@@ -3,7 +3,7 @@
  * @author huangtonger@aliyun.com
  */
 
-const Base = require('./base');
+import Base = require('./base');
 
 class Controller extends Base {
   getDefaultCfg() {

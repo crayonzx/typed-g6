@@ -3,7 +3,7 @@
  * @author shiwu.wyy@antfin.com
  */
 
-const G6 = require('@antv/g6');
+import G6 = require('@antv/g6');
 const Util = G6.Util;
 
 class Plugin {

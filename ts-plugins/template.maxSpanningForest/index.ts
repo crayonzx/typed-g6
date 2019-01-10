@@ -7,11 +7,11 @@
  * node.rank - node rank the max rank would be the root node
  * edge.weight - edge weight
  */
-const G6 = require('@antv/g6');
-const maxSpanningForest = require('../util.backbone/maxSpanningForest');
-const Layout = require('../layout.forceAtlas2/layout');
+import G6 = require('@antv/g6');
+import maxSpanningForest = require('../util.backbone/maxSpanningForest');
+import Layout = require('../layout.forceAtlas2/layout');
 const Util = G6.Util;
-const Menu = require('./menu');
+import Menu = require('./menu');
 require('../tool.textDisplay/');
 require('../tool.highlightSubgraph/');
 require('../tool.fisheye/');

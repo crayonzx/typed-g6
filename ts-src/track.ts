@@ -2,10 +2,10 @@
  * @fileOverview track g6
  * Experience improvement program
  */
-const Global = require('./global');
+import Global = require('./global');
 const SERVER_URL = 'https://kcart.alipay.com/web/bi.do';
-const version = require('./version');
-const Util = require('./util/');
+import version = require('./version');
+import Util = require('./util/');
 
 // 延迟发送请求
 setTimeout(function() {

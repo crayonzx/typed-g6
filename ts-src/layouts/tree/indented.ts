@@ -3,8 +3,8 @@
  * @author huangtonger@aliyun.com
  */
 
-const Hierarchy = require('@antv/hierarchy');
-const TreeBase = require('./base');
+import Hierarchy = require('@antv/hierarchy');
+import TreeBase = require('./base');
 
 class IndentedTreeLayout extends TreeBase {
   constructor(options) {

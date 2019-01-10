@@ -3,7 +3,7 @@
  * @author huangtonger@aliyun.com
  */
 
-const Mapper = require('../controller/mapper');
+import Mapper = require('../controller/mapper');
 const Mixin = {};
 Mixin.INIT = '_initMapper';
 Mixin.AUGMENT = {

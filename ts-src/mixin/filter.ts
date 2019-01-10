@@ -3,7 +3,7 @@
  * filter will influence layout and visible
  * @author huangtonger@aliyun.com
  */
-const Util = require('../util/');
+import Util = require('../util/');
 const Mixin = {};
 Mixin.INIT = '_initFilter';
 Mixin.CFG = {

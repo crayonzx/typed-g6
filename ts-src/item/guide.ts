@@ -3,8 +3,8 @@
  * @author huangtonger@aliyun.com
  */
 
-const Util = require('../util/');
-const Item = require('./item');
+import Util = require('../util/');
+import Item = require('./item');
 
 class Guide extends Item {
   constructor(cfg) {

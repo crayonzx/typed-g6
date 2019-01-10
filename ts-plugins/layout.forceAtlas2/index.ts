@@ -3,8 +3,8 @@
  * @author shiwu.wyy@antfin.com
  */
 
-const G6 = require('@antv/g6');
-const Layout = require('./layout');
+import G6 = require('@antv/g6');
+import Layout = require('./layout');
 
 G6.Layouts.ForceAtlas2 = Layout;
 

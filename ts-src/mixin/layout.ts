@@ -3,8 +3,8 @@
  * @author huangtonger@aliyun.com
  */
 
-const Util = require('../util/');
-const Layout = require('../controller/layout');
+import Util = require('../util/');
+import Layout = require('../controller/layout');
 const Mixin = {};
 Mixin.CFG = {
   /**

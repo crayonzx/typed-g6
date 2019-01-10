@@ -3,7 +3,7 @@
  * @author huangtonger@aliyun.com
  */
 
-const Util = require('../util/');
+import Util = require('../util/');
 
 class Base {
   getDefaultCfg() {

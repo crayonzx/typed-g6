@@ -4,11 +4,11 @@
  * d3-legend https://github.com/susielu/d3-legend
  * @author shiwu.wyy@antfin.com
  */
-const G6 = require('@antv/g6');
+import G6 = require('@antv/g6');
 const { Legend } = require('@antv/component/lib');
 const { Color, CircleSize, Category } = Legend;
-const Attr = require('@antv/attr');
-const Scale = require('@antv/scale');
+import Attr = require('@antv/attr');
+import Scale = require('@antv/scale');
 const { Util, G } = G6;
 
 class Plugin {

@@ -3,8 +3,8 @@
  * @author huangtonger@aliyun.com
  */
 
-const G = require('@antv/g/lib');
-const BaseUtil = require('./base');
+import G = require('@antv/g/lib');
+import BaseUtil = require('./base');
 const PathUtil = {};
 
 BaseUtil.mix(PathUtil, G.PathUtil, {

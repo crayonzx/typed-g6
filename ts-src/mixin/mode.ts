@@ -2,8 +2,8 @@
  * @fileOverview mode
  * @author wuyue.lwy <wyueliu@gmail.com>
  */
-const Util = require('../util');
-const Handler = require('../handler');
+import Util = require('../util');
+import Handler = require('../handler');
 const Mixin = {};
 Mixin.CFG = {
   /**

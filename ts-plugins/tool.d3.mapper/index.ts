@@ -4,12 +4,12 @@
  * d3-legend https://github.com/susielu/d3-legend
  * @author huangtonger@aliyun.com
  */
-const G6 = require('@antv/g6');
-const d3 = require('d3');
+import G6 = require('@antv/g6');
+import d3 = require('d3');
 const Util = G6.Util;
 const DEFAULT_LEGEND_FILL = '#199CFB';
 const DEFAULT_LEGEND_STROKE = '#199CFB';
-const d3Legend = require('d3-svg-legend');
+import d3Legend = require('d3-svg-legend');
 
 Util.mix(d3, d3Legend);
 

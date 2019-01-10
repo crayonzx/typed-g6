@@ -2,10 +2,10 @@
  * @fileOverview force atlas 2
  * @author shiwu.wyy@antfin.com
  */
-const G6 = require('@antv/g6');
+import G6 = require('@antv/g6');
 const Util = G6.Util;
-const Worker = require('./layout.worker');
-const ForceCal = require('./forceCalculator');
+import Worker = require('./layout.worker');
+import ForceCal = require('./forceCalculator');
 
 // import StaticsWorker from 'worker-loader?inline!./statistics.worker.js';
 class Layout {

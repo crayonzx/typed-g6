@@ -5,8 +5,8 @@
  */
 
 
-const Util = require('../../util/');
-const G = require('@antv/g/lib');
+import Util = require('../../util/');
+import G = require('@antv/g/lib');
 const Mixin = function() {};
 
 Util.augment(Mixin, {

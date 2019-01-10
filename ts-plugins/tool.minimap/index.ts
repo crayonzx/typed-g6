@@ -2,8 +2,8 @@
  * @fileOverview 缩略图
  * @author huangtonger@aliyun.com
  */
-const G6 = require('@antv/g6');
-const Minimap = require('./minimap');
+import G6 = require('@antv/g6');
+import Minimap = require('./minimap');
 
 class Plugin {
   constructor(options) {

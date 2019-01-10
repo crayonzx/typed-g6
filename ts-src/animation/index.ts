@@ -12,7 +12,7 @@
  * @author huangtonger@aliyun.com
  */
 
-const Global = require('../global');
+import Global = require('../global');
 
 /**
  * scale in animate

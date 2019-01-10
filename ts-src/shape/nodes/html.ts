@@ -3,8 +3,8 @@
  * @author huangtonger@aliyun.com
  */
 
-const Shape = require('../shape');
-const Util = require('../../util/');
+import Shape = require('../shape');
+import Util = require('../../util/');
 
 // html node
 Shape.registerNode('html', {
