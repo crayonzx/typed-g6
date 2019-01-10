@@ -12,7 +12,7 @@ Math.sign = function(x) {
   }
   return x > 0 ? 1 : -1;
 };
-const BaseUtil: typeof Util = {
+const BaseUtil = {
   ...Util,
   throttle: require('lodash/throttle') as typeof import('lodash/throttle'),
   debounce: require('lodash/debounce') as typeof import('lodash/debounce'),
@@ -24,8 +24,8 @@ const BaseUtil: typeof Util = {
    * @param  {function}    array - condition array
    * @return  {object}     result object
    */
-  omit(object: object, array: any[]) {
-    const rst = {} as object;
+  omit(object, array) {
+    const rst = {};
     Util.each(object, (value, key) => {
       if (array.indexOf(key) === -1) {
         rst[key] = value;
@@ -40,7 +40,7 @@ const BaseUtil: typeof Util = {
    * @param  {function}    getChild    get child function
    * @param  {boolean}     runSelf     callback run self or not
    */
-  traverseTree(parent: object, callback, getChild, runSelf = false) {
+  traverseTree(parent, callback, getChild, runSelf = false) {
     const children = getChild(parent);
     runSelf && callback(parent, null, null);
     children && BaseUtil.each(children, (child, index) => {
