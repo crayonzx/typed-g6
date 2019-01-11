@@ -2,7 +2,7 @@ declare global {
   /** 转成类似 class 的接口类型，可使用 new 方法创建对象 */
   type ToClassType<T extends TwoFunctionTypes> = T extends NewFunctionType
     ? T
-    : new (...args: ArgsType<T>) => ExcludeFunctionType<T>;
+    : (new (...args: ArgsType<T>) => {}) & ExcludeFunctionType<T>;
 
   /** 溢出接口 T 中的 () => any 和 new () => any */
   type ExcludeFunctionType<T> = Overwrite<T, {}>;
