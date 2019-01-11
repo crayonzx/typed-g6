@@ -154,7 +154,14 @@ declare module '@antv/util/lib/pick' {
    * var object = { 'a': 1, 'b': '2', 'c': 3 };
    * pick(object, ['a', 'c']);  // => { 'a': 1, 'c': 3 }
    */
-  const pick: (object: any, keys: any) => any;
+  // type Pick<T, K extends keyof T> = {
+  //   [P in K]: T[P];
+  // };
+
+  const pick: <T extends object, K extends keyof T>(
+    object: T,
+    keys: K[]
+  ) => Pick<T, K>;
   export = pick;
 }
 declare module '@antv/util/lib/throttle' {

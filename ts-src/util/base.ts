@@ -5,7 +5,6 @@
  */
 const MAX_LEVEL = 5;
 import Util = require('@antv/util/lib');
-type Omit<T, K extends keyof T> = Pick<T, ({ [P in keyof T]: P } & { [P in K]: never } & { [x: string]: never })[keyof T]>;
 Math.sign = function(x) {
   x = +x;
   if (x === 0 || isNaN(x)) {
