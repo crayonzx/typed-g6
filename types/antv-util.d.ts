@@ -80,6 +80,98 @@ declare module '@antv/util/lib/augment' {
     ExcludeFunctionType<ToClassType<T>>;
   export = augment;
 }
+declare module '@antv/util/lib/debounce' {
+  const debounce: (
+    func: any,
+    wait: any,
+    immediate: any
+  ) => ((...args: any[]) => void);
+  export = debounce;
+}
+declare module '@antv/util/lib/filter' {
+  const filter: (arr: any, func: (...args: any[]) => any) => any[];
+  export = filter;
+}
+declare module '@antv/util/lib/group' {
+  const group: (data: any, condition: any) => any[];
+  export = group;
+}
+declare module '@antv/util/lib/group-by' {
+  const groupBy: (data: any, condition: any) => any;
+  export = groupBy;
+}
+declare module '@antv/util/lib/group-to-map' {
+  const groupToMap: (data: any, condition: any) => any;
+  export = groupToMap;
+}
+declare module '@antv/util/lib/index-of' {
+  const indexOf: (arr: any, obj: any) => any;
+  export = indexOf;
+}
+declare module '@antv/util/lib/is-equal-with' {
+  /**
+   * @param {*} value The value to compare.
+   * @param {*} other The other value to compare.
+   * @param {Function} [fn] The function to customize comparisons.
+   * @returns {boolean} Returns `true` if the values are equivalent, else `false`.
+   * @example
+   *
+   * function isGreeting(value) {
+   *   return /^h(?:i|ello)$/.test(value);
+   * }
+   *
+   * function customizer(objValue, othValue) {
+   *   if (isGreeting(objValue) && isGreeting(othValue)) {
+   *     return true;
+   *   }
+   * }
+   *
+   * var array = ['hello', 'goodbye'];
+   * var other = ['hi', 'goodbye'];
+   *
+   * isEqualWith(array, other, customizer);  // => true
+   */
+  const isEqualWith: (
+    value: any,
+    other: any,
+    fn?: (...args: any[]) => any
+  ) => boolean;
+  export = isEqualWith;
+}
+declare module '@antv/util/lib/map' {
+  const map: (arr: any, func: (...agrs: any[]) => any) => any;
+  export = map;
+}
+declare module '@antv/util/lib/pick' {
+  /**
+   * Creates an object composed of the picked `object` properties.
+   *
+   * @param {Object} object The source object.
+   * @param {...(string|string[])} [paths] The property paths to pick.
+   * @returns {Object} Returns the new object.
+   * @example
+   *
+   * var object = { 'a': 1, 'b': '2', 'c': 3 };
+   * pick(object, ['a', 'c']);  // => { 'a': 1, 'c': 3 }
+   */
+  const pick: (object: any, keys: any) => any;
+  export = pick;
+}
+declare module '@antv/util/lib/throttle' {
+  const throttle: (
+    func: any,
+    wait: any,
+    options: any
+  ) => {
+    (...args: any[]): any;
+    cancel(): void;
+  };
+  export = throttle;
+}
+declare module '@antv/util/lib/to-string' {
+  const toString: (value: any) => string;
+  export = toString;
+}
 
 declare module '@antv/util/lib' {
   const util: {
@@ -103,27 +195,27 @@ declare module '@antv/util/lib' {
     typeUtil: typeof import('@antv/util/lib/type');
 
     // others
-    augment: any;
-    clone: any;
-    debounce: any;
-    deepMix: any;
-    each: any;
-    extend: any;
-    filter: any;
-    group: any;
-    groupBy: any;
-    groupToMap: any;
-    indexOf: any;
-    isEmpty: any;
-    isEqual: any;
-    isEqualWith: any;
-    map: any;
-    mix: any;
-    pick: any;
-    throttle: any;
-    toArray: any;
-    toString: any;
-    uniqueId: any;
+    augment: typeof import('@antv/util/lib/augment');
+    clone: typeof import('@antv/util/lib/clone');
+    debounce: typeof import('@antv/util/lib/debounce');
+    deepMix: typeof import('@antv/util/lib/deep-mix');
+    each: typeof import('@antv/util/lib/each');
+    extend: typeof import('@antv/util/lib/extend');
+    filter: typeof import('@antv/util/lib/filter');
+    group: typeof import('@antv/util/lib/group');
+    groupBy: typeof import('@antv/util/lib/group-by');
+    groupToMap: typeof import('@antv/util/lib/group-to-map');
+    indexOf: typeof import('@antv/util/lib/index-of');
+    isEmpty: typeof import('@antv/util/lib/is-empty');
+    isEqual: typeof import('@antv/util/lib/is-equal');
+    isEqualWith: typeof import('@antv/util/lib/is-equal-with');
+    map: typeof import('@antv/util/lib/map');
+    mix: typeof import('@antv/util/lib/mix');
+    pick: typeof import('@antv/util/lib/pick');
+    throttle: typeof import('@antv/util/lib/throttle');
+    toArray: typeof import('@antv/util/lib/to-array');
+    toString: typeof import('@antv/util/lib/to-string');
+    uniqueId: typeof import('@antv/util/lib/unique-id');
   };
   export = util;
 }
