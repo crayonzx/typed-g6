@@ -6,16 +6,16 @@
 import Util = require('../util/');
 import Item = require('./item');
 
-class Guide extends Item {
+export = class Guide extends Item {
   constructor(cfg) {
     const defaultCfg = {
       type: 'guide',
       isGuide: true,
       zIndex: 4
     };
-    Util.mix(defaultCfg, cfg);
-    super(defaultCfg);
+    const defaultCfg1 = Util.mix(defaultCfg, cfg);
+    super(defaultCfg1);
   }
-}
+};
 
-export = Guide;
+// export = Guide;

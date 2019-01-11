@@ -4,7 +4,7 @@
  */
 
 const Handler = {
-  registerBehaviour(name, fun, dependences) {
+  registerBehaviour(name:string, fun, dependences:string[]) {
     fun.dependences = dependences;
     Handler[name] = fun;
   },

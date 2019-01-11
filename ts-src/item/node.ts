@@ -6,7 +6,7 @@
 import Util = require('../util/');
 import Item = require('./item');
 
-class Node extends Item {
+export = class Node extends Item {
   constructor(cfg) {
     const defaultCfg = {
       type: 'node',
@@ -15,8 +15,8 @@ class Node extends Item {
       edges: [],
       linkable: true
     };
-    Util.mix(defaultCfg, cfg);
-    super(defaultCfg);
+    const defaultCfg1 = Util.mix(defaultCfg, cfg);
+    super(defaultCfg1);
   }
   updatePosition() {
     const group = this.group;
@@ -124,7 +124,7 @@ class Node extends Item {
    * @param {number} index the index of points
    * @return {array} anchorPoints
    */
-  getAnchorPoints(index) {
+  getAnchorPoints(index:number) {
     const shapeObj = this.shapeObj;
     const bbox = this.getBBox();
     const anchorPoints = [];
@@ -156,5 +156,5 @@ class Node extends Item {
     }
     return this._anchorPoints;
   }
-}
-export = Node;
+};
+// export = Node;

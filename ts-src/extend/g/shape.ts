@@ -9,13 +9,13 @@ import Util = require('../../util/');
 import G = require('@antv/g/lib');
 const Mixin = function() {};
 
-Util.augment(Mixin, {
+const Mixin1 = Util.augment(Mixin, {
   /**
    * Check contains the specified class
    * @param   {string}      className class name
    * @return  {Boolean}     boolean
    */
-  hasClass(className) {
+  hasClass(className:string) {
     const clasees = this.get('class');
     if (clasees && clasees.indexOf(className) !== -1) {
       return true;
@@ -24,6 +24,6 @@ Util.augment(Mixin, {
   }
 });
 
-Util.mixin(G.Shape, [ Mixin ]);
+const Mixin2 = Util.mixin(G.Shape, [ Mixin1 ]);
 
-export = Mixin;
+export = Mixin2;

@@ -8,13 +8,13 @@ import G = require('@antv/g/lib');
 import Util = require('../../util/');
 const Mixin = function() {};
 
-Util.augment(Mixin, {
+const Mixin1 = Util.augment(Mixin, {
   /**
    * find element by className
    * @param   {string}      className class name
    * @return  {Array}       rst
    */
-  findByClass(className) {
+  findByClass(className:string) {
     const rst = [];
     this.deepEach(child => {
       if (child.hasClass(className)) {
@@ -28,7 +28,7 @@ Util.augment(Mixin, {
    * @param   {string}      className class name
    * @return  {Boolean}     boolean
    */
-  hasClass(className) {
+  hasClass(className:string) {
     const clasees = this.get('class');
     if (clasees && clasees.indexOf(className) !== -1) {
       return true;
@@ -40,7 +40,7 @@ Util.augment(Mixin, {
    * @param  {function} callback callback
    * @param  {boolean} runSelf excute self or not
    */
-  deepEach(callback, runSelf) {
+  deepEach(callback:() => void, runSelf:boolean) {
     Util.traverseTree(this, callback, parent => {
       return parent.get('children');
     }, runSelf);
@@ -58,7 +58,7 @@ Util.augment(Mixin, {
    * sort by callback
    * @param  {function} callback callback
    */
-  sortBy(callback) {
+  sortBy(callback:() => void) {
     const children = this.get('children');
     this.set('children', Util.radixSort(children, callback));
   },
@@ -67,7 +67,7 @@ Util.augment(Mixin, {
    * @param  {boolean} bool if destroy child
    * @return {object}  this
    */
-  clear(bool) {
+  clear(bool:boolean) {
     const children = this._cfg.children;
     for (let i = children.length - 1; i >= 0; i--) {
       children[i].remove(bool);
@@ -77,5 +77,5 @@ Util.augment(Mixin, {
   }
 });
 
-Util.mixin(G.Group, [ Mixin ]);
-export = Mixin;
+const Mixin2 = Util.mixin(G.Group, [ Mixin1 ]);
+export = Mixin2;

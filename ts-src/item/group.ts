@@ -6,7 +6,7 @@
 import Util = require('../util/');
 import Node = require('./node');
 
-class Group extends Node {
+export = class Group extends Node {
   constructor(cfg) {
     const defaultCfg = {
       type: 'group',
@@ -14,8 +14,8 @@ class Group extends Node {
       isGroup: true,
       zIndex: 1
     };
-    Util.mix(defaultCfg, cfg);
-    super(defaultCfg);
+    const defaultCfg1 = Util.mix(defaultCfg, cfg);
+    super(defaultCfg1);
   }
   _beforeDraw() {
     this.deepEach((child, parent) => {
@@ -86,6 +86,6 @@ class Group extends Node {
     });
     return Util.getChildrenBBox(graphicChildren);
   }
-}
+};
 
-export = Group;
+// export = Group;

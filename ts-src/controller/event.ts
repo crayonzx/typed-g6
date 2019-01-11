@@ -43,7 +43,7 @@ function parentNodeHasTag(n, t) {
   }
   return false;
 }
-class Controller extends Base {
+export = class Controller extends Base {
   constructor(cfg) {
     super(cfg);
     this._domEvents = [];
@@ -132,7 +132,7 @@ class Controller extends Base {
     * @param {string} type  - event type
     * @param {object} eventObj - event object
     */
-  _triggerEvent(type, eventObj) {
+  _triggerEvent(type:string, eventObj) {
     if (!eventObj) {
       if (type === 'mouseleave') {
         eventObj = this._oldEventObj;
@@ -173,7 +173,7 @@ class Controller extends Base {
     * @param {object} type - event type
     * @param {object} eventObj - event object
     */
-  emitGraphEvent(type, eventObj) {
+  emitGraphEvent(type:string, eventObj) {
     const graph = this.graph;
     graph.emit(type, eventObj);
   }
@@ -256,7 +256,7 @@ class Controller extends Base {
    * @param {object} currentEventObj - current event obj
    * @return {boolean} rst
    */
-  _isItemChange(oldEventObj, currentEventObj) {
+  _isItemChange(oldEventObj, currentEventObj):boolean {
     const oldShape = oldEventObj.shape;
     const currentShape = currentEventObj.shape;
     const shapeIsItemChange = oldShape && currentShape && (oldShape.get('isItemChange') || currentShape.get('isItemChange'));
@@ -281,7 +281,7 @@ class Controller extends Base {
     this._currentEventObj = evObj;
   }
   // transform point position by pixel Ratio
-  _parsePoint(x, y) {
+  _parsePoint(x:number, y:number) {
     const graph = this.graph;
     return graph.getPointByCanvas({
       x,
@@ -313,5 +313,5 @@ class Controller extends Base {
       domEvent: ev
     };
   }
-}
-export = Controller;
+};
+// export = Controller;

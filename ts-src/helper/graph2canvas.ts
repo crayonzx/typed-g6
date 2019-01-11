@@ -7,7 +7,7 @@ import Util = require('../util/');
 import G = require('@antv/g/lib');
 import domToImage = require('dom-to-image');
 
-class Graph2Canvas {
+export = class Graph2Canvas {
   constructor(options) {
     this.options = {
       graph: null,
@@ -40,7 +40,7 @@ class Graph2Canvas {
    * @param  {object}  canvas item
    * @param  {function}  callback item
    */
-  drawInner(canvas, callback) {
+  drawInner(canvas, callback:() => void) {
     const { graph } = this.options;
     const graphCanvas = graph.getCanvas();
     const graphRenderer = graph.get('renderer');
@@ -123,6 +123,6 @@ class Graph2Canvas {
     canvas.matrix = matrix;
     return canvas.get('el');
   }
-}
+};
 
-export = Graph2Canvas;
+// export = Graph2Canvas;

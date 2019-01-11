@@ -9,7 +9,7 @@ import Util = require('../../util/');
 import G = require('@antv/g/lib');
 const Mixin = function() {};
 
-Util.augment(Mixin, {
+const Mixin1 = Util.augment(Mixin, {
   // draw dom when canvas renderer
   drawInner(context) {
     const tm = Util.clone(this.getTotalMatrix());
@@ -19,6 +19,6 @@ Util.augment(Mixin, {
   }
 });
 
-Util.mixin(G.Dom, [ Mixin ]);
+const Mixin2 = Util.mixin(G.Dom, [ Mixin1 ]);
 
-export = Mixin;
+export = Mixin2;

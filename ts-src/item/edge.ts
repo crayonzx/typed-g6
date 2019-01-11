@@ -6,15 +6,15 @@
 import Util = require('../util/');
 import Item = require('./item');
 
-class Edge extends Item {
+export = class Edge extends Item {
   constructor(cfg) {
     const defaultCfg = {
       type: 'edge',
       isEdge: true,
       zIndex: 2
     };
-    Util.mix(defaultCfg, cfg);
-    super(defaultCfg);
+    const defaultCfg1 = Util.mix(defaultCfg, cfg);
+    super(defaultCfg1);
   }
   _init() {
     // this.cacheEdges();
@@ -202,6 +202,6 @@ class Edge extends Item {
     target && target.isItem && Util.Array.remove(target.edges, this);
     super.destroy();
   }
-}
+};
 
-export = Edge;
+// export = Edge;

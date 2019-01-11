@@ -9,32 +9,32 @@ import Util = require('../util/');
 import Global = require('../global');
 const INVALID_ATTRS = [ 'matrix', 'fillStyle', 'strokeStyle', 'endArrow', 'startArrow' ];
 
-class Controller extends Base {
+export = class Controller extends Base {
   getDefaultCfg() {
     return {
       /**
        * show animate
        * @type {function|string}
        */
-      show: 'scaleIn',
+      show: 'scaleIn' as (() => {})|string,
 
       /**
        * hide animate
        * @type {function|string}
        */
-      hide: 'scaleOut',
+      hide: 'scaleOut' as (() => {})|string,
 
       /**
        * enter animate
        * @type {function|string}
        */
-      enter: 'scaleIn',
+      enter: 'scaleIn' as (() => {})|string,
 
       /**
        * leave animate
        * @type {function|string}
        */
-      leave: 'scaleOut',
+      leave: 'scaleOut' as (() => {})|string,
 
       /**
        * update animate
@@ -63,7 +63,7 @@ class Controller extends Base {
       }, true);
     });
   }
-  cacheGraph(cacheType, affectedItemIds) {
+  cacheGraph(cacheType:string, affectedItemIds:string[]) {
     const graph = this.graph;
     let items;
     if (affectedItemIds) {
@@ -102,7 +102,7 @@ class Controller extends Base {
    * @param  {string} type - animate type could be `show`, `hide`, `enter`, `leave`, 'update'
    * @return {function} animate function
    */
-  _getAnimation(item, type) {
+  _getAnimation(item, type:string) {
     const graph = this.graph;
     const shapeObj = item.shapeObj;
     const defaultAnimation = this[type];
@@ -111,7 +111,7 @@ class Controller extends Base {
     const animation = shapeAnimation || graphAnimate || defaultAnimation;
     return Util.isString(animation) ? Animation[type + Util.upperFirst(animation)] : animation;
   }
-  cache(item, cache, type) {
+  cache(item, cache, type:string) {
     const group = item.getGraphicGroup();
     group.deepEach(element => {
       const id = element.gid;
@@ -287,6 +287,6 @@ class Controller extends Base {
     this._compare();
     this._addTween();
   }
-}
+};
 
-export = Controller;
+// export = Controller;

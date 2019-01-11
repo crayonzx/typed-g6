@@ -12,7 +12,7 @@
  * @author huangtonger@aliyun.com
  */
 
-require('../global') as typeof import('../global');
+import Global = require('../global');
 
 /**
  * scale in animate

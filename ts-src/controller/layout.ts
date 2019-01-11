@@ -5,7 +5,7 @@
 
 import Base = require('./base');
 
-class Controller extends Base {
+export = class Controller extends Base {
   getDefaultCfg() {
     return {
       /**
@@ -19,7 +19,7 @@ class Controller extends Base {
        * @type {boolean|string}
        * could be true false 'once'
        */
-      auto: true,
+      auto: true as boolean|string,
 
       /**
        * layout processor
@@ -102,6 +102,6 @@ class Controller extends Base {
   getLayoutProcessor() {
     return this.processor ? this.processor : this.processer;
   }
-}
+};
 
-export = Controller;
+// export = Controller;

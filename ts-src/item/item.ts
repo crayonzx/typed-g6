@@ -20,7 +20,7 @@ function getCollapsedParent(node, dataMap) {
   }
 }
 
-class Item {
+export = class Item {
   constructor(cfg) {
     const defaultCfg = {
       /**
@@ -33,7 +33,7 @@ class Item {
        * 类型
        * @type {string}
        */
-      type: null,
+      type: null as any as string,
 
       /**
        * data model
@@ -184,7 +184,7 @@ class Item {
     }
     shapeObj.afterDraw && shapeObj.afterDraw(this);
   }
-  deepEach(callback, getParent) {
+  deepEach(callback:() => void, getParent?:() => void) {
     Util.traverseTree(this, callback, getParent ? getParent : parent => {
       return parent.getChildren();
     });
@@ -196,7 +196,7 @@ class Item {
     const dataMap = this.dataMap;
     this.collapsedParent = getCollapsedParent(this.model, dataMap);
   }
-  isVisible() {
+  isVisible():boolean {
     return this.visible;
   }
   hide() {
@@ -322,6 +322,6 @@ class Item {
       });
     }
   }
-}
+};
 
-export = Item;
+// export = Item;
