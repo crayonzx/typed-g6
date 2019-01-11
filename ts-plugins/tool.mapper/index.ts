@@ -11,20 +11,20 @@ import Attr = require('@antv/attr');
 import Scale = require('@antv/scale');
 const { Util, G } = G6;
 
-class Plugin {
+export = class Plugin {
   constructor(itemType, dim, channel, range, otherCfg) {
     Util.mix(this, {
       /**
        * the type of the item, 'node'/'edge'
        * @type  {String}
        */
-      itemType: null,
+      itemType: null as any as string,
 
       /**
        * 数据纬度
        * @type  {String}
        */
-      dim: null,
+      dim: null as any as string,
 
       /**
        * 映射域
@@ -36,7 +36,7 @@ class Plugin {
        * 视觉通道
        * @type  {String}
        */
-      channel: null,
+      channel: null as any as string,
 
       /**
        * 度量配置
@@ -81,7 +81,7 @@ class Plugin {
       }
     });
   }
-  _trainCategoryScale(itemType, data) {
+  _trainCategoryScale(itemType:string, data) {
     const dim = this.dim;
     const domainMap = {};
     const domain = [];
@@ -93,7 +93,7 @@ class Plugin {
     });
     return domain;
   }
-  _trainNumberScale(itemType, data) {
+  _trainNumberScale(itemType:string, data) {
     const dim = this.dim;
     const domain = [ Infinity, -Infinity ];
     data.forEach(model => {
@@ -421,7 +421,7 @@ class Plugin {
       return scale.scale(model[dim]);
     });
   }
-  _scaleSelector(type, domain) {
+  _scaleSelector(type:string, domain) {
     const params = {
       min: domain[0],
       max: domain[domain.length - 1]
@@ -438,7 +438,7 @@ class Plugin {
   destroy() {
     this.legendCanvas && this.legendCanvas.destroy();
   }
-}
+};
 
 G6.Plugins['tool.mapper'] = Plugin;
-export = Plugin;
+// export = Plugin;

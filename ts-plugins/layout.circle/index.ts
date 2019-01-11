@@ -8,7 +8,7 @@ import Layout = require('./layout');
 
 G6.Layouts.Circle = Layout;
 
-class Plugin {
+export = class Plugin {
   constructor(options) {
     this.options = options;
   }
@@ -22,8 +22,8 @@ class Plugin {
       graph.set('layout', layout);
     });
   }
-}
+};
 
 G6.Plugins['layout.circle'] = Plugin;
 
-export = Plugin;
+// export = Plugin;

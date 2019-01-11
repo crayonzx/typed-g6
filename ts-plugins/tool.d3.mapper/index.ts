@@ -13,20 +13,20 @@ import d3Legend = require('d3-svg-legend');
 
 Util.mix(d3, d3Legend);
 
-class Plugin {
+export = class Plugin {
   constructor(itemType, dim, channel, range, otherCfg) {
     Util.mix(this, {
       /**
        * 子项类型
        * @type  {String}
        */
-      itemType: null,
+      itemType: null as any as string,
 
       /**
        * 数据纬度
        * @type  {String}
        */
-      dim: null,
+      dim: null as any as string,
 
       /**
        * 映射域
@@ -38,7 +38,7 @@ class Plugin {
        * 视觉通道
        * @type  {String}
        */
-      channel: null,
+      channel: null as any as string,
 
       /**
        * 度量配置
@@ -75,7 +75,7 @@ class Plugin {
       }
     });
   }
-  _trainCategoryScale(itemType, data) {
+  _trainCategoryScale(itemType:string, data) {
     const dim = this.dim;
     const domainMap = {};
     const domain = [];
@@ -87,7 +87,7 @@ class Plugin {
     });
     return domain;
   }
-  _trainNumberScale(itemType, data) {
+  _trainNumberScale(itemType:string, data) {
     const dim = this.dim;
     const domain = [ Infinity, -Infinity ];
     data.forEach(model => {
@@ -254,8 +254,8 @@ class Plugin {
   destroy() {
     this.legendCanvas && this.legendCanvas.remove();
   }
-}
+};
 
 G6.Plugins['tool.d3.mapper'] = Plugin;
 
-export = Plugin;
+// export = Plugin;

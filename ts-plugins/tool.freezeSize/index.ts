@@ -6,7 +6,7 @@
 import G6 = require('@antv/g6');
 const Util = G6.Util;
 
-class Plugin {
+export = class Plugin {
   constructor(options) {
     Util.mix(this, {
       // cache freeze elements
@@ -48,7 +48,7 @@ class Plugin {
       }
     });
   }
-}
+};
 
 G6.Plugins['tool.freezeSize'] = Plugin;
-export = Plugin;
+// export = Plugin;

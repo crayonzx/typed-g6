@@ -4,7 +4,7 @@
  */
 import G6 = require('@antv/g6');
 const Util = G6.Util;
-class Plugin {
+export = class Plugin {
   constructor(options) {
     this.options = {
       /**
@@ -126,7 +126,7 @@ class Plugin {
       this.tooltip = null;
     }
   }
-  _getTop(h0, h1, domY) {
+  _getTop(h0:number, h1:number, domY:number) {
     const { dy } = this.options;
     if (h0 * 2 >= h1) {
       return '0px';
@@ -136,7 +136,7 @@ class Plugin {
     }
     return domY - h0 - dy + 'px';
   }
-  _getLeft(w0, w1, domX) {
+  _getLeft(w0:number, w1:number, domX:number) {
     const { dx } = this.options;
     if (w0 * 2 >= w1) {
       return '0px';
@@ -149,8 +149,8 @@ class Plugin {
   destroy() {
     this.tooltip && this.tooltip.destroy();
   }
-}
+};
 
 G6.Plugins['tool.tooltip'] = Plugin;
 
-export = Plugin;
+// export = Plugin;

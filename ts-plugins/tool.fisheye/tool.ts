@@ -5,7 +5,7 @@
 import G6 = require('@antv/g6');
 const Util = G6.Util;
 
-class Tool {
+export = class Tool {
   constructor(options) {
     Util.mix(this, {
       /**
@@ -27,7 +27,7 @@ class Tool {
       d: 1.0
     }, options);
   }
-  zoom(centerx, centery) {
+  zoom(centerx:number, centery:number) {
     const {
       graph,
       radius,
@@ -61,7 +61,7 @@ class Tool {
     });
     return moveNodes;
   }
-}
+};
 
 function Rect2Polar(x, y) {
   const p = Math.hypot(x, y);
@@ -86,4 +86,4 @@ function Polar2Rect(p, theta) {
   const y = p * Math.sin(theta);
   return { x, y };
 }
-export = Tool;
+// export = Tool;
