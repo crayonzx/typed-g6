@@ -7,7 +7,7 @@ import Layout = require('./layout');
 
 G6.Layouts.Dagre = Layout;
 
-class Plugin {
+export = class Plugin {
   constructor(options) {
     this.options = options;
   }
@@ -18,8 +18,8 @@ class Plugin {
       graph.set('layout', layout);
     });
   }
-}
+};
 
 G6.Plugins['layout.dagre'] = Plugin;
 
-export = Plugin;
+// export = Plugin;

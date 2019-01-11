@@ -6,7 +6,7 @@
 import G6 = require('@antv/g6');
 const Util = G6.Util;
 
-class Plugin {
+export = class Plugin {
   constructor(options) {
     Util.mix(this, {
       /**
@@ -177,8 +177,8 @@ class Plugin {
     const gridEl = this.gridEl;
     gridEl && gridEl.remove();
   }
-}
+};
 
 G6.Plugins['tool.grid'] = Plugin;
 
-export = Plugin;
+// export = Plugin;

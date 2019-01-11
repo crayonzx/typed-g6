@@ -8,7 +8,7 @@ import Layout = require('./layout');
 
 G6.Layouts.ForceAtlas2 = Layout;
 
-class Plugin {
+export = class Plugin {
   constructor(options) {
     this.options = options;
   }
@@ -22,8 +22,8 @@ class Plugin {
       graph.set('layout', layout);
     });
   }
-}
+};
 
 G6.Plugins['layout.forceAtlas2'] = Plugin;
 
-export = Plugin;
+// export = Plugin;

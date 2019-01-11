@@ -5,7 +5,7 @@
 import G6 = require('@antv/g6');
 const Util = G6.Util;
 
-class Layout {
+export = class Layout {
   constructor(options) {
     Util.mix(this, {
       row: 10,
@@ -35,6 +35,6 @@ class Layout {
       node.y = (center.y - height / 2) + parseInt(i / col) / col * height + this.marginy;
     }
   }
-}
+};
 
-export = Layout;
+// export = Layout;

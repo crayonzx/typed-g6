@@ -7,7 +7,7 @@ import G6 = require('@antv/g6');
 import dagre = require('dagre');
 const { Util } = G6;
 
-class Layout {
+export = class Layout {
   constructor(options) {
     Util.mix(this, {
       rankdir: 'TB',
@@ -23,7 +23,7 @@ class Layout {
       callback: null
     }, options);
   }
-  getValue(name) {
+  getValue(name:string) {
     const value = this[name];
     if (Util.isFunction(value)) {
       return value();
@@ -69,6 +69,6 @@ class Layout {
       }
     });
   }
-}
+};
 
-export = Layout;
+// export = Layout;

@@ -3,33 +3,33 @@
  * @author shiwu.wyy@antfin.com
  */
 
-class Quad {
+export = class Quad {
   constructor(params) {
     /**
      * the center position of this quad
      * @type  {number}
      */
-    this.xmid = params.xmid;
+    this.xmid = params.xmid as number;
     /**
      * the center position of this quad
      * @type  {number}
      */
-    this.ymid = params.ymid;
+    this.ymid = params.ymid as number;
     /**
      * the length of this quad
      * @type  {number}
      */
-    this.length = params.length;
+    this.length = params.length as number;
     /**
      * the mass center of this quad
      * @type  {number}
      */
-    this.massCenter = params.massCenter;
+    this.massCenter = params.massCenter as number;
     /**
      * the mass of this quad
      * @type  {number}
      */
-    this.mass = params.mass;
+    this.mass = params.mass as number;
   }
   getLength() {
     return this.length;
@@ -93,5 +93,5 @@ class Quad {
     const SE = new Quad(params);
     return SE;
   }
-}
-export = Quad;
+};
+// export = Quad;

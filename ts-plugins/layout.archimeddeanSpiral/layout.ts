@@ -6,20 +6,20 @@
 import G6 = require('@antv/g6');
 const Util = G6.Util;
 
-class Layout {
+export = class Layout {
   constructor(options) {
     Util.mix(this, {
       /**
        * 宽
        * @type  {number}
        */
-      width: null,
+      width: null as any as number,
 
       /**
        * 高
        * @type  {number}
        */
-      height: null,
+      height: null as any as number,
 
       /**
        * 图中心
@@ -71,5 +71,5 @@ class Layout {
       node.y = center.y + radius * Math.sin(angle);
     });
   }
-}
-export = Layout;
+};
+// export = Layout;

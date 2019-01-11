@@ -3,23 +3,23 @@
  * @author shiwu.wyy@antfin.com
  */
 // represents a body(a point mass) and its position
-class Body {
+export = class Body {
   constructor(params) {
     /**
      * the id of this body, the same with the node id
      * @type  {number}
      */
-    this.id = params.id;
+    this.id = params.id as number;
     /**
      * the position of this body
      * @type  {number}
      */
-    this.rx = params.rx;
+    this.rx = params.rx as number;
     /**
      * the position of this body
      * @type  {number}
      */
-    this.ry = params.ry;
+    this.ry = params.ry as number;
     /**
      * the force acting on this body
      * @type  {number}
@@ -34,17 +34,17 @@ class Body {
      * the mass of this body, =1 for a node
      * @type  {number}
      */
-    this.mass = params.mass;
+    this.mass = params.mass as number;
     /**
      * the degree of the node represented by this body
      * @type  {number}
      */
-    this.degree = params.degree;
+    this.degree = params.degree as number;
     /**
      * the parameter for repulsive force, = kr
      * @type  {number}
      */
-    this.G = params.G;
+    this.G = params.G as number;
   }
   // returns the euclidean distance
   distanceTo(bo) {
@@ -52,7 +52,7 @@ class Body {
     const dy = this.ry - bo.ry;
     return Math.hypot(dx, dy);
   }
-  setPos(x, y) {
+  setPos(x:number, y:number) {
     this.rx = x;
     this.ry = y;
   }
@@ -89,6 +89,6 @@ class Body {
     };
     return new Body(params);
   }
-}
+};
 
-export = Body;
+// export = Body;
