@@ -5,6 +5,7 @@
  */
 const MAX_LEVEL = 5;
 import Util = require('@antv/util/lib');
+type Omit<T, K extends keyof T> = Pick<T, ({ [P in keyof T]: P } & { [P in K]: never } & { [x: string]: never })[keyof T]>;
 Math.sign = function(x) {
   x = +x;
   if (x === 0 || isNaN(x)) {
@@ -24,7 +25,7 @@ const BaseUtil = {
    * @param  {function}    array - condition array
    * @return  {object}     result object
    */
-  omit(object, array) {
+  omit<T extends object, K extends keyof T>(object: T, array: K[]): Omit<T, K> {
     const rst = {};
     Util.each(object, (value, key) => {
       if (array.indexOf(key) === -1) {
@@ -40,7 +41,7 @@ const BaseUtil = {
    * @param  {function}    getChild    get child function
    * @param  {boolean}     runSelf     callback run self or not
    */
-  traverseTree(parent, callback, getChild, runSelf = false) {
+  traverseTree<T extends object>(parent: T, callback: any, getChild: (p: T) => T, runSelf = false) {
     const children = getChild(parent);
     runSelf && callback(parent, null, null);
     children && BaseUtil.each(children, (child, index) => {
@@ -54,7 +55,7 @@ const BaseUtil = {
    * @param  {Number|Array} padding input padding
    * @return {array} output
    */
-  toAllPadding(padding) {
+  toAllPadding(padding: number | number[]) {
     let top = 0;
     let left = 0;
     let right = 0;
@@ -129,7 +130,7 @@ const BaseUtil = {
   }
 };
 
-function deepMix(dst, src, level) {
+function deepMix(dst, src, level?: number) {
   level = level || 0;
   for (const k in src) {
     if (src.hasOwnProperty(k)) {
