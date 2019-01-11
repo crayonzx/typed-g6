@@ -15,3 +15,13 @@ declare module '@antv/util/lib/matrix/transform' {
   const transform: (m: any, ts: any) => any;
   export = transform;
 }
+
+declare module '@antv/util/lib/matrix' {
+  const matrix: {
+    mat3: typeof import('@antv/util/lib/matrix/mat3');
+    vec2: typeof import('@antv/util/lib/matrix/vec2');
+    vec3: typeof import('@antv/util/lib/matrix/vec3');
+    transform: typeof import('@antv/util/lib/matrix/transform');
+  };
+  export = matrix;
+}
