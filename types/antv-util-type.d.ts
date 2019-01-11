@@ -8,8 +8,13 @@ declare module '@antv/util/lib/type/is-array' {
   export = isArray;
 }
 declare module '@antv/util/lib/type/is-array-like' {
-  // todo
-  const isArrayLike: (value: any) => boolean;
+  /**
+   * isArrayLike([1, 2, 3]) => true
+   * isArrayLike(document.body.children) => true
+   * isArrayLike('abc') => true
+   * isArrayLike(Function) => false
+   */
+  const isArrayLike: (value: any) => value is { length: number };
   export = isArrayLike;
 }
 declare module '@antv/util/lib/type/is-boolean' {
