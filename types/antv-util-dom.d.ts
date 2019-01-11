@@ -100,4 +100,5 @@ declare module '@antv/util/lib/dom' {
     modifyCSS: typeof import('@antv/util/lib/dom/modify-css');
     requestAnimationFrame: typeof import('@antv/util/lib/dom/request-animation-frame');
   };
+  export = dom;
 }

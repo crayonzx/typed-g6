@@ -1,3 +1,4 @@
+// @antv/util/lib
 declare module '@antv/util/lib/is-empty' {
   const isEmpty: (value: any) => boolean;
   export = isEmpty;
@@ -86,17 +87,20 @@ declare module '@antv/util/lib' {
     DOMUtil: typeof import('@antv/util/lib/dom');
     DomUtil: typeof import('@antv/util/lib/dom');
     domUtil: typeof import('@antv/util/lib/dom');
-    MatrixUtil: any;
-    PathUtil: any;
-    arrayUtil: any;
-    eventUtil: any;
-    formatUtil: any;
-    mathUtil: any;
-    matrixUtil: any;
-    objectUtil: any;
-    stringUtil: any;
-    pathUtil: any;
-    typeUtil: any;
+
+    MatrixUtil: typeof import('@antv/util/lib/matrix');
+    matrixUtil: typeof import('@antv/util/lib/matrix');
+
+    PathUtil: typeof import('@antv/util/lib/path');
+    pathUtil: typeof import('@antv/util/lib/path');
+
+    arrayUtil: typeof import('@antv/util/lib/array');
+    eventUtil: typeof import('@antv/util/lib/event');
+    formatUtil: typeof import('@antv/util/lib/format');
+    mathUtil: typeof import('@antv/util/lib/math');
+    objectUtil: typeof import('@antv/util/lib/object');
+    stringUtil: typeof import('@antv/util/lib/string');
+    typeUtil: typeof import('@antv/util/lib/type');
 
     // others
     augment: any;
