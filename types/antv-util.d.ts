@@ -1,31 +1,3 @@
-declare module '@antv/util/lib/type/is-function' {
-  const isFunction: (value: any) => value is (...args: any[]) => any;
-  export = isFunction;
-}
-declare module '@antv/util/lib/type/is-object' {
-  const isObject: <T extends object>(value: any) => value is T;
-  export = isObject;
-}
-declare module '@antv/util/lib/type/is-boolean' {
-  const isBoolean: (value: any) => value is boolean;
-  export = isBoolean;
-}
-declare module '@antv/util/lib/type/is-nil' {
-  const isNil: (value: any) => value is null;
-  export = isNil;
-}
-declare module '@antv/util/lib/type/is-string' {
-  const isString: (value: any) => value is string;
-  export = isString;
-}
-declare module '@antv/util/lib/type/is-array' {
-  const isArray: <T = any>(value: any) => value is T[];
-  export = isArray;
-}
-declare module '@antv/util/lib/type/is-number' {
-  const isNumber: (value: any) => value is number;
-  export = isNumber;
-}
 declare module '@antv/util/lib/is-empty' {
   const isEmpty: (value: any) => boolean;
   export = isEmpty;
@@ -51,10 +23,7 @@ declare module '@antv/util/lib/mix' {
   const mix: (dist: any, src1?: any, src2?: any, src3?: any) => any;
   export = mix;
 }
-declare module '@antv/util/lib/string/upper-first' {
-  const upperFirst: (value: string) => string;
-  export = upperFirst;
-}
+
 declare module '@antv/util/lib/each' {
   const each: {
     <T>(elements: T[], func: (value: T, index: number) => boolean | void): void;
@@ -110,55 +79,47 @@ declare module '@antv/util/lib/augment' {
     ExcludeFunctionType<ToClassType<T>>;
   export = augment;
 }
-declare module '@antv/util/lib/array/pull' {
-  const pull: (arr: any, ...args: any[]) => any;
-  export = pull;
-}
-declare module '@antv/util/lib/math/is-number-equal' {
-  const isNumberEqual: (a: number, b: number) => boolean;
-  export = isNumberEqual;
-}
-declare module '@antv/util/lib/math/to-radian' {
-  const toRadian: (degree: number) => number;
-  export = toRadian;
-}
-declare module '@antv/util/lib/math/to-degree' {
-  const toDegree: (radian: number) => number;
-  export = toDegree;
-}
-declare module '@antv/util/lib/math/mod' {
-  const mod: (n: number, m: number) => number;
-  export = mod;
-}
-declare module '@antv/util/lib/math/clamp' {
-  const clamp: (a: number, min: number, max: number) => number;
-  export = clamp;
-}
-declare module '@antv/util/lib/dom/create-dom' {
-  const createDom: (domStr: any) => any;
-  export = createDom;
-}
-declare module '@antv/util/lib/dom/modify-css' {
-  const modifyCSS: (dom: any, css: any) => any;
-  export = modifyCSS;
-}
-declare module '@antv/util/lib/dom/request-animation-frame' {
-  const requestAnimationFrame: (fn: any) => any;
-  export = requestAnimationFrame;
-}
-declare module '@antv/util/lib/matrix/mat3' {
-  const mat3: any;
-  export = mat3;
-}
-declare module '@antv/util/lib/matrix/vec2' {
-  const vec2: any;
-  export = vec2;
-}
-declare module '@antv/util/lib/matrix/vec3' {
-  const vec3: any;
-  export = vec3;
-}
-declare module '@antv/util/lib/matrix/transform' {
-  const transform: (m: any, ts: any) => any;
-  export = transform;
+
+declare module '@antv/util/lib' {
+  const util: {
+    // collections
+    DOMUtil: typeof import('@antv/util/lib/dom');
+    DomUtil: typeof import('@antv/util/lib/dom');
+    domUtil: typeof import('@antv/util/lib/dom');
+    MatrixUtil: any;
+    PathUtil: any;
+    arrayUtil: any;
+    eventUtil: any;
+    formatUtil: any;
+    mathUtil: any;
+    matrixUtil: any;
+    objectUtil: any;
+    stringUtil: any;
+    pathUtil: any;
+    typeUtil: any;
+
+    // others
+    augment: any;
+    clone: any;
+    debounce: any;
+    deepMix: any;
+    each: any;
+    extend: any;
+    filter: any;
+    group: any;
+    groupBy: any;
+    groupToMap: any;
+    indexOf: any;
+    isEmpty: any;
+    isEqual: any;
+    isEqualWith: any;
+    map: any;
+    mix: any;
+    pick: any;
+    throttle: any;
+    toArray: any;
+    toString: any;
+    uniqueId: any;
+  };
+  export = util;
 }
