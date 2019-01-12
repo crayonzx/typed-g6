@@ -3,9 +3,14 @@
  * @author huangtonger@aliyun.com
  */
 
+import Node from './node';
+import Edge from './edge';
+import Group from './group';
+import Guide from './guide';
+
 export = {
-  Node: require('./node') as typeof import('./node'),
-  Edge: require('./edge') as typeof import('./edge'),
-  Group: require('./group') as typeof import('./group'),
-  Guide: require('./guide') as typeof import('./guide')
+  Node,
+  Edge,
+  Group,
+  Guide,
 };

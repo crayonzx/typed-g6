@@ -17,7 +17,7 @@ const G6 = {
   Graph,
   Tree,
   Util,
-  Layouts: Layouts as any // TODO: fix Layouts,
+  Layouts: Layouts as any, // TODO: fix Layouts
   G,
   Plugins: {},
   Components: {},
