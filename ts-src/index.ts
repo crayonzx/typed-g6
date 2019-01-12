@@ -8,11 +8,16 @@ import Global = require('./global');
 import version = require('./version');
 import G = require('@antv/g/lib');
 
+import Graph from './graph';
+import Tree from './tree';
+import Util from './util';
+import Layouts from './layouts';
+
 const G6 = {
-  Graph: require('./graph') as typeof import('./graph'),
-  Tree: require('./tree') as typeof import('./tree'),
-  Util: require('./util/') as typeof import('./util/'),
-  Layouts: require('./layouts/') as typeof import('./layouts/'),
+  Graph,
+  Tree,
+  Util,
+  Layouts: Layouts as any // TODO: fix Layouts,
   G,
   Plugins: {},
   Components: {},
