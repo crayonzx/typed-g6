@@ -3,7 +3,7 @@
  * @author huangtonger@aliyun.com
  */
 
-const Mixin = {};
+const Mixin = function() {};
 Mixin.INIT = '_initDraw';
 
 Mixin.AUGMENT = {
@@ -48,4 +48,4 @@ Mixin.AUGMENT = {
     animateController.run();
   }
 };
-export = Mixin;
+export = Mixin as ExcludeFunctionType<typeof Mixin>;

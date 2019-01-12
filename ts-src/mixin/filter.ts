@@ -4,7 +4,7 @@
  * @author huangtonger@aliyun.com
  */
 import Util = require('../util/');
-const Mixin = {};
+const Mixin = function() {};
 Mixin.INIT = '_initFilter';
 Mixin.CFG = {
   /**
@@ -76,4 +76,4 @@ Mixin.AUGMENT = {
     });
   }
 };
-export = Mixin;
+export = Mixin as ExcludeFunctionType<typeof Mixin>;

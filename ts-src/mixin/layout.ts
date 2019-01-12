@@ -5,7 +5,7 @@
 
 import Util = require('../util/');
 import Layout = require('../controller/layout');
-const Mixin = {};
+const Mixin = function() {};
 Mixin.CFG = {
   /**
    * Layout cfg
@@ -94,4 +94,4 @@ Mixin.AUGMENT = {
   }
 };
 
-export = Mixin;
+export = Mixin as ExcludeFunctionType<typeof Mixin>;

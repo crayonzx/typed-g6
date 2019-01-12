@@ -6,7 +6,7 @@
 
 import Util = require('../util/');
 
-const Mixin = {};
+const Mixin = function() {};
 Mixin.CFG = {
   /**
    * Adaptive viewport
@@ -326,4 +326,4 @@ Mixin.AUGMENT = {
     return this;
   }
 };
-export = Mixin;
+export = Mixin as ExcludeFunctionType<typeof Mixin>;

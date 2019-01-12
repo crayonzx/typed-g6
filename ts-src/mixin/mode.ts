@@ -4,7 +4,7 @@
  */
 import Util = require('../util');
 import Handler = require('../handler');
-const Mixin = {};
+const Mixin = function() {};
 Mixin.CFG = {
   /**
     * mode list  key - value, key - mode name, value - behaviors
@@ -110,4 +110,4 @@ Mixin.AUGMENT = {
     this._eventCache = {};
   }
 };
-export = Mixin;
+export = Mixin as ExcludeFunctionType<typeof Mixin>;

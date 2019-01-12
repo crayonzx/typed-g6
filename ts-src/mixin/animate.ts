@@ -5,7 +5,7 @@
 
 import Util = require('../util/');
 import Animate = require('../controller/animate');
-const Mixin = {};
+const Mixin = function() {};
 Mixin.INIT = '_initAnimate';
 Mixin.CFG = {
   /**
@@ -33,4 +33,4 @@ Mixin.AUGMENT = {
   }
 };
 
-export = Mixin;
+export = Mixin as ExcludeFunctionType<typeof Mixin>;

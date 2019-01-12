@@ -5,7 +5,7 @@
 
 
 import Util = require('../util/');
-const Mixin = {};
+const Mixin = function() {};
 
 Mixin.AUGMENT = {
   find(id) {
@@ -84,4 +84,4 @@ Mixin.AUGMENT = {
     return item;
   }
 };
-export = Mixin;
+export = Mixin as ExcludeFunctionType<typeof Mixin>;

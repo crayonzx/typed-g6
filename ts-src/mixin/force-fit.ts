@@ -4,7 +4,7 @@
  */
 
 import Util = require('../util/');
-const Mixin = {};
+const Mixin = function() {};
 Mixin.INIT = '_initForceFit';
 Mixin.AUGMENT = {
   _initForceFit() {
@@ -62,4 +62,4 @@ Mixin.AUGMENT = {
   }
 };
 
-export = Mixin;
+export = Mixin as ExcludeFunctionType<typeof Mixin>;

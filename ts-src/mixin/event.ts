@@ -3,7 +3,7 @@
  * @author wuyue.lwy <wyueliu@gmail.com>
  */
 
-const Mixin = {};
+const Mixin = function() {};
 import Controller = require('../controller/event');
 Mixin.INIT = '_initEvents';
 Mixin.CFG = {
@@ -21,4 +21,4 @@ Mixin.AUGMENT = {
     });
   }
 };
-export = Mixin;
+export = Mixin as ExcludeFunctionType<typeof Mixin>;

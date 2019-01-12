@@ -4,7 +4,7 @@
  */
 
 import Mapper = require('../controller/mapper');
-const Mixin = {};
+const Mixin = function() {};
 Mixin.INIT = '_initMapper';
 Mixin.AUGMENT = {
   _initMapper() {
@@ -64,4 +64,4 @@ Mixin.AUGMENT = {
   }
 };
 
-export = Mixin;
+export = Mixin as ExcludeFunctionType<typeof Mixin>;
