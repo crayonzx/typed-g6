@@ -10,5 +10,5 @@ import BaseUtil = require('./base');
 import DomUtil = require('./dom');
 import GraphUtil = require('./graph');
 import GraphicUtil = require('./graphic');
-BaseUtil.mix(Util, BaseUtil, GraphUtil, GraphicUtil, DomUtil, PathUtil, MathUtil);
-export = Util;
+const Util1 = BaseUtil.mix(Util, BaseUtil, GraphUtil, GraphicUtil, DomUtil, PathUtil, MathUtil);
+export = Util1;

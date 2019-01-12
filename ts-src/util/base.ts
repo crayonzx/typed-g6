@@ -3,6 +3,7 @@
  * @author huangtonger@aliyun.com
  * @see https://github.com/lodash/lodash
  */
+import Interfaces from './interfaces';
 const MAX_LEVEL = 5;
 import Util = require('@antv/util/lib');
 Math.sign = function(x) {
@@ -162,4 +163,6 @@ BaseUtil.Array = {
   }
 };
 
-export = BaseUtil;
+export = BaseUtil as Overwrite<typeof BaseUtil, {
+  mix: Interfaces.Mix
+}>;

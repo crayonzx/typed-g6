@@ -7,7 +7,7 @@ import G = require('@antv/g/lib');
 import BaseUtil = require('./base');
 const PathUtil = {};
 
-BaseUtil.mix(PathUtil, G.PathUtil, {
+const PathUtil1 = BaseUtil.mix(PathUtil, G.PathUtil, {
   getRectPath: G.PathUtil.rectPath,
   /**
    * points to polygon
@@ -45,4 +45,4 @@ BaseUtil.mix(PathUtil, G.PathUtil, {
   }
 });
 
-export = PathUtil;
+export = PathUtil1;

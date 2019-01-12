@@ -5,7 +5,7 @@
 
 import BaseUtil = require('./base');
 const DomUtil = {};
-BaseUtil.mix(DomUtil, {
+const DomUtil1 = BaseUtil.mix(DomUtil, {
   /**
    * add event listener
    * @param  {object} target - event source
@@ -85,4 +85,4 @@ BaseUtil.mix(DomUtil, {
     return container;
   }
 });
-export = DomUtil;
+export = DomUtil1;
