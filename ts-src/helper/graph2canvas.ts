@@ -7,7 +7,7 @@ import Util = require('../util/');
 import G = require('@antv/g/lib');
 import domToImage = require('dom-to-image');
 
-export = class Graph2Canvas {
+class Graph2Canvas {
   constructor(options) {
     this.options = {
       graph: null,
@@ -123,6 +123,6 @@ export = class Graph2Canvas {
     canvas.matrix = matrix;
     return canvas.get('el');
   }
-};
+}
 
-// export = Graph2Canvas;
+export = Graph2Canvas;

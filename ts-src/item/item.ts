@@ -20,7 +20,7 @@ function getCollapsedParent(node, dataMap) {
   }
 }
 
-export = class Item {
+class Item {
   constructor(cfg) {
     const defaultCfg = {
       /**
@@ -322,6 +322,6 @@ export = class Item {
       });
     }
   }
-};
+}
 
-// export = Item;
+export = Item;

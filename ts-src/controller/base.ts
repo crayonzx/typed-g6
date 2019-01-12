@@ -5,7 +5,7 @@
 
 import Util = require('../util/');
 
-export = class Base {
+class Base {
   getDefaultCfg() {
     return {};
   }
@@ -16,6 +16,6 @@ export = class Base {
   }
   _init() {}
   destroy() {}
-};
+}
 
-// export = Base;
+export = Base;

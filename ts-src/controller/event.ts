@@ -43,7 +43,7 @@ function parentNodeHasTag(n, t) {
   }
   return false;
 }
-export = class Controller extends Base {
+class Controller extends Base {
   constructor(cfg) {
     super(cfg);
     this._domEvents = [];
@@ -313,5 +313,5 @@ export = class Controller extends Base {
       domEvent: ev
     };
   }
-};
-// export = Controller;
+}
+export = Controller;

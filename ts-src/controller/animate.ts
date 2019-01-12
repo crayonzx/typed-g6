@@ -9,7 +9,7 @@ import Util = require('../util/');
 import Global = require('../global');
 const INVALID_ATTRS = [ 'matrix', 'fillStyle', 'strokeStyle', 'endArrow', 'startArrow' ];
 
-export = class Controller extends Base {
+class Controller extends Base {
   getDefaultCfg() {
     return {
       /**
@@ -287,6 +287,6 @@ export = class Controller extends Base {
     this._compare();
     this._addTween();
   }
-};
+}
 
-// export = Controller;
+export = Controller;

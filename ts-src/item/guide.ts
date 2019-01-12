@@ -6,7 +6,7 @@
 import Util = require('../util/');
 import Item = require('./item');
 
-export = class Guide extends Item {
+class Guide extends Item {
   constructor(cfg) {
     const defaultCfg = {
       type: 'guide',
@@ -16,6 +16,6 @@ export = class Guide extends Item {
     const defaultCfg1 = Util.mix(defaultCfg, cfg);
     super(defaultCfg1);
   }
-};
+}
 
-// export = Guide;
+export = Guide;

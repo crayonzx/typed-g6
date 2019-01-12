@@ -5,7 +5,7 @@
 
 import Base = require('./base');
 
-export = class Controller extends Base {
+class Controller extends Base {
   getDefaultCfg() {
     return {
       /**
@@ -102,6 +102,6 @@ export = class Controller extends Base {
   getLayoutProcessor() {
     return this.processor ? this.processor : this.processer;
   }
-};
+}
 
-// export = Controller;
+export = Controller;

@@ -6,7 +6,7 @@
 import Util = require('../util/');
 import Node = require('./node');
 
-export = class Group extends Node {
+class Group extends Node {
   constructor(cfg) {
     const defaultCfg = {
       type: 'group',
@@ -86,6 +86,6 @@ export = class Group extends Node {
     });
     return Util.getChildrenBBox(graphicChildren);
   }
-};
+}
 
-// export = Group;
+export = Group;

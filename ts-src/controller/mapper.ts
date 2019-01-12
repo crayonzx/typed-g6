@@ -7,7 +7,7 @@ import Base = require('./base');
 import Util = require('../util/');
 const CHANNEL_NAMES = [ 'color', 'shape', 'size', 'label', 'style' ];
 
-export = class Controller extends Base {
+class Controller extends Base {
   _init() {
     const channels = {};
     Util.each(CHANNEL_NAMES, channel => {
@@ -40,6 +40,6 @@ export = class Controller extends Base {
       }
     });
   }
-};
+}
 
-// export = Controller;
+export = Controller;

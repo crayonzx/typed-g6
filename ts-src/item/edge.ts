@@ -6,7 +6,7 @@
 import Util = require('../util/');
 import Item = require('./item');
 
-export = class Edge extends Item {
+class Edge extends Item {
   constructor(cfg) {
     const defaultCfg = {
       type: 'edge',
@@ -202,6 +202,6 @@ export = class Edge extends Item {
     target && target.isItem && Util.Array.remove(target.edges, this);
     super.destroy();
   }
-};
+}
 
-// export = Edge;
+export = Edge;

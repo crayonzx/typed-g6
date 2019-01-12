@@ -6,7 +6,7 @@
 import Util = require('../util/');
 import Item = require('./item');
 
-export = class Node extends Item {
+class Node extends Item {
   constructor(cfg) {
     const defaultCfg = {
       type: 'node',
@@ -156,5 +156,5 @@ export = class Node extends Item {
     }
     return this._anchorPoints;
   }
-};
-// export = Node;
+}
+export = Node;
