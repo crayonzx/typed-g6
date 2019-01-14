@@ -10,9 +10,9 @@ import Mindmap from './tree/mindmap';
 import Base from './base';
 
 export = {
-  CompactBoxTree,
-  Dendrogram,
-  IndentedTree,
-  Mindmap,
-  Base,
+  CompactBoxTree: require('./tree/compact-box') as typeof CompactBoxTree,
+  Dendrogram: require('./tree/dendrogram') as typeof Dendrogram,
+  IndentedTree: require('./tree/indented') as typeof IndentedTree,
+  Mindmap: require('./tree/mindmap') as typeof Mindmap,
+  Base: require('./base') as typeof Base
 };

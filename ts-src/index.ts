@@ -8,16 +8,28 @@ import Global = require('./global');
 import version = require('./version');
 import G = require('@antv/g/lib');
 
-import Graph from './graph';
-import Tree from './tree';
-import Util from './util';
-import Layouts from './layouts';
-
-const G6 = {
-  Graph,
-  Tree,
-  Util,
-  Layouts: Layouts as any, // TODO: fix Layouts
+const G6: {
+  Graph: typeof import('./graph');
+  Tree: typeof import('./tree');
+  Util: typeof import('./util/');
+  Layouts: typeof import('./layouts/');
+  G: typeof G;
+  Plugins: typeof import('../ts-plugins');
+  Components: {};
+  Global: typeof Global;
+  Shape: typeof Shape;
+  registerNode: typeof Shape.registerNode,
+  registerEdge: typeof Shape.registerEdge,
+  registerGroup: typeof Shape.registerGroup,
+  registerGuide: typeof Shape.registerGuide,
+  registerBehaviour: typeof Handler.registerBehaviour,
+  version: typeof version;
+  track: (track: any) => void;
+} = {
+  Graph: require('./graph'),
+  Tree: require('./tree'),
+  Util: require('./util/'),
+  Layouts: require('./layouts/'),
   G,
   Plugins: {},
   Components: {},
