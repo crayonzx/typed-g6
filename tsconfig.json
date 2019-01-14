@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
-    // "rootDir": "ts-src",
-    "rootDirs": ["ts-src", "ts-plugins"],
+    "rootDir": "ts-src",
     "outDir": "./lib",
     "module": "commonjs",
     "target": "es5",

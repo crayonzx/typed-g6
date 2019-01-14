@@ -14,7 +14,7 @@ const G6: {
   Util: typeof import('./util/');
   Layouts: typeof import('./layouts/');
   G: typeof G;
-  Plugins: typeof import('../ts-plugins');
+  Plugins: typeof import('./plugins');
   Components: {};
   Global: typeof Global;
   Shape: typeof Shape;
