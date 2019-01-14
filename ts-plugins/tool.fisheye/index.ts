@@ -7,7 +7,7 @@ import G6 = require('@antv/g6');
 const Util = G6.Util;
 import Fisheye = require('./tool');
 
-export = class Plugin {
+class Plugin {
   constructor(options) {
     Util.mix(this, options);
     this.options = options;
@@ -59,8 +59,8 @@ export = class Plugin {
     graph.on('afterchange', cacheLocation);
     graph.on('afterlayout', cacheLocation);
   }
-};
+}
 
 G6.Plugins['tool.fisheye'] = Plugin;
 
-// export = Plugin;
+export = Plugin;

@@ -6,7 +6,7 @@
 import G6 = require('@antv/g6');
 const Util = G6.Util;
 
-export = class Layout {
+class Layout {
   constructor(options) {
     Util.mix(this, {
       /**
@@ -71,5 +71,5 @@ export = class Layout {
       node.y = center.y + radius * Math.sin(angle);
     });
   }
-};
-// export = Layout;
+}
+export = Layout;

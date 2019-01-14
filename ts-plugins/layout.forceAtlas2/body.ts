@@ -3,7 +3,7 @@
  * @author shiwu.wyy@antfin.com
  */
 // represents a body(a point mass) and its position
-export = class Body {
+class Body {
   constructor(params) {
     /**
      * the id of this body, the same with the node id
@@ -89,6 +89,6 @@ export = class Body {
     };
     return new Body(params);
   }
-};
+}
 
-// export = Body;
+export = Body;

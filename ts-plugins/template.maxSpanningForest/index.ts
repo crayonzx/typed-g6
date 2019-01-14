@@ -20,7 +20,7 @@ require('../edge.quadraticCurve/');
 require('../behaviour.analysis/');
 require('../tool.freezeSize/');
 
-export = class Plugin {
+class Plugin {
   constructor(options) {
     options = options ? options : {};
     Util.mix(true, this, {
@@ -257,8 +257,8 @@ export = class Plugin {
       }
     });
   }
-};
+}
 
 G6.Plugins['template.maxSpanningForest'] = Plugin;
 
-// export = Plugin;
+export = Plugin;

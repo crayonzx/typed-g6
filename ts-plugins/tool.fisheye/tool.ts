@@ -5,7 +5,7 @@
 import G6 = require('@antv/g6');
 const Util = G6.Util;
 
-export = class Tool {
+class Tool {
   constructor(options) {
     Util.mix(this, {
       /**
@@ -86,4 +86,4 @@ function Polar2Rect(p, theta) {
   const y = p * Math.sin(theta);
   return { x, y };
 }
-// export = Tool;
+export = Tool;

@@ -3,7 +3,7 @@
  * @author shiwu.wyy@antfin.com
  */
 
-export = class Quad {
+class Quad {
   constructor(params) {
     /**
      * the center position of this quad
@@ -93,5 +93,5 @@ export = class Quad {
     const SE = new Quad(params);
     return SE;
   }
-};
-// export = Quad;
+}
+export = Quad;

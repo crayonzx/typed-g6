@@ -5,7 +5,7 @@
 import G6 = require('@antv/g6');
 import Minimap = require('./minimap');
 
-export = class Plugin {
+class Plugin {
   constructor(options) {
     this.options = options;
   }
@@ -23,9 +23,9 @@ export = class Plugin {
   destroy() {
     this.minimap.destroy();
   }
-};
+}
 G6.Plugins['tool.minimap'] = Plugin;
 
 G6.Components.Minimap = Minimap;
 
-// export = Plugin;
+export = Plugin;

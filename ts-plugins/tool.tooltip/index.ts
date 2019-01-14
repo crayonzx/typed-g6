@@ -4,7 +4,7 @@
  */
 import G6 = require('@antv/g6');
 const Util = G6.Util;
-export = class Plugin {
+class Plugin {
   constructor(options) {
     this.options = {
       /**
@@ -149,8 +149,8 @@ export = class Plugin {
   destroy() {
     this.tooltip && this.tooltip.destroy();
   }
-};
+}
 
 G6.Plugins['tool.tooltip'] = Plugin;
 
-// export = Plugin;
+export = Plugin;

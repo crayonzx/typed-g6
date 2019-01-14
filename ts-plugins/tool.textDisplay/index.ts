@@ -6,7 +6,7 @@
 import G6 = require('@antv/g6');
 const Util = G6.Util;
 
-export = class Plugin {
+class Plugin {
   constructor(options) {
     Util.mix(this, {
       ratio: 2
@@ -54,7 +54,7 @@ export = class Plugin {
     });
     graph.draw();
   }
-};
+}
 
 G6.Plugins['tool.textDisplay'] = Plugin;
-// export = Plugin;
+export = Plugin;

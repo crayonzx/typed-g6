@@ -6,7 +6,7 @@ import G6 = require('@antv/g6');
 const { Util, G } = G6;
 const Canvas = G.Canvas;
 
-export = class Minimap {
+class Minimap {
   constructor(options) {
     Util.mix(this, {
       /**
@@ -350,6 +350,6 @@ export = class Minimap {
   destroy() {
     this.minimapContainer.destroy();
   }
-};
+}
 
-// export = Minimap;
+export = Minimap;

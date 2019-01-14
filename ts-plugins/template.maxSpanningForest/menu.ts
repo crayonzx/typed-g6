@@ -6,7 +6,7 @@ import G6 = require('@antv/g6');
 const Util = G6.Util;
 
 // represents a body(a point mass) and its position
-export = class Menu {
+class Menu {
   constructor(options) {
     Util.mix(true, this, {
       clickType: 'in'
@@ -86,6 +86,6 @@ export = class Menu {
   destroy() {
     this.menu.destroy();
   }
-};
+}
 
-// export = Menu;
+export = Menu;

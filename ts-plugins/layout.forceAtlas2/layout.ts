@@ -8,7 +8,7 @@ import Worker = require('./layout.worker');
 import ForceCal = require('./forceCalculator');
 
 // import StaticsWorker from 'worker-loader?inline!./statistics.worker.js';
-export = class Layout {
+class Layout {
   constructor(options) {
     Util.mix(this, {
       /**
@@ -270,5 +270,5 @@ export = class Layout {
       onLayoutComplete();
     }
   }
-};
-// export = Layout;
+}
+export = Layout;

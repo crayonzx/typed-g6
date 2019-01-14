@@ -2,7 +2,7 @@ import Body = require('./body');
 import Quad = require('./quad');
 import QuadTree = require('./quadTree');
 
-export = class ForceCalculator {
+class ForceCalculator {
 
   updateNodesByForces(data) {
     let { nodes, edges, maxIteration, barnesHut, prune } = data;
@@ -329,7 +329,7 @@ export = class ForceCalculator {
     preSG = null;
     return [ nodes, SG ];
   }
-};
+}
 
 
-// export = ForceCalculator;
+export = ForceCalculator;

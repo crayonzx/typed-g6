@@ -2,7 +2,7 @@
  * @fileOverview quadTree
  * @author shiwu.wyy@antfin.com
  */
-export = class QuadTree {
+class QuadTree {
   // each quadtree represents a quadrant and an aggregate body
   // that represents all bodies inside the quadrant
   constructor(param) {
@@ -87,5 +87,5 @@ export = class QuadTree {
       }
     }
   }
-};
-// export = QuadTree;
+}
+export = QuadTree;

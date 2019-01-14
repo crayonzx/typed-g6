@@ -13,7 +13,7 @@ import d3Legend = require('d3-svg-legend');
 
 Util.mix(d3, d3Legend);
 
-export = class Plugin {
+class Plugin {
   constructor(itemType, dim, channel, range, otherCfg) {
     Util.mix(this, {
       /**
@@ -254,8 +254,8 @@ export = class Plugin {
   destroy() {
     this.legendCanvas && this.legendCanvas.remove();
   }
-};
+}
 
 G6.Plugins['tool.d3.mapper'] = Plugin;
 
-// export = Plugin;
+export = Plugin;

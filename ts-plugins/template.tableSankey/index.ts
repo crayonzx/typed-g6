@@ -99,7 +99,7 @@ G6.registerGuide('col-names', {
   }
 });
 
-export = class Plugin {
+class Plugin {
   constructor(options) {
     Util.mix(this, {
       /**
@@ -340,8 +340,8 @@ export = class Plugin {
     const data = this._getData();
     graph.read(data);
   }
-};
+}
 
 G6.Plugins['template.tableSankey'] = Plugin;
 
-// export = Plugin;
+export = Plugin;

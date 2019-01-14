@@ -7,7 +7,7 @@ import G6 = require('@antv/g6');
 import dagre = require('dagre');
 const { Util } = G6;
 
-export = class Layout {
+class Layout {
   constructor(options) {
     Util.mix(this, {
       rankdir: 'TB',
@@ -69,6 +69,6 @@ export = class Layout {
       }
     });
   }
-};
+}
 
-// export = Layout;
+export = Layout;

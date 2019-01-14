@@ -8,7 +8,7 @@ import Layout = require('./layout');
 
 G6.Layouts.ArchimeddeanSpiral = Layout;
 
-export = class Plugin {
+class Plugin {
   constructor(options) {
     this.options = options;
   }
@@ -19,8 +19,8 @@ export = class Plugin {
       graph.set('layout', layout);
     });
   }
-};
+}
 
 G6.Plugins['layout.archimeddeanSpiral'] = Plugin;
 
-// export = Plugin;
+export = Plugin;

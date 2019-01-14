@@ -46,7 +46,7 @@ G6.registerGuide('mask', {
   filter: false
 });
 
-export = class Plugin {
+class Plugin {
   constructor(options) {
     Util.mix(this, {
       maskStyle: {
@@ -103,7 +103,7 @@ export = class Plugin {
     originChildren && itemGroup.set('children', originChildren);
     this.hide('mask');
   }
-};
+}
 
 G6.Plugins['tool.highlightSubgraph'] = Plugin;
-// export = Plugin;
+export = Plugin;

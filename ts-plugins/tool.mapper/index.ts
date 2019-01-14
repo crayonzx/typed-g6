@@ -11,7 +11,7 @@ import Attr = require('@antv/attr');
 import Scale = require('@antv/scale');
 const { Util, G } = G6;
 
-export = class Plugin {
+class Plugin {
   constructor(itemType, dim, channel, range, otherCfg) {
     Util.mix(this, {
       /**
@@ -438,7 +438,7 @@ export = class Plugin {
   destroy() {
     this.legendCanvas && this.legendCanvas.destroy();
   }
-};
+}
 
 G6.Plugins['tool.mapper'] = Plugin;
-// export = Plugin;
+export = Plugin;
