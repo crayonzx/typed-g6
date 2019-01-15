@@ -25,6 +25,42 @@ import ForceFit = require('./mixin/force-fit');
 const Mixins = [ FilterMixin, MappingMixin, QueryMixin, LayoutMixin, AnimateMixin, DrawMixin, ForceFit, FitView, EventMixin, ModeMixin ];
 const TAB_INDEX = 20;
 
+import { Common } from './common';
+import { Model } from './model';
+export interface Config {
+  /** 需传入 dom 容器或者容器id {domObject || string} [必选] */
+  container?: string | object;
+  /** 画布宽，单位像素 {number} [可选] 不设置则自适应父容器宽 */
+  width?: number;
+  /** 画布宽，单位像素 {number} [可选] 不设置则自适应父容器高 */
+  height?: number;
+  /** 初始化视口区域 {string} [可选] */
+  fitView?: Common.FitView;
+  /** 视口适应画布边距 {number || array} [可选] */
+  fitViewPadding?: number | number[];
+  /** 最小缩放倍率 {number} [可选] */
+  minZoom?: number;
+  /** 最大缩放倍率 {number} [可选] */
+  maxZoom?: number;
+  /** 模式集 {object} [可选] */
+  modes?: {
+    [mode: string]: string[];
+  };
+  /** 当前模式 {string} 默认： default  */
+  mode?: string;
+  /** 插件集 {array}  */
+  plugins?: string[];
+  /** 布局参数 {object|function|object} */
+  // layout?: any;
+
+  fontFamily: string;
+  nodeDefaultShape?: string;
+  edgeDefaultShape?: string;
+  groupDefaultShape?: string;
+  defaultIntersectBox? :string;
+  // renderer: 'canvas' | 'svg';
+}
+
 class Graph extends Base {
   /**
    * Access to the default configuration properties
@@ -105,7 +141,7 @@ class Graph extends Base {
     };
   }
 
-  constructor(inputCfg) {
+  constructor(inputCfg: Config) {
     const cfg = {};
 
     Mixins.forEach(Mixin => {
@@ -503,7 +539,8 @@ class Graph extends Base {
   /**
    * @return {object} data
    */
-  save() {
+
+  save(): Model.Data {
     const itemGroup = this.get('_itemGroup');
     const children = itemGroup.get('children');
     const rst = {
@@ -889,4 +926,4 @@ class Graph extends Base {
 Mixins.forEach(Mixin => {
   Util.mix(Graph.prototype, Mixin.AUGMENT);
 });
-export = Graph;
+export default Graph;
