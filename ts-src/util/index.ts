@@ -3,6 +3,8 @@
  * @author huangtonger@aliyun.com
  */
 
+import '../../types';
+
 const Util = {};
 import MathUtil = require('./math');
 import PathUtil = require('./path');
