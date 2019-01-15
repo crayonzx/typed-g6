@@ -6,9 +6,10 @@
 import Shape = require('../shape');
 import Util = require('../../util/');
 import Global = require('../../global');
+import Edge from '../../item/edge';
 const MIN_ARROW_SIZE = 3;
 const defaultArrow = {
-  path(item) {
+  path(item: Edge) {
     const keyShape = item.getKeyShape();
     let lineWidth = keyShape.attr('lineWidth');
     lineWidth = lineWidth > MIN_ARROW_SIZE ? lineWidth : MIN_ARROW_SIZE;
@@ -23,12 +24,12 @@ const defaultArrow = {
       [ 'Z' ]
     ];
   },
-  shorten(item) {
+  shorten(item: Edge) {
     const keyShape = item.getKeyShape();
     const lineWidth = keyShape.attr('lineWidth');
     return (lineWidth > MIN_ARROW_SIZE ? lineWidth : MIN_ARROW_SIZE) * 3.1;
   },
-  style(item) {
+  style(item: Edge) {
     const keyShape = item.getKeyShape();
     const { strokeOpacity, stroke } = keyShape.attr();
     return {
@@ -39,12 +40,12 @@ const defaultArrow = {
 };
 
 export = Shape.registerEdge('common', {
-  draw(item) {
+  draw(item: Edge) {
     const keyShape = this.drawKeyShape(item);
     this.drawLabel(item, keyShape);
     return keyShape;
   },
-  drawKeyShape(item) {
+  drawKeyShape(item: Edge) {
     const group = item.getGraphicGroup();
     const style = this.getStyle(item);
 
@@ -55,7 +56,7 @@ export = Shape.registerEdge('common', {
       })
     });
   },
-  getStyle(item) {
+  getStyle(item: Edge) {
     const model = item.getModel();
     return Util.mix(true, {}, {
       stroke: model.color || '#A3B1BF',
@@ -64,11 +65,11 @@ export = Shape.registerEdge('common', {
       lineWidth: model.size || 1
     }, model.style);
   },
-  getPath(item) {
+  getPath(item: Edge) {
     const points = item.getPoints();
     return Util.pointsToPolygon(points);
   },
-  getLabel(item) {
+  getLabel(item: Edge) {
     const model = item.getModel();
     return model.label;
   },
@@ -136,7 +137,7 @@ export = Shape.registerEdge('common', {
   },
   startArrow: {
     ...defaultArrow,
-    tangent(item) {
+    tangent(item: Edge) {
       const keyShape = item.getKeyShape();
       return keyShape.getStartTangent();
     },
@@ -146,7 +147,7 @@ export = Shape.registerEdge('common', {
   },
   endArrow: {
     ...defaultArrow,
-    tangent(item) {
+    tangent(item: Edge) {
       const keyShape = item.getKeyShape();
       return keyShape.getEndTangent();
     },

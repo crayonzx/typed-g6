@@ -7,15 +7,17 @@ import Shape = require('../shape');
 import Util = require('../../util/');
 import Global = require('../../global');
 
+import Node from '../../item/node';
+
 export = Shape.registerNode('common', {
-  draw(item) {
+  draw(item: Node) {
     const group = item.getGraphicGroup();
     const label = this.drawLabel(item);
     const keyShape = this.drawKeyShape(item);
     label && Util.toFront(label, group);
     return keyShape;
   },
-  getSize(item) {
+  getSize(item: Node) {
     const model = item.getModel();
     const size = model.size;
     if (Util.isArray(size)) {
@@ -26,7 +28,7 @@ export = Shape.registerNode('common', {
     }
     return [ Global.defaultNodeSize, Global.defaultNodeSize ];
   },
-  getStyle(item) {
+  getStyle(item: Node) {
     const model = item.getModel();
     return Util.mix(true, {
       lineWidth: 1,
@@ -35,11 +37,11 @@ export = Shape.registerNode('common', {
       fillOpacity: 0.92
     }, model.style);
   },
-  getLabel(item) {
+  getLabel(item: Node) {
     const model = item.getModel();
     return model.label;
   },
-  drawKeyShape(item) {
+  drawKeyShape(item: Node) {
     const group = item.getGraphicGroup();
     const style = this.getStyle(item);
     const path = this.getPath(item);
@@ -49,7 +51,7 @@ export = Shape.registerNode('common', {
       })
     });
   },
-  drawLabel(item) {
+  drawLabel(item: Node) {
     const group = item.getGraphicGroup();
     const label = this.getLabel(item);
     const model = item.getModel();
@@ -75,7 +77,7 @@ export = Shape.registerNode('common', {
     }
     return labelShape;
   },
-  getPath(item) {
+  getPath(item: Node) {
     const size = this.getSize(item);
     return Util.getEllipsePath(0, 0, size[0] / 2, size[1] / 2);
   }

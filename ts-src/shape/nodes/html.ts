@@ -5,14 +5,14 @@
 
 import Shape = require('../shape');
 import Util = require('../../util/');
-
+import Node from '../../item/node';
 // html node
 export = Shape.registerNode('html', {
-  getHtml(item) {
+  getHtml(item: Node) {
     return item.getModel().html;
   },
   cssSize: true,
-  draw(item) {
+  draw(item: Node) {
     const nodeContainer = Util.createDOM('<div class="g6-html-node-container"></div>');
     const group = item.getGraphicGroup();
     const graph = item.getGraph();

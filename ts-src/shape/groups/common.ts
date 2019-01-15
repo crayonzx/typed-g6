@@ -6,9 +6,9 @@
 import Shape = require('../shape');
 import Util = require('../../util/');
 import Global = require('../../global');
-
+import Group from '../../item/group';
 export = Shape.registerGroup('common', {
-  draw(item) {
+  draw(item: Group) {
     const model = item.getModel();
     let keyShape;
     if (model.collapsed) {
@@ -20,11 +20,11 @@ export = Shape.registerGroup('common', {
   },
   defaultWidth: 184,
   defaultHeight: 40,
-  getLabel(item) {
+  getLabel(item: Group) {
     const model = item.getModel();
     return model.label;
   },
-  drawLabel(item, x, y) {
+  drawLabel(item: Group, x, y) {
     const label = this.getLabel(item);
     if (!label) {
       return;
@@ -64,7 +64,7 @@ export = Shape.registerGroup('common', {
       ]);
     }
   },
-  drawKeyShape(item, box) {
+  drawKeyShape(item: Group, box) {
     const { x, y, width, height } = box;
     const model = item.getModel();
     const group = item.getGraphicGroup();
@@ -77,7 +77,7 @@ export = Shape.registerGroup('common', {
       })
     });
   },
-  getChildrenBBox(item) {
+  getChildrenBBox(item: Group) {
     const box = {
       ...item.lastChildrenBox
     };
@@ -100,13 +100,13 @@ export = Shape.registerGroup('common', {
     }
     return box;
   },
-  drawExpanded(item) {
+  drawExpanded(item: Group) {
     const box = this.getChildrenBBox(item);
     const keyShape = this.drawKeyShape(item, box);
     this.drawLabel(item, box.x, box.y);
     return keyShape;
   },
-  drawCollapsed(item) {
+  drawCollapsed(item: Group) {
     const box = this.getChildrenBBox(item);
     box.width = this.defaultWidth;
     box.height = this.defaultHeight;
