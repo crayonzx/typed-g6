@@ -21,7 +21,7 @@ declare module '@antv/util/lib/object/keys' {
 }
 declare module '@antv/util/lib/object/is-match' {
   const isMatch: (obj: any, attrs: any) => boolean;
-  export = isMatch
+  export = isMatch;
 }
 declare module '@antv/util/lib/object/values' {
   const values: (obj: any) => any;

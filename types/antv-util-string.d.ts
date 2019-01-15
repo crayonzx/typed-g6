@@ -30,13 +30,13 @@ declare module '@antv/util/lib/string/upper-first' {
 
 declare module '@antv/util/lib/string' {
   const string: {
-    lc: typeof import('@antv/util/lib/string/lc'),
-    lowerCase: typeof import('@antv/util/lib/string/lower-case'),
-    lowerFirst: typeof import('@antv/util/lib/string/lower-first'),
-    substitute: typeof import('@antv/util/lib/string/substitute'),
-    uc: typeof import('@antv/util/lib/string/uc'),
-    upperCase: typeof import('@antv/util/lib/string/upper-case'),
-    upperFirst: typeof import('@antv/util/lib/string/upper-first'),
+    lc: typeof import('@antv/util/lib/string/lc');
+    lowerCase: typeof import('@antv/util/lib/string/lower-case');
+    lowerFirst: typeof import('@antv/util/lib/string/lower-first');
+    substitute: typeof import('@antv/util/lib/string/substitute');
+    uc: typeof import('@antv/util/lib/string/uc');
+    upperCase: typeof import('@antv/util/lib/string/upper-case');
+    upperFirst: typeof import('@antv/util/lib/string/upper-first');
   };
   export = string;
 }

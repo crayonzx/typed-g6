@@ -81,11 +81,7 @@ declare module '@antv/util/lib/augment' {
   export = augment;
 }
 declare module '@antv/util/lib/debounce' {
-  const debounce: (
-    func: any,
-    wait: any,
-    immediate: any
-  ) => ((...args: any[]) => void);
+  const debounce: (func: any, wait: any, immediate: any) => ((...args: any[]) => void);
   export = debounce;
 }
 declare module '@antv/util/lib/filter' {
@@ -131,11 +127,7 @@ declare module '@antv/util/lib/is-equal-with' {
    *
    * isEqualWith(array, other, customizer);  // => true
    */
-  const isEqualWith: (
-    value: any,
-    other: any,
-    fn?: (...args: any[]) => any
-  ) => boolean;
+  const isEqualWith: (value: any, other: any, fn?: (...args: any[]) => any) => boolean;
   export = isEqualWith;
 }
 declare module '@antv/util/lib/map' {
@@ -158,10 +150,7 @@ declare module '@antv/util/lib/pick' {
   //   [P in K]: T[P];
   // };
 
-  const pick: <T extends object, K extends keyof T>(
-    object: T,
-    keys: K[]
-  ) => Pick<T, K>;
+  const pick: <T extends object, K extends keyof T>(object: T, keys: K[]) => Pick<T, K>;
   export = pick;
 }
 declare module '@antv/util/lib/throttle' {
@@ -223,6 +212,15 @@ declare module '@antv/util/lib' {
     toArray: typeof import('@antv/util/lib/to-array');
     toString: typeof import('@antv/util/lib/to-string');
     uniqueId: typeof import('@antv/util/lib/unique-id');
-  };
+  } & typeof import('@antv/util/lib/dom') &
+    typeof import('@antv/util/lib/array') &
+    typeof import('@antv/util/lib/event') &
+    typeof import('@antv/util/lib/format') &
+    typeof import('@antv/util/lib/math') &
+    typeof import('@antv/util/lib/matrix') &
+    typeof import('@antv/util/lib/object') &
+    typeof import('@antv/util/lib/path') &
+    typeof import('@antv/util/lib/string') &
+    typeof import('@antv/util/lib/type');
   export = util;
 }

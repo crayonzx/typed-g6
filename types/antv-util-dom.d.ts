@@ -19,11 +19,7 @@ declare module '@antv/util/lib/dom/add-event-listener' {
    * @param  {Funtion} callback 回调函数
    * @return {Object} 返回对象
    */
-  const addEventListener: (
-    target: object,
-    eventType: string,
-    callback: object
-  ) => object;
+  const addEventListener: (target: object, eventType: string, callback: object) => object;
   export = addEventListener;
 }
 declare module '@antv/util/lib/dom/get-bounding-client-rect' {

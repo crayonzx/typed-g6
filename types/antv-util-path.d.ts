@@ -32,10 +32,7 @@ declare module '@antv/util/lib/path/path2absolute' {
   export = pathToAbsolute;
 }
 declare module '@antv/util/lib/path/path2curve' {
-  const pathTocurve: (
-    path: any,
-    path2: any
-  ) => (string | number)[][] | (string | number)[][][];
+  const pathTocurve: (path: any, path2: any) => (string | number)[][] | (string | number)[][][];
   export = pathTocurve;
 }
 declare module '@antv/util/lib/path/rect-path' {
