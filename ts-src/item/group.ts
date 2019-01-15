@@ -3,8 +3,8 @@
  * @author huangtonger@aliyun.com
  */
 
-import Util = require('../util/');
-import Node = require('./node');
+import Util from '../util/';
+import Node from './node';
 
 class Group extends Node {
   constructor(cfg) {

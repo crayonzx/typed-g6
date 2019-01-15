@@ -2,8 +2,13 @@
  * @fileOverview item
  * @author huangtonger@aliyun.com
  */
+import G from '@antv/g/lib';
+type GShape = typeof G.Shape;
 
-import Util = require('../util/');
+import Util from '../util/';
+import { Common } from '../common';
+import { Model } from '../model';
+
 function getCollapsedParent(node, dataMap) {
   const parent = dataMap[node.parent];
   if (!parent) {
@@ -20,7 +25,18 @@ function getCollapsedParent(node, dataMap) {
   }
 }
 
-class Item {
+class Item<T extends Common.ItemType> {
+  type: T;
+  id: Common.ID;
+
+  model: Model.Map<T>;
+  group: any;
+
+  isSelected: boolean;
+  destroyed: boolean;
+
+  keyShape: GShape;
+
   constructor(cfg) {
     const defaultCfg = {
       /**
@@ -196,7 +212,7 @@ class Item {
     const dataMap = this.dataMap;
     this.collapsedParent = getCollapsedParent(this.model, dataMap);
   }
-  isVisible():boolean {
+  isVisible(): boolean {
     return this.visible;
   }
   hide() {
@@ -242,8 +258,17 @@ class Item {
       y: bbox.centerY
     };
   }
-  getBBox() {
-    return (this.bbox || this._calculateBBox());
+  getBBox(): {
+    centerX?: number;
+    centerY?: number;
+    width: number;
+    height: number;
+    maxX: number;
+    maxY: number;
+    minX: number;
+    minY: number;
+  } {
+    return this.bbox || this._calculateBBox();
   }
   layoutUpdate() {
     this.isVisible() && this.draw();
@@ -251,20 +276,21 @@ class Item {
   update() {
     this.draw();
   }
-  getModel() {
+  getModel(): Model.Map<T> {
     return this.model;
   }
-  getKeyShape() {
+  getKeyShape(): GShape {
     return this.keyShape;
   }
-  getGraphicGroup() {
+  // Todo: fix type of graphic group
+  getGraphicGroup(): any {
     return this.group;
   }
   getHierarchy() {
     const graph = this.graph;
     return graph.getHierarchy(this);
   }
-  getParent() {
+  getParent(): Item<any> {
     const model = this.model;
     const itemMap = this.itemMap;
     return itemMap[model.parent];
@@ -283,7 +309,7 @@ class Item {
     return parents;
   }
   // deep get all children
-  getAllChildren() {
+  getAllChildren(): Array<Item<any>> {
     const rst = [];
     this.deepEach(child => {
       rst.push(child);

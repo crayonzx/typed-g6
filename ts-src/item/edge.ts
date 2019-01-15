@@ -2,11 +2,12 @@
  * @fileOverview edge item
  * @author huangtonger@aliyun.com
  */
+import { Common } from '../common';
+import Util from '../util';
+import Item from './item';
+import Node from './node';
 
-import Util = require('../util/');
-import Item = require('./item');
-
-class Edge extends Item {
+class Edge extends Item<Common.EdgeType> {
   constructor(cfg) {
     const defaultCfg = {
       type: 'edge',
@@ -153,7 +154,7 @@ class Edge extends Item {
     || source.isVisible() || target.isVisible()
     || (source.collapsedParent !== target.collapsedParent);
   }
-  getSource() {
+  getSource(): Node | Common.Point {
     const source = this.source;
     const collapsedParent = source.collapsedParent;
     const itemMap = this.itemMap;
@@ -162,7 +163,7 @@ class Edge extends Item {
     }
     return source;
   }
-  getTarget() {
+  getTarget(): Node | Common.Point {
     const target = this.target;
     const collapsedParent = target.collapsedParent;
     const itemMap = this.itemMap;
@@ -171,7 +172,7 @@ class Edge extends Item {
     }
     return target;
   }
-  getPoints() {
+  getPoints(): Common.Point[] {
     const source = this.getSource();
     const target = this.getTarget();
     const model = this.model;

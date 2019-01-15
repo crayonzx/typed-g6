@@ -3,10 +3,11 @@
  * @author huangtonger@aliyun.com
  */
 
-import Util = require('../util/');
-import Item = require('./item');
+import { Common } from '../common';
+import Util from '../util/';
+import Item from './item';
 
-class Guide extends Item {
+class Guide extends Item<Common.GuideType> {
   constructor(cfg) {
     const defaultCfg = {
       type: 'guide',

@@ -2,11 +2,17 @@
  * @fileOverview node item
  * @author huangtonger@aliyun.com
  */
+import G from '@antv/g/lib';
+type GShape = typeof G.Shape;
 
-import Util = require('../util/');
-import Item = require('./item');
+import { Common } from '../common';
+import Util from '../util';
+import Item from './item';
+import Edge from './edge';
 
-class Node extends Item {
+class Node extends Item<Common.NodeType> {
+  anchorShapes: GShape[];
+
   constructor(cfg) {
     const defaultCfg = {
       type: 'node',
@@ -40,7 +46,7 @@ class Node extends Item {
     this._beforeDraw();
     this._afterDraw();
   }
-  getEdges() {
+  getEdges(): Edge[] {
     const graph = this.graph;
     const edges = graph.getEdges();
     return edges.filter(edge => {
@@ -124,7 +130,7 @@ class Node extends Item {
    * @param {number} index the index of points
    * @return {array} anchorPoints
    */
-  getAnchorPoints(index:number) {
+  getAnchorPoints(index?: number): Common.Points[] {
     const shapeObj = this.shapeObj;
     const bbox = this.getBBox();
     const anchorPoints = [];
@@ -155,6 +161,13 @@ class Node extends Item {
       return this._anchorPoints[index];
     }
     return this._anchorPoints;
+  }
+
+  getAllAnchors(): GShape[] {
+    return this.anchorShapes.filter((s) => s.isAnchor);
+  }
+  getAnchor(index: number): GShape | undefined {
+    return this.anchorShapes.find((s) => s.index === index);
   }
 }
 export = Node;
