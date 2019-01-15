@@ -7,7 +7,7 @@ import Shape = require('../shape');
 import Util = require('../../util/');
 import Global = require('../../global');
 
-Shape.registerGroup('common', {
+export = Shape.registerGroup('common', {
   draw(item) {
     const model = item.getModel();
     let keyShape;

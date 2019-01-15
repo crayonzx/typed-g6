@@ -38,7 +38,7 @@ const defaultArrow = {
   }
 };
 
-Shape.registerEdge('common', {
+export = Shape.registerEdge('common', {
   draw(item) {
     const keyShape = this.drawKeyShape(item);
     this.drawLabel(item, keyShape);

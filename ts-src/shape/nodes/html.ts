@@ -7,7 +7,7 @@ import Shape = require('../shape');
 import Util = require('../../util/');
 
 // html node
-Shape.registerNode('html', {
+export = Shape.registerNode('html', {
   getHtml(item) {
     return item.getModel().html;
   },

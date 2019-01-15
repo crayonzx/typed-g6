@@ -7,7 +7,7 @@ import Shape = require('../shape');
 import Util = require('../../util/');
 import Global = require('../../global');
 
-Shape.registerNode('common', {
+export = Shape.registerNode('common', {
   draw(item) {
     const group = item.getGraphicGroup();
     const label = this.drawLabel(item);

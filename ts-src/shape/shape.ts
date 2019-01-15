@@ -3,9 +3,10 @@
  * @author huangtonger@aliyun.com
  */
 
+import * as Interfaces from './interfaces';
 
 import Util = require('../util/');
-const Shape = {};
+const Shape = {} as Interfaces.Shape;
 
 const ShapeBase = {
   draw() {}
