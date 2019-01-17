@@ -109,7 +109,7 @@ class Item {
     group.model = model;
     group.item = this;
   }
-  _calculateBBox() {
+  _calculateBBox(): Common.BBox {
     const keyShape = this.keyShape;
     const group = this.group;
     const bbox = Util.getBBox(keyShape, group);
@@ -254,20 +254,11 @@ class Item {
   getCenter() {
     const bbox = this.getBBox();
     return {
-      x: bbox.centerX,
-      y: bbox.centerY
+      x: bbox.centerX!,
+      y: bbox.centerY!
     };
   }
-  getBBox(): {
-    centerX?: number;
-    centerY?: number;
-    width: number;
-    height: number;
-    maxX: number;
-    maxY: number;
-    minX: number;
-    minY: number;
-  } {
+  getBBox(): Common.BBox {
     return this.bbox || this._calculateBBox();
   }
   layoutUpdate() {
@@ -276,7 +267,7 @@ class Item {
   update() {
     this.draw();
   }
-  getModel(): Model.Map<T> {
+  getModel(): Model.Base {
     return this.model;
   }
   getKeyShape(): GShape {
@@ -290,7 +281,7 @@ class Item {
     const graph = this.graph;
     return graph.getHierarchy(this);
   }
-  getParent(): Item<any> {
+  getParent(): Item {
     const model = this.model;
     const itemMap = this.itemMap;
     return itemMap[model.parent];
@@ -309,7 +300,7 @@ class Item {
     return parents;
   }
   // deep get all children
-  getAllChildren(): Array<Item<any>> {
+  getAllChildren(): Item[] {
     const rst = [];
     this.deepEach(child => {
       rst.push(child);
