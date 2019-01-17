@@ -33,7 +33,7 @@ Mixin.AUGMENT = {
     * change mode
     * @param {string} modeName - name of mode
     */
-  changeMode(modeName) {
+  changeMode(modeName: string) {
     const modes = this.get('modes');
     if (Util.isEmpty(modes) || Util.isEmpty(modes[modeName])) {
       return;
@@ -47,7 +47,7 @@ Mixin.AUGMENT = {
     * @param {String} mode - if not set use current mode
     * @return {object} - graph object
     */
-  addBehaviour(behaviour, mode) {
+  addBehaviour(behaviour: any[] | string, mode: string) {
     const modes = this.get('modes');
     mode = mode ? mode : this.get('mode');
     if (Util.isEmpty(modes[mode])) {
@@ -69,7 +69,7 @@ Mixin.AUGMENT = {
     * @param {Array | String} behaviour - a behaviour or a list behaviours
     * @return {object} this
     */
-  removeBehaviour(behaviour) {
+  removeBehaviour(behaviour: any[] | string) {
     const modes = this.get('modes');
     const mode = this.get('mode');
     let currentModes = modes[mode];
@@ -89,7 +89,7 @@ Mixin.AUGMENT = {
     * @param {string} type - behaviour type
     * @param {function} fn - behaivour body
     */
-  behaviourOn(type, fn) {
+  behaviourOn(type: string, fn: (...args: any[]) => any) {
     const eventCache = this._eventCache;
     if (!eventCache[type]) {
       eventCache[type] = [];

@@ -3,12 +3,15 @@
  * @author huangtonger@aliyun.com
  */
 
+import Shape from '@antv/g/lib/core/shape';
+import { Common } from '../common';
+import Item from '../item';
 
 import Util = require('../util/');
 const Mixin = function() {};
 
 Mixin.AUGMENT = {
-  find(id) {
+  find(id: Common.ID): Item.Base | undefined {
     const itemMap = this.get('_itemMap');
     return itemMap[id];
   },
@@ -16,7 +19,7 @@ Mixin.AUGMENT = {
    * get nodes
    * @return {array} rst
    */
-  getNodes() {
+  getNodes(): Item.Node[] {
     const itemMap = this.get('_itemMap');
     return itemMap._nodes;
   },
@@ -24,7 +27,7 @@ Mixin.AUGMENT = {
    * get edges
    * @return {array} rst
    */
-  getEdges() {
+  getEdges(): Item.Edge[] {
     const itemMap = this.get('_itemMap');
     return itemMap._edges;
   },
@@ -32,7 +35,7 @@ Mixin.AUGMENT = {
    * get groups
    * @return {array} rst
    */
-  getGroups() {
+  getGroups(): Item.Group[] {
     const itemMap = this.get('_itemMap');
     return itemMap._groups;
   },
@@ -40,7 +43,7 @@ Mixin.AUGMENT = {
    * get guides
    * @return {array} rst
    */
-  getGuides() {
+  getGuides(): Item.Guide[] {
     const itemMap = this.get('_itemMap');
     return itemMap._guides;
   },
@@ -48,7 +51,7 @@ Mixin.AUGMENT = {
    * get items
    * @return {array} rst
    */
-  getItems() {
+  getItems(): Item.Base[] {
     const itemMap = this.get('_itemMap');
     const rst = [];
     Util.each(itemMap, item => {
@@ -63,7 +66,7 @@ Mixin.AUGMENT = {
    * @param  {G.Shape} shape - the shape from g
    * @return {string}  item.id - id of the item
    */
-  getItemByShape(shape) {
+  getItemByShape(shape: Shape): Item.Base {
     if (!shape) return null;
     return this.getItem(shape.id);
   },
@@ -72,7 +75,7 @@ Mixin.AUGMENT = {
    * @param  {object|string} item - the shape from g
    * @return {object}  item
    */
-  getItem(item) {
+  getItem(item: Common.ID | Item.Base): Item.Base {
     const itemMap = this.get('_itemMap');
     if (Util.isObject(item)) {
       if (item.destroyed) {
