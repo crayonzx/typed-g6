@@ -431,7 +431,7 @@ class Graph extends Base {
    * @param  {object} model data model
    * @return {object} shapeObj
    */
-  getShapeObj(type, model) {
+  getShapeObj(type: string, model: Model.Base) {
     if (!Util.isObject(type)) {
       const Type = Util.upperFirst(type);
       const shapeManager = Shape[Type];
@@ -475,7 +475,7 @@ class Graph extends Base {
    * @param  {object} data source data
    * @return {Graph} this
    */
-  source(data) {
+  source(data: Model.Data) {
     this.emit('beforesource');
     this.set('_data', data);
     this.set('_sourceData', data);
@@ -505,7 +505,7 @@ class Graph extends Base {
    * set canvas captrue
    * @param  {boolean} bool boolean
    */
-  setCapture(bool) {
+  setCapture(bool: boolean) {
     const rootGroup = this.get('_rootGroup');
     rootGroup.set('capture', bool);
   }
@@ -569,7 +569,7 @@ class Graph extends Base {
    * @param {object} model data model
    * @return {Item} target item
    */
-  add(type, model) {
+  add(type: string, model: Model.Base): Item.Base {
     const affectedItemIds = [];
     const ev = {
       action: 'add',
@@ -592,7 +592,7 @@ class Graph extends Base {
    * @param {string|Item} item - target item
    * @return {Graph} this
    */
-  remove(item) {
+  remove(item: Common.ID | Item.Base) {
     item = this.getItem(item);
     if (!item || item.destroyed) {
       return;
@@ -633,11 +633,11 @@ class Graph extends Base {
     return this;
   }
   /**
-   * @param {string|Item} item target item
+   * @param {Item} item target item
    * @param {object} model data model
    * @return {Graph} this
    */
-  simpleUpdate(item, model) {
+  simpleUpdate(item: Item.Base, model: Partial<Model.Base>) {
     this._updateItems([ item ], [ model ]);
     this.draw();
     return this;
@@ -647,7 +647,7 @@ class Graph extends Base {
    * @param {object} model data model
    * @return {Graph} this
    */
-  update(item, model) {
+  update(item: Common.ID | Item.Base, model: Partial<Model.Base>) {
     const itemMap = this.get('_itemMap');
     item = this.getItem(item);
     if (!item || item.destroyed || !model) {
@@ -730,7 +730,7 @@ class Graph extends Base {
    * @param {object} data - source data
    * @return {Graph} this
    */
-  read(data) {
+  read(data: Model.Data) {
     if (!data) {
       throw new Error('please read valid data!');
     }
@@ -762,7 +762,7 @@ class Graph extends Base {
    * @param  {number} item  input item
    * @return {object} this
    */
-  hide(item) {
+  hide(item: Item.Base) {
     item = this.getItem(item);
     let hideItemCache = [];
     const affectedItemIds = [];
@@ -800,7 +800,7 @@ class Graph extends Base {
    * @param  {number} item  input item
    * @return {object} this
    */
-  show(item) {
+  show(item: Item.Base) {
     item = this.getItem(item);
     let showItemCache = [];
     const affectedItemIds = [];
@@ -844,13 +844,13 @@ class Graph extends Base {
   /**
    * @return {Graph} this
    */
-  getWidth() {
+  getWidth(): number {
     return this.get('width');
   }
   /**
    * @return {Graph} this
    */
-  getHeight() {
+  getHeight(): number {
     return this.get('height');
   }
   /**
@@ -859,7 +859,7 @@ class Graph extends Base {
    * @param  {number} height input height
    * @return {object} this
    */
-  changeSize(width, height) {
+  changeSize(width: number, height: number) {
     if (Math.abs(width) >= Infinity || Math.abs(height) >= Infinity) {
       console.warn('size parameter more than the maximum');
       return;
@@ -880,7 +880,7 @@ class Graph extends Base {
    * item to front
    * @param  {object} item  item
    */
-  toFront(item) {
+  toFront(item: Item.Base) {
     item = this.getItem(item);
     const itemGroup = this.get('_itemGroup');
     const group = item.getGraphicGroup();
@@ -891,7 +891,7 @@ class Graph extends Base {
    * item to back
    * @param  {object} item  item
    */
-  toBack(item) {
+  toBack(item: Item.Base) {
     item = this.getItem(item);
     const itemGroup = this.get('_itemGroup');
     const group = item.getGraphicGroup();

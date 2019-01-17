@@ -3,6 +3,8 @@
  * @author huangtonger@aliyun.com
  */
 
+import { Common } from '../common';
+import Item from '../item';
 
 import Util = require('../util/');
 
@@ -31,7 +33,7 @@ Mixin.CFG = {
   maxZoom: 10
 };
 Mixin.AUGMENT = {
-  getBBox() {
+  getBBox(): { minX: number, minY: number, maxX: number, maxY: number } {
     const itemGroup = this.get('_itemGroup');
     const itemMap = this.get('_itemMap');
     let children = itemGroup.get('children');
@@ -58,7 +60,7 @@ Mixin.AUGMENT = {
   getFitViewPadding() {
     return Util.toAllPadding(this.get('fitViewPadding'));
   },
-  setFitView(type) {
+  setFitView(type: string) {
     if (!type) {
       return this;
     }
@@ -117,7 +119,7 @@ Mixin.AUGMENT = {
   /**
    * @return {number} zoom
    */
-  getZoom() {
+  getZoom(): number {
     const matrix = this.getMatrix();
     return matrix[0];
   },
@@ -145,7 +147,7 @@ Mixin.AUGMENT = {
    * @param {Number|undefined} ratio scale ratio
    * @return {Graph} this
    */
-  zoom(point, ratio) {
+  zoom(point: Common.Point | number, ratio?: number) {
     if (Util.isNumber(point)) {
       const width = this.get('width');
       const height = this.get('height');
@@ -183,7 +185,7 @@ Mixin.AUGMENT = {
    * @param {number} dy y offset
    * @return {Graph} this
    */
-  translate(dx, dy) {
+  translate(dx: number, dy: number) {
     const rootGroup = this.get('_rootGroup');
     const matrix = rootGroup.getMatrix();
     Util.mat3.translate(matrix, matrix, [ dx, dy ]);
@@ -220,7 +222,7 @@ Mixin.AUGMENT = {
    * @param {object} domPoint domPoint
    * @return {object} graph point
    */
-  getPoint(domPoint) {
+  getPoint(domPoint: Common.Point): Common.Point {
     return this.getPointByDom(domPoint);
   },
   /**
@@ -257,7 +259,7 @@ Mixin.AUGMENT = {
    * @param {object} point graph point
    * @return {object} dom point
    */
-  getDomPoint(point) {
+  getDomPoint(point: Common.Point): Common.Point {
     const rootGroup = this.get('_rootGroup');
     const matrix = rootGroup.getMatrix();
     return Util.applyMatrix(point, matrix);
@@ -292,7 +294,7 @@ Mixin.AUGMENT = {
    * @param {object} item item or itemId
    * @return {Graph} this
    */
-  focus(item) {
+  focus(item: Common.ID | Item.Base) {
     if (Util.isString(item)) {
       item = this.find(item);
     }
@@ -306,7 +308,7 @@ Mixin.AUGMENT = {
    * @param {object} point graph point
    * @return {Graph} this
    */
-  focusPoint(point) {
+  focusPoint(point: Common.Point) {
     const rootGroup = this.get('_rootGroup');
     const matrix = rootGroup.getMatrix();
     const width = this.get('width');
