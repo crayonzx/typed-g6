@@ -3,8 +3,8 @@
  * @author huangtonger@aliyun.com
  */
 
-import Util from '../util/';
-import Item from './item';
+import Util = require('../util/');
+import Item = require('./item');
 
 class Guide extends Item {
   type: 'guide';
@@ -15,8 +15,8 @@ class Guide extends Item {
       isGuide: true,
       zIndex: 4
     };
-    const defaultCfg1 = Util.mix(defaultCfg, cfg);
-    super(defaultCfg1);
+    Util.mix(defaultCfg, cfg);
+    super(defaultCfg);
   }
 }
 

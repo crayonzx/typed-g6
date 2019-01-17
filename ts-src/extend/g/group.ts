@@ -77,5 +77,5 @@ const Mixin1 = Util.augment(Mixin, {
   }
 });
 
-const Mixin2 = Util.mixin(G.Group, [ Mixin1 ]);
-export = Mixin2;
+Util.mixin(G.Group, [ Mixin ]);
+export = Mixin1;

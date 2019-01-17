@@ -2,11 +2,12 @@
  * @fileOverview group shapes
  * @author huangtonger@aliyun.com
  */
+import Group from '../../item/group';
 
 import Shape = require('../shape');
 import Util = require('../../util/');
 import Global = require('../../global');
-import Group from '../../item/group';
+
 export = Shape.registerGroup('common', {
   draw(item: Group) {
     const model = item.getModel();

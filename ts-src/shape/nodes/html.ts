@@ -2,10 +2,11 @@
  * @fileOverview html node shape
  * @author huangtonger@aliyun.com
  */
+import Node from '../../item/node';
 
 import Shape = require('../shape');
 import Util = require('../../util/');
-import Node from '../../item/node';
+
 // html node
 export = Shape.registerNode('html', {
   getHtml(item: Node) {

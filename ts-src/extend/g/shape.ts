@@ -24,6 +24,6 @@ const Mixin1 = Util.augment(Mixin, {
   }
 });
 
-const Mixin2 = Util.mixin(G.Shape, [ Mixin1 ]);
+Util.mixin(G.Shape, [ Mixin ]);
 
-export = Mixin2;
+export = Mixin1;

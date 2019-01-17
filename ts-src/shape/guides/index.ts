@@ -3,6 +3,9 @@
  * @author huangtonger@aliyun.com
  */
 
-export = {
-  common: require('./common') as typeof import('./common')
+const guides: {
+  common: typeof import('./common');
+} = {
+  common: require('./common')
 };
+export = guides;

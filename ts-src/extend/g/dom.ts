@@ -19,6 +19,6 @@ const Mixin1 = Util.augment(Mixin, {
   }
 });
 
-const Mixin2 = Util.mixin(G.Dom, [ Mixin1 ]);
+Util.mixin(G.Dom, [ Mixin ]);
 
-export = Mixin2;
+export = Mixin1;

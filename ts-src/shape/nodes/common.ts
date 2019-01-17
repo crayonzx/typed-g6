@@ -2,12 +2,11 @@
  * @fileOverview common node shape
  * @author huangtonger@aliyun.com
  */
+import Node from '../../item/node';
 
 import Shape = require('../shape');
 import Util = require('../../util/');
 import Global = require('../../global');
-
-import Node from '../../item/node';
 
 export = Shape.registerNode('common', {
   draw(item: Node) {

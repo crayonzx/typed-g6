@@ -2,11 +2,11 @@
  * @fileOverview edge shapes
  * @author huangtonger@aliyun.com
  */
+import Edge from '../../item/edge';
 
 import Shape = require('../shape');
 import Util = require('../../util/');
 import Global = require('../../global');
-import Edge from '../../item/edge';
 const MIN_ARROW_SIZE = 3;
 const defaultArrow = {
   path(item: Edge) {

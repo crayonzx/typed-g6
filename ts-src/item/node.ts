@@ -3,12 +3,12 @@
  * @author huangtonger@aliyun.com
  */
 import G from '@antv/g/lib';
+import { Common } from '../common';
+import Edge from './edge';
 type GShape = typeof G.Shape;
 
-import { Common } from '../common';
-import Util from '../util';
-import Item from './item';
-import Edge from './edge';
+import Util = require('../util/');
+import Item = require('./item');
 
 class Node extends Item {
   type: 'node';
@@ -22,8 +22,8 @@ class Node extends Item {
       edges: [],
       linkable: true
     };
-    const defaultCfg1 = Util.mix(defaultCfg, cfg);
-    super(defaultCfg1);
+    Util.mix(defaultCfg, cfg);
+    super(defaultCfg);
   }
   updatePosition() {
     const group = this.group;

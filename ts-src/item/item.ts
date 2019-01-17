@@ -3,12 +3,11 @@
  * @author huangtonger@aliyun.com
  */
 import G from '@antv/g/lib';
-type GShape = typeof G.Shape;
-
-import Util from '../util/';
 import { Common } from '../common';
 import { Model } from '../model';
+type GShape = typeof G.Shape;
 
+import Util = require('../util/');
 function getCollapsedParent(node, dataMap) {
   const parent = dataMap[node.parent];
   if (!parent) {

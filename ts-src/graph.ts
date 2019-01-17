@@ -539,7 +539,6 @@ class Graph extends Base {
   /**
    * @return {object} data
    */
-
   save(): Model.Data {
     const itemGroup = this.get('_itemGroup');
     const children = itemGroup.get('children');

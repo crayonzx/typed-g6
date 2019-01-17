@@ -3,10 +3,11 @@
  * @author huangtonger@aliyun.com
  */
 import Item_ from './item';
-import Node_ from './node';
-import Edge_ from './edge';
-import Group_ from './group';
-import Guide_ from './guide';
+
+import Node_ = require('./node');
+import Edge_ = require('./edge');
+import Group_ = require('./group');
+import Guide_ = require('./guide');
 
 namespace Items {
   export interface Base extends Item_ {}

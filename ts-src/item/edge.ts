@@ -3,9 +3,10 @@
  * @author huangtonger@aliyun.com
  */
 import { Common } from '../common';
-import Util from '../util';
-import Item from './item';
 import Node from './node';
+
+import Util = require('../util');
+import Item = require('./item');
 
 class Edge extends Item {
   type: 'edge';
@@ -16,8 +17,8 @@ class Edge extends Item {
       isEdge: true,
       zIndex: 2
     };
-    const defaultCfg1 = Util.mix(defaultCfg, cfg);
-    super(defaultCfg1);
+    Util.mix(defaultCfg, cfg);
+    super(defaultCfg);
   }
   _init() {
     // this.cacheEdges();

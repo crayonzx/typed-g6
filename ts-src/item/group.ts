@@ -3,8 +3,8 @@
  * @author huangtonger@aliyun.com
  */
 
-import Util from '../util/';
-import Node from './node';
+import Util = require('../util/');
+import Node = require('./node');
 
 class Group extends Node {
   // type: 'group';
@@ -16,8 +16,8 @@ class Group extends Node {
       isGroup: true,
       zIndex: 1
     };
-    const defaultCfg1 = Util.mix(defaultCfg, cfg);
-    super(defaultCfg1);
+    Util.mix(defaultCfg, cfg);
+    super(defaultCfg);
   }
   _beforeDraw() {
     this.deepEach((child, parent) => {
