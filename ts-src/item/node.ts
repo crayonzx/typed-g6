@@ -163,12 +163,5 @@ class Node extends Item {
     }
     return this._anchorPoints;
   }
-
-  getAllAnchors(): GShape[] {
-    return this.anchorShapes.filter((s) => s.isAnchor);
-  }
-  getAnchor(index: number): GShape | undefined {
-    return this.anchorShapes.find((s) => s.index === index);
-  }
 }
 export = Node;
