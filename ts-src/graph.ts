@@ -27,7 +27,7 @@ const TAB_INDEX = 20;
 
 import { Common } from './common';
 import { Model } from './model';
-export interface Config {
+interface Config {
   /** 需传入 dom 容器或者容器id {domObject || string} [必选] */
   container?: string | object;
   /** 画布宽，单位像素 {number} [可选] 不设置则自适应父容器宽 */
@@ -567,7 +567,7 @@ class Graph extends Base {
   /**
    * @param {string} type item type
    * @param {object} model data model
-   * @return {Graph} this
+   * @return {Item} target item
    */
   add(type, model) {
     const affectedItemIds = [];
@@ -926,4 +926,4 @@ class Graph extends Base {
 Mixins.forEach(Mixin => {
   Util.mix(Graph.prototype, Mixin.AUGMENT);
 });
-export default Graph;
+export = Graph;
