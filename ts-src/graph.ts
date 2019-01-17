@@ -923,6 +923,18 @@ class Graph extends Base {
     return graph2Canvas.toCanvas();
   }
 }
+type MixinAllTypes =
+  typeof FilterMixin.AUGMENT &
+  typeof MappingMixin.AUGMENT &
+  typeof QueryMixin.AUGMENT &
+  typeof LayoutMixin.AUGMENT &
+  typeof AnimateMixin.AUGMENT &
+  typeof DrawMixin.AUGMENT &
+  typeof ForceFit.AUGMENT &
+  typeof FitView.AUGMENT &
+  typeof EventMixin.AUGMENT &
+  typeof ModeMixin.AUGMENT;
+interface Graph extends MixinAllTypes { }
 Mixins.forEach(Mixin => {
   Util.mix(Graph.prototype, Mixin.AUGMENT);
 });
