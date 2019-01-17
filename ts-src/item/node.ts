@@ -10,7 +10,8 @@ import Util from '../util';
 import Item from './item';
 import Edge from './edge';
 
-class Node extends Item<Common.NodeType> {
+class Node extends Item {
+  type: 'node';
   anchorShapes: GShape[];
 
   constructor(cfg) {

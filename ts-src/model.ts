@@ -70,18 +70,4 @@ export namespace Model {
   export interface Group extends Node {}
 
   export interface Guide extends Base {}
-
-  export type Model = Node | Edge | Group | Guide;
-
-  export type Map<
-      T extends Common.ItemType = 'node'
-  > = T extends Common.NodeType
-      ? Node
-      : (T extends Common.EdgeType
-            ? Edge
-            : (T extends Common.GroupType
-                  ? Group
-                  : (T extends Common.GuideType ? Guide : never)));
 }
-
-export type Model = Model.Node | Model.Edge | Model.Group | Model.Guide;

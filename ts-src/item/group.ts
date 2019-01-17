@@ -7,6 +7,8 @@ import Util from '../util/';
 import Node from './node';
 
 class Group extends Node {
+  // type: 'group';
+
   constructor(cfg) {
     const defaultCfg = {
       type: 'group',

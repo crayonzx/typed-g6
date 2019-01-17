@@ -3,11 +3,12 @@
  * @author huangtonger@aliyun.com
  */
 
-import { Common } from '../common';
 import Util from '../util/';
 import Item from './item';
 
-class Guide extends Item<Common.GuideType> {
+class Guide extends Item {
+  type: 'guide';
+
   constructor(cfg) {
     const defaultCfg = {
       type: 'guide',

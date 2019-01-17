@@ -1,20 +1,6 @@
 export namespace Common {
   export type ID = string;
 
-  export type NodeType = 'node';
-  export type EdgeType = 'edge';
-  export type GroupType = 'group';
-  export type GuideType = 'guide';
-  export type ItemType = NodeType | EdgeType | GroupType | GuideType;
-
-  // export type WhichType<T extends ItemType> = T extends NodeType
-  //     ? NodeType
-  //     : T extends EdgeType
-  //         ? EdgeType
-  //         : T extends GroupType
-  //             ? GroupType
-  //             : T extends GuideType ? GuideType : never;
-
   export type Color = string;
 
   export interface Style {

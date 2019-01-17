@@ -25,11 +25,11 @@ function getCollapsedParent(node, dataMap) {
   }
 }
 
-class Item<T extends Common.ItemType> {
-  type: T;
+class Item {
+  type: string;
   id: Common.ID;
 
-  model: Model.Map<T>;
+  model: Model.Base;
   group: any;
 
   isSelected: boolean;

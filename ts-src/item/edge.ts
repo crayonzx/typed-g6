@@ -7,7 +7,9 @@ import Util from '../util';
 import Item from './item';
 import Node from './node';
 
-class Edge extends Item<Common.EdgeType> {
+class Edge extends Item {
+  type: 'edge';
+
   constructor(cfg) {
     const defaultCfg = {
       type: 'edge',
