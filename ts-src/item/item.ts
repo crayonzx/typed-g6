@@ -2,10 +2,10 @@
  * @fileOverview item
  * @author huangtonger@aliyun.com
  */
-import G from '@antv/g/lib';
+import GShape from '@antv/g/lib/core/shape';
+import GGroup from '@antv/g/lib/core/group';
 import { Common } from '../common';
 import { Model } from '../model';
-type GShape = typeof G.Shape;
 
 import Util = require('../util/');
 function getCollapsedParent(node, dataMap) {
@@ -29,7 +29,7 @@ class Item {
   id: Common.ID;
 
   model: Model.Base;
-  group: any;
+  group: GGroup;
 
   isSelected: boolean;
   destroyed: boolean;
@@ -272,8 +272,7 @@ class Item {
   getKeyShape(): GShape {
     return this.keyShape;
   }
-  // Todo: fix type of graphic group
-  getGraphicGroup(): any {
+  getGraphicGroup() {
     return this.group;
   }
   getHierarchy() {

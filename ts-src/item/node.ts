@@ -2,10 +2,9 @@
  * @fileOverview node item
  * @author huangtonger@aliyun.com
  */
-import G from '@antv/g/lib';
+import GShape from '@antv/g/lib/core/shape';
 import { Common } from '../common';
 import Edge from './edge';
-type GShape = typeof G.Shape;
 
 import Util = require('../util/');
 import Item = require('./item');

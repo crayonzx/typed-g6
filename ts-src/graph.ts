@@ -25,6 +25,7 @@ import ForceFit = require('./mixin/force-fit');
 const Mixins = [ FilterMixin, MappingMixin, QueryMixin, LayoutMixin, AnimateMixin, DrawMixin, ForceFit, FitView, EventMixin, ModeMixin ];
 const TAB_INDEX = 20;
 
+import GGroup from '@antv/g/lib/core/group';
 import { Common } from './common';
 import { Model } from './model';
 interface Config {
@@ -462,13 +463,13 @@ class Graph extends Base {
   /**
    * @return {G.Group} rootGroup
    */
-  getRootGroup() {
+  getRootGroup(): GGroup {
     return this.get('_rootGroup');
   }
   /**
    * @return {G.Group} itemGroup
    */
-  getItemGroup() {
+  getItemGroup(): GGroup {
     return this.get('_itemGroup');
   }
   /**

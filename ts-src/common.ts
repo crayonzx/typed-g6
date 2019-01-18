@@ -5,34 +5,9 @@ export namespace Common {
 
   export type Color = string;
 
-  export interface Style extends Partial<G.Style> {
-    // /** 填充颜色 */
-    // fill?: Common.Color;
-    // /** 描边颜色 */
-    // stroke?: Common.Color;
-    // /** 线条(描边)样式 */
-    // lineDash?: number | number[];
-  }
-
+  export interface Style extends Partial<G.Style> {}
+  export interface TextStyle extends Partial<G.TextStyle> {}
   export interface BBox extends G.BBox {}
-
-  // export type NodeShape =
-  //   | 'circle'
-  //   | 'rect'
-  //   | 'path'
-  //   | 'line'
-  //   | 'polyline'
-  //   | 'image'
-  //   | 'text'
-  //   | 'marker'
-  //   | 'fan'
-  //   | 'arc'
-  //   | 'ellipse'
-  //   | 'cubic'
-  //   | 'quadratic';
-  // export type EdgeShape = 'line';
-  // export type Shape = NodeShape | EdgeShape | 'image' | 'text';
-  // export type Shape = G.ShapeType;
 
   export interface Point {
     x: number;
