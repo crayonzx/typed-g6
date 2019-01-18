@@ -25,43 +25,6 @@ import ForceFit = require('./mixin/force-fit');
 const Mixins = [ FilterMixin, MappingMixin, QueryMixin, LayoutMixin, AnimateMixin, DrawMixin, ForceFit, FitView, EventMixin, ModeMixin ];
 const TAB_INDEX = 20;
 
-import GGroup from '@antv/g/lib/core/group';
-import { Common } from './common';
-import { Model } from './model';
-interface Config {
-  /** 需传入 dom 容器或者容器id {domObject || string} [必选] */
-  container?: string | object;
-  /** 画布宽，单位像素 {number} [可选] 不设置则自适应父容器宽 */
-  width?: number;
-  /** 画布宽，单位像素 {number} [可选] 不设置则自适应父容器高 */
-  height?: number;
-  /** 初始化视口区域 {string} [可选] */
-  fitView?: Common.FitView;
-  /** 视口适应画布边距 {number || array} [可选] */
-  fitViewPadding?: number | number[];
-  /** 最小缩放倍率 {number} [可选] */
-  minZoom?: number;
-  /** 最大缩放倍率 {number} [可选] */
-  maxZoom?: number;
-  /** 模式集 {object} [可选] */
-  modes?: {
-    [mode: string]: string[];
-  };
-  /** 当前模式 {string} 默认： default  */
-  mode?: string;
-  /** 插件集 {array}  */
-  plugins?: string[];
-  /** 布局参数 {object|function|object} */
-  // layout?: any;
-
-  fontFamily: string;
-  nodeDefaultShape?: string;
-  edgeDefaultShape?: string;
-  groupDefaultShape?: string;
-  defaultIntersectBox? :string;
-  // renderer: 'canvas' | 'svg';
-}
-
 class Graph extends Base {
   /**
    * Access to the default configuration properties
@@ -73,27 +36,27 @@ class Graph extends Base {
        * Container could be dom object or dom id
        * @type {object|string|undefined}
        */
-      container: undefined,
+      container: undefined as unknown as string | object,
 
       /**
        * Canvas width
        * @type {number|undefined}
        * unit pixel if undefined force fit width
        */
-      width: undefined,
+      width: undefined as unknown as number,
 
       /**
        * Canvas height
        * @type {number|undefined}
        * unit pixel if undefined force fit height
        */
-      height: undefined,
+      height: undefined as unknown as number,
 
       /**
        * Plugins
        * @type {array}
        */
-      plugins: [],
+      plugins: [] as string[],
 
       /**
        * FontFamily
@@ -105,19 +68,19 @@ class Graph extends Base {
        * default node shape
        * @type {string|undefined}
        */
-      nodeDefaultShape: undefined,
+      nodeDefaultShape: undefined as unknown as string,
 
       /**
        * default edge shape
        * @type {string|undefined}
        */
-      edgeDefaultShape: undefined,
+      edgeDefaultShape: undefined as unknown as string,
 
       /**
        * default group shape
        * @type {string|undefined}
        */
-      groupDefaultShape: undefined,
+      groupDefaultShape: undefined as unknown as string,
 
       /**
        * default edge node intersect box
@@ -129,7 +92,7 @@ class Graph extends Base {
        * renderer canvas or svg
        * @type {string}
        */
-      renderer: 'canvas',
+      renderer: 'canvas' as 'canvas' | 'svg',
 
       _type: 'graph',
       _controllers: {},
@@ -923,19 +886,22 @@ class Graph extends Base {
     return graph2Canvas.toCanvas();
   }
 }
-type MixinAllTypes =
-  typeof FilterMixin.AUGMENT &
-  typeof MappingMixin.AUGMENT &
-  typeof QueryMixin.AUGMENT &
-  typeof LayoutMixin.AUGMENT &
-  typeof AnimateMixin.AUGMENT &
-  typeof DrawMixin.AUGMENT &
-  typeof ForceFit.AUGMENT &
-  typeof FitView.AUGMENT &
-  typeof EventMixin.AUGMENT &
-  typeof ModeMixin.AUGMENT;
-interface Graph extends MixinAllTypes { }
 Mixins.forEach(Mixin => {
   Util.mix(Graph.prototype, Mixin.AUGMENT);
 });
 export = Graph;
+
+import GGroup from '@antv/g/lib/core/group';
+import '../types';
+import { Common } from './common';
+import { Model } from './model';
+import Shape_ from '@antv/g/lib/core/shape';  // Fix 'Shape' but cannot be named
+
+type MixedAugmentType = MixArray<typeof Mixins, 'AUGMENT'>;
+interface Graph extends MixedAugmentType {
+}
+
+type MixedCfgType = MixArray<typeof Mixins, 'CFG'>;
+type DefaultCfgType = ReturnType<Graph['getDefaultCfg']>;
+interface Config extends Partial<MixedCfgType & DefaultCfgType> {
+}

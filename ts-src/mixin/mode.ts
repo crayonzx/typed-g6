@@ -12,7 +12,7 @@ Mixin.CFG = {
     */
   modes: {
     default: []
-  },
+  } as { [mode: string]: string[] },
 
   /**
     * current mode name

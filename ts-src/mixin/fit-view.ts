@@ -15,12 +15,12 @@ Mixin.CFG = {
    * @type {string|undefined}
    * could be 'tl', 'lc', 'bl', 'cc', 'tc', 'tr', 'rc', 'br', 'bc', 'autoZoom'
    */
-  fitView: undefined,
+  fitView: undefined as unknown as Common.FitView,
   /**
    * Fit view padding (client scale)
    * @type {number|array}
    */
-  fitViewPadding: 10,
+  fitViewPadding: 10 as number | number[],
   /**
    * Minimum scale size
    * @type {number}

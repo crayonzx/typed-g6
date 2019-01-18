@@ -46,6 +46,20 @@ declare global {
     U5 = undefined,
     U6 = undefined
   > = _Overwrite6<T, U1, U2, U3, U4, U5, U6>;
+
+  /** 联合类型转为交叉类型 */
+  type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends ((
+    k: infer I
+  ) => void)
+    ? I
+    : never;
+
+  /** 混合数组中每个元素的类型或者每个元素的某个属性的类型 */
+  type MixArray<T extends any[], K extends string = 'undefined'> = T extends Array<infer U>
+    ? UnionToIntersection<
+        K extends 'undefined' ? U : (U extends {} ? (K extends keyof U ? U[K] : {}) : never)
+      >
+    : never;
 }
 
 export {};

@@ -11,7 +11,7 @@ Mixin.CFG = {
    * Layout cfg
    * @type {object|function|undefined}
    */
-  layout: undefined
+  layout: undefined as unknown as object | Function
 };
 Mixin.INIT = '_initLayout';
 Mixin.AUGMENT = {
