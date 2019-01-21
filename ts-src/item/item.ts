@@ -340,3 +340,18 @@ class Item {
 }
 
 export = Item;
+
+// error TS4053: Return type of public method from exported class has or is using name 'XXX' from external module
+import arc from '@antv/g/lib/shapes/arc';
+import circle from '@antv/g/lib/shapes/circle';
+import dom from '@antv/g/lib/shapes/dom';
+import ellipse from '@antv/g/lib/shapes/ellipse';
+import fan from '@antv/g/lib/shapes/fan';
+import image from '@antv/g/lib/shapes/image';
+import line from '@antv/g/lib/shapes/line';
+import marker from '@antv/g/lib/shapes/marker';
+import path from '@antv/g/lib/shapes/path';
+import polygon from '@antv/g/lib/shapes/polygon';
+import polyline from '@antv/g/lib/shapes/polyline';
+import rect from '@antv/g/lib/shapes/rect';
+import text from '@antv/g/lib/shapes/text';
