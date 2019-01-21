@@ -9,7 +9,7 @@ import _Shape from './shape';
 
 interface Node {
   /** 绘制, 返回的图形既是该图项的 keyShape -- 关键形 */
-  draw?(item: Item.Node): InstanceType<GShape.Shape>;
+  draw?(item: Item.Node): GShape.Shape;
   /** 获取锚点 */
   anchor?: Common.Points;
   /** 默认样式 */
@@ -20,7 +20,7 @@ interface Node {
 
 interface Edge {
   /** 绘制, 返回的图形既是该图项的 keyShape -- 关键形 */
-  draw?(item: Item.Edge): InstanceType<GShape.Shape>;
+  draw?(item: Item.Edge): GShape.Shape<'path'>;
   /* 获取路径 */
   getPath?(item: Item.Edge): Common.SVGPath;
   /* 起始箭头 */
@@ -43,16 +43,16 @@ interface Edge {
   };
 
   /** 默认样式 */
-  getStyle?(item: Item.Edge): GShape.AttrsMap['path'];
+  getStyle?(item: Item.Edge): GShape.Attrs<'path'>;
   /** 选中样式 */
-  getSelectedStyle?(item: Item.Edge): GShape.AttrsMap['path'];
+  getSelectedStyle?(item: Item.Edge): GShape.Attrs<'path'>;
 
   afterDraw?(item: Item.Edge): void;
 }
 
 interface Group {
   /** 绘制, 返回的图形既是该图项的 keyShape -- 关键形 */
-  draw?(item: Item.Group): InstanceType<GShape.Shape>;
+  draw?(item: Item.Group): GShape.Shape;
   /** 获取锚点 */
   anchor?: Common.Points;
 }

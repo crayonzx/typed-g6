@@ -3,7 +3,6 @@
  * @author huangtonger@aliyun.com
  */
 
-import Shape from '@antv/g/lib/core/shape';
 import { Common } from '../common';
 import Item from '../item';
 
@@ -66,7 +65,7 @@ Mixin.AUGMENT = {
    * @param  {G.Shape} shape - the shape from g
    * @return {string}  item.id - id of the item
    */
-  getItemByShape(shape: Shape): Item.Base {
+  getItemByShape(shape): Item.Base {
     if (!shape) return null;
     return this.getItem(shape.id);
   },
@@ -87,4 +86,5 @@ Mixin.AUGMENT = {
     return item;
   }
 };
+
 export = Mixin as ExcludeFunctionType<typeof Mixin>;

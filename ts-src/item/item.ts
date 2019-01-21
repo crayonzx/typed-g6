@@ -2,7 +2,7 @@
  * @fileOverview item
  * @author huangtonger@aliyun.com
  */
-import GShape from '@antv/g/lib/core/shape';
+import GShape from '@antv/g/lib/shapes';
 import GGroup from '@antv/g/lib/core/group';
 import { Common } from '../common';
 import { Model } from '../model';
@@ -34,7 +34,7 @@ class Item {
   isSelected: boolean;
   destroyed: boolean;
 
-  keyShape: GShape;
+  keyShape: GShape.Shape;
 
   constructor(cfg) {
     const defaultCfg = {
@@ -269,7 +269,7 @@ class Item {
   getModel(): Model.Base {
     return this.model;
   }
-  getKeyShape(): GShape {
+  getKeyShape() {
     return this.keyShape;
   }
   getGraphicGroup() {
