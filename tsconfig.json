@@ -20,7 +20,7 @@
     "plugins": [
       {
         "name": "typescript-tslint-plugin",
-        "configFile": "../../tslint.json"
+        "configFile": "./tslint.json"
       }
     ]
   }
