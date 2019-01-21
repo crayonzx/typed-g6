@@ -5,9 +5,17 @@ export namespace Common {
 
   export type Color = string;
 
-  export interface Style extends Partial<G.Style> {}
-  export interface TextStyle extends Partial<G.TextStyle> {}
-  export interface BBox extends G.BBox {}
+  export type Style = G.Style;
+  export interface BBox {
+    centerX?: number;
+    centerY?: number;
+    height: number;
+    maxX: number;
+    maxY: number;
+    minX: number;
+    minY: number;
+    width: number;
+  }
 
   export interface Point {
     x: number;
