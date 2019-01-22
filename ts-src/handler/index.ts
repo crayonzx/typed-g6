@@ -2,9 +2,10 @@
  * @fileOverview Handler
  * @author wuyue.lwy <wyueliu@gmail.com>
  */
+import Graph from '../graph';
 
 const Handler = {
-  registerBehaviour(name:string, fun, dependences:string[]) {
+  registerBehaviour(name: string, fun: (graph: Graph) => void, dependences?: string[]) {
     fun.dependences = dependences;
     Handler[name] = fun;
   },
