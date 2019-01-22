@@ -19,11 +19,11 @@ class Base extends EventEmitter {
     this._cfg = Util.mix({}, defaultCfg, cfg);
   }
 
-  get(name) {
+  get<T extends { _cfg: any }, K extends keyof T['_cfg']>(this: T, name: K): T['_cfg'][K] {
     return this._cfg[name];
   }
 
-  set(name, value) {
+  set<T extends { _cfg: any }, K extends keyof T['_cfg']>(this: T, name: K, value: T['_cfg'][K]) {
     this._cfg[name] = value;
   }
 

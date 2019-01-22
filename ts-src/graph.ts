@@ -25,8 +25,6 @@ import ForceFit = require('./mixin/force-fit');
 const Mixins = [ FilterMixin, MappingMixin, QueryMixin, LayoutMixin, AnimateMixin, DrawMixin, ForceFit, FitView, EventMixin, ModeMixin ];
 const TAB_INDEX = 20;
 
-import GCanvas from '@antv/g/lib/canvas';
-
 class Graph extends Base {
   /**
    * Access to the default configuration properties
@@ -422,19 +420,19 @@ class Graph extends Base {
   /**
    * @return {G.Canvas} canvas
    */
-  getCanvas(): GCanvas {
+  getCanvas() {
     return this.get('_canvas');
   }
   /**
    * @return {G.Group} rootGroup
    */
-  getRootGroup(): GGroup {
+  getRootGroup() {
     return this.get('_rootGroup');
   }
   /**
    * @return {G.Group} itemGroup
    */
-  getItemGroup(): GGroup {
+  getItemGroup() {
     return this.get('_itemGroup');
   }
   /**
@@ -893,6 +891,7 @@ Mixins.forEach(Mixin => {
 });
 export = Graph;
 
+import Canvas from '@antv/g/lib/canvas';
 import GGroup from '@antv/g/lib/core/group';
 import '../types';
 import { Common } from './common';
@@ -901,6 +900,12 @@ import Shape_ from '@antv/g/lib/core/shape';  // Fix 'Shape' but cannot be named
 
 type MixedAugmentType = MixArray<typeof Mixins, 'AUGMENT'>;
 interface Graph extends MixedAugmentType {
+  _cfg: Required<Config> & {
+    _canvas: Canvas;
+    _rootGroup: GGroup;
+    _itemGroup: GGroup;
+    _sourceData: Model.Data;
+  };
 }
 
 type MixedCfgType = MixArray<typeof Mixins, 'CFG'>;
