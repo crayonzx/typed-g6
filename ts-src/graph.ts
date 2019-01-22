@@ -25,6 +25,8 @@ import ForceFit = require('./mixin/force-fit');
 const Mixins = [ FilterMixin, MappingMixin, QueryMixin, LayoutMixin, AnimateMixin, DrawMixin, ForceFit, FitView, EventMixin, ModeMixin ];
 const TAB_INDEX = 20;
 
+import GCanvas from '@antv/g/lib/canvas';
+
 class Graph extends Base {
   /**
    * Access to the default configuration properties
@@ -420,7 +422,7 @@ class Graph extends Base {
   /**
    * @return {G.Canvas} canvas
    */
-  getCanvas() {
+  getCanvas(): GCanvas {
     return this.get('_canvas');
   }
   /**
