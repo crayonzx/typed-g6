@@ -7,6 +7,7 @@
 import Util = require('./util/');
 import EventEmitter = require('wolfy87-eventemitter');
 
+// @ts-ignore
 class Base extends EventEmitter {
 
   getDefaultCfg() {
@@ -35,3 +36,24 @@ class Base extends EventEmitter {
 }
 
 export = Base;
+
+import Event from './event';
+
+namespace Base {
+  export type Events<E extends string, T extends any[]> = Event.Events<E, T>;
+  export type EventHandler<T extends any[]> = Event.EventHandler<T>;
+}
+
+// @ts-ignore
+interface Base {
+  addListener: Event['addListener'];
+  addListeners: Event['addListeners'];
+  emit: Event['emit'];
+  removeListener: Event['removeListener'];
+  on: Event['on'];
+  off: Event['off'];
+  addOnceListener: Event['addOnceListener'];
+  once: Event['once'];
+  removeListeners: Event['removeListeners'];
+  trigger: Event['trigger'];
+}
