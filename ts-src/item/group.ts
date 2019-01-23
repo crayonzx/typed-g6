@@ -3,11 +3,14 @@
  * @author huangtonger@aliyun.com
  */
 
+import { Model } from '../model';
+
 import Util = require('../util/');
 import Node = require('./node');
 
 class Group extends Node {
   // type: 'group';
+  model: Model.Group;
 
   constructor(cfg) {
     const defaultCfg = {

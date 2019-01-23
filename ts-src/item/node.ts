@@ -4,6 +4,7 @@
  */
 import GShape from '@antv/g/lib/shapes';
 import { Common } from '../common';
+import { Model } from '../model';
 import Edge from './edge';
 
 import Util = require('../util/');
@@ -12,6 +13,7 @@ import Item = require('./item');
 class Node extends Item {
   type: 'node';
   anchorShapes: GShape.Shape[];
+  model: Model.Node;
 
   constructor(cfg) {
     const defaultCfg = {

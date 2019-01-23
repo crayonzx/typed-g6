@@ -3,6 +3,7 @@
  * @author huangtonger@aliyun.com
  */
 import { Common } from '../common';
+import { Model } from '../model';
 import Node from './node';
 
 import Util = require('../util');
@@ -10,6 +11,7 @@ import Item = require('./item');
 
 class Edge extends Item {
   type: 'edge';
+  model: Model.Edge;
 
   constructor(cfg) {
     const defaultCfg = {

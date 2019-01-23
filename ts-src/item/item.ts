@@ -266,7 +266,7 @@ class Item {
   update() {
     this.draw();
   }
-  getModel(): Model.Base {
+  getModel<T extends { model: {} }>(this: T): T['model'] {
     return this.model;
   }
   getKeyShape() {
