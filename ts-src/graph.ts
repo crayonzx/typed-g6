@@ -893,12 +893,11 @@ export = Graph;
 
 import Canvas from '@antv/g/lib/canvas';
 import GGroup from '@antv/g/lib/core/group';
-import '../types';
 import { Common } from './common';
 import { Model } from './model';
 import Shape_ from '@antv/g/lib/core/shape';  // Fix 'Shape' but cannot be named
 
-type MixedAugmentType = MixArray<typeof Mixins, 'AUGMENT'>;
+type MixedAugmentType = GUtil.MixArray<typeof Mixins, 'AUGMENT'>;
 interface Graph extends MixedAugmentType {
   _cfg: Required<Config> & {
     _canvas: Canvas;
@@ -908,7 +907,7 @@ interface Graph extends MixedAugmentType {
   };
 }
 
-type MixedCfgType = MixArray<typeof Mixins, 'CFG'>;
+type MixedCfgType = GUtil.MixArray<typeof Mixins, 'CFG'>;
 type DefaultCfgType = ReturnType<Graph['getDefaultCfg']>;
 interface Config extends Partial<MixedCfgType & DefaultCfgType> {
 }

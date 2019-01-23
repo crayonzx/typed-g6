@@ -94,4 +94,4 @@ Mixin.AUGMENT = {
   }
 };
 
-export = Mixin as ExcludeFunctionType<typeof Mixin>;
+export = Mixin as GUtil.ExcludeFunctionType<typeof Mixin>;

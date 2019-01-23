@@ -164,6 +164,6 @@ BaseUtil.Array = {
   }
 };
 
-export = BaseUtil as Overwrite<typeof BaseUtil, {
+export = BaseUtil as GUtil.Overwrite<typeof BaseUtil, {
   mix: Interfaces.Mix
 }>;

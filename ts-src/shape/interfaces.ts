@@ -88,7 +88,7 @@ export type Shape = {
   };
 };
 
-export type ShapeManager<T = {}> = Overwrite<
+export type ShapeManager<T = {}> = GUtil.Overwrite<
   {
     defaultShapeType?: string | undefined | null;
     getShape(type: string, inputDefaultShape?: string): any;

@@ -9,7 +9,7 @@ namespace Interfaces {
       src4?: U4,
       src5?: U5,
       src6?: U6
-    ): Overwrite<T, U1, U2, U3, U4, U5, U6>;
+    ): GUtil.Overwrite<T, U1, U2, U3, U4, U5, U6>;
     <T, U1, U2, U3, U4, U5, U6>(
       dst: T,
       src1: U1,
@@ -18,7 +18,7 @@ namespace Interfaces {
       src4?: U4,
       src5?: U5,
       src6?: U6
-    ): Overwrite<T, U1, U2, U3, U4, U5, U6>;
+    ): GUtil.Overwrite<T, U1, U2, U3, U4, U5, U6>;
   }
 }
 

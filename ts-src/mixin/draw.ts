@@ -48,4 +48,4 @@ Mixin.AUGMENT = {
     animateController.run();
   }
 };
-export = Mixin as ExcludeFunctionType<typeof Mixin>;
+export = Mixin as GUtil.ExcludeFunctionType<typeof Mixin>;
