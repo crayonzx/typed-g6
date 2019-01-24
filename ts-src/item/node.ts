@@ -3,7 +3,6 @@
  * @author huangtonger@aliyun.com
  */
 import GShape from '@antv/g/lib/shapes';
-import { Common } from '../common';
 import { Model } from '../model';
 import Edge from './edge';
 
@@ -132,7 +131,7 @@ class Node extends Item {
    * @param {number} index the index of points
    * @return {array} anchorPoints
    */
-  getAnchorPoints(index?: number): Common.Points[] {
+  getAnchorPoints(index?: number): Common.Point[] {
     const shapeObj = this.shapeObj;
     const bbox = this.getBBox();
     const anchorPoints = [];

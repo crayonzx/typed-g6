@@ -2,7 +2,6 @@
  * @fileOverview edge item
  * @author huangtonger@aliyun.com
  */
-import { Common } from '../common';
 import { Model } from '../model';
 import Node from './node';
 

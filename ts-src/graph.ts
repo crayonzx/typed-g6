@@ -893,7 +893,6 @@ export = Graph;
 
 import Canvas from '@antv/g/lib/canvas';
 import GGroup from '@antv/g/lib/core/group';
-import { Common } from './common';
 import { Model } from './model';
 import Shape_ from '@antv/g/lib/core/shape';  // Fix 'Shape' but cannot be named
 

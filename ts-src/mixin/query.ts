@@ -2,8 +2,6 @@
  * @fileOverview graph query
  * @author huangtonger@aliyun.com
  */
-
-import { Common } from '../common';
 import Item from '../item';
 
 import Util = require('../util/');
