@@ -1,26 +1,23 @@
 import G from '@antv/g/lib';
-import GShape from '@antv/g/lib/shapes';
 
-import '../../types';
-import { Common } from '../common';
 import Item from '../item';
 
 import _Shape from './shape';
 
 interface Node {
   /** 绘制, 返回的图形既是该图项的 keyShape -- 关键形 */
-  draw?(item: Item.Node): GShape.Shape;
+  draw?(item: Item.Node): G.Shapes.Base;
   /** 获取锚点 */
   anchor?: Common.Points;
   /** 默认样式 */
-  getStyle?(item: Item.Node): G.Style;
+  getStyle?(item: Item.Node): Common.Style;
   /** 选中样式 */
-  getSelectedStyle?(item: Item.Node): G.Style;
+  getSelectedStyle?(item: Item.Node): Common.Style;
 }
 
 interface Edge {
   /** 绘制, 返回的图形既是该图项的 keyShape -- 关键形 */
-  draw?(item: Item.Edge): GShape.Shape<'path'>;
+  draw?(item: Item.Edge): G.Shapes.Shape<'path'>;
   /* 获取路径 */
   getPath?(item: Item.Edge): Common.SVGPath;
   /* 起始箭头 */
@@ -30,7 +27,7 @@ interface Edge {
     /* 线缩短偏移 */
     shorten?(item: Item.Edge): number;
     /* 样式 */
-    style?(item: Item.Edge): G.Style;
+    style?(item: Item.Edge): Common.Style;
   };
   /* 结束箭头 */
   endArrow?: {
@@ -39,20 +36,20 @@ interface Edge {
     /* 线缩短偏移 */
     shorten?(item: Item.Edge): number;
     /* 样式 */
-    style?(item: Item.Edge): G.Style;
+    style?(item: Item.Edge): Common.Style;
   };
 
   /** 默认样式 */
-  getStyle?(item: Item.Edge): GShape.Attrs<'path'>;
+  getStyle?(item: Item.Edge): G.Shapes.Attrs<'path'>;
   /** 选中样式 */
-  getSelectedStyle?(item: Item.Edge): GShape.Attrs<'path'>;
+  getSelectedStyle?(item: Item.Edge): G.Shapes.Attrs<'path'>;
 
   afterDraw?(item: Item.Edge): void;
 }
 
 interface Group {
   /** 绘制, 返回的图形既是该图项的 keyShape -- 关键形 */
-  draw?(item: Item.Group): GShape.Shape;
+  draw?(item: Item.Group): G.Shapes.Base;
   /** 获取锚点 */
   anchor?: Common.Points;
 }

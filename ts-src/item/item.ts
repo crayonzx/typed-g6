@@ -2,8 +2,8 @@
  * @fileOverview item
  * @author huangtonger@aliyun.com
  */
-import GShape from '@antv/g/lib/shapes';
-import GGroup from '@antv/g/lib/core/group';
+import G from '@antv/g/lib';
+import GShape from '@antv/g/lib/core/shape'; // Fix: 'Shape' can't be rename
 import { Model } from '../model';
 
 import Util = require('../util/');
@@ -33,7 +33,7 @@ class Item {
   isSelected: boolean;
   destroyed: boolean;
 
-  keyShape: GShape.Base;
+  keyShape: G.Shapes.Base;
 
   constructor(cfg) {
     const defaultCfg = {
@@ -263,6 +263,8 @@ class Item {
     minY: number;
     height: number;
     width: number;
+    centerX: number;
+    centerY: number;
   } {
     return this.bbox || this._calculateBBox();
   }
@@ -348,7 +350,7 @@ class Item {
 export = Item;
 
 namespace Item {
-  export interface GraphicGroup extends GGroup {
+  export interface GraphicGroup extends G.Group {
     item: Item;
   }
 }

@@ -892,16 +892,14 @@ Mixins.forEach(Mixin => {
 export = Graph;
 
 import Canvas from '@antv/g/lib/canvas';
-import GGroup from '@antv/g/lib/core/group';
 import { Model } from './model';
-import Shape_ from '@antv/g/lib/core/shape';  // Fix 'Shape' but cannot be named
 
 type MixedAugmentType = GUtil.MixArray<typeof Mixins, 'AUGMENT'>;
 interface Graph extends MixedAugmentType {
   _cfg: Required<Config> & {
     _canvas: Canvas;
-    _rootGroup: GGroup;
-    _itemGroup: GGroup;
+    _rootGroup: G.Group;
+    _itemGroup: G.Group;
     _sourceData: Model.Data;
   };
 }
