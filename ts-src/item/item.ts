@@ -3,7 +3,7 @@
  * @author huangtonger@aliyun.com
  */
 import G from '@antv/g/lib';
-import GShape from '@antv/g/lib/core/shape'; // Fix: 'Shape' can't be rename
+import G6 from '..';
 import { Model } from '../model';
 
 import Util = require('../util/');
@@ -33,7 +33,8 @@ class Item {
   isSelected: boolean;
   destroyed: boolean;
 
-  keyShape: G.Shapes.Base;
+  // keyShape: G.Shapes.Base;
+  keyShape: G6.GShape.Base;
 
   constructor(cfg) {
     const defaultCfg = {

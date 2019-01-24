@@ -3,7 +3,6 @@
  * @author huangtonger@aliyun.com
  */
 
-import { Common } from '../common';
 import Item from '../item';
 
 import Util = require('../util/');
@@ -15,7 +14,7 @@ Mixin.CFG = {
    * @type {string|undefined}
    * could be 'tl', 'lc', 'bl', 'cc', 'tc', 'tr', 'rc', 'br', 'bc', 'autoZoom'
    */
-  fitView: undefined as unknown as Common.FitView,
+  fitView: undefined as any as 'tl' | 'lc' | 'bl' | 'cc' | 'tc' | 'tr' | 'rc' | 'br' | 'bc' | 'autoZoom',
   /**
    * Fit view padding (client scale)
    * @type {number|array}

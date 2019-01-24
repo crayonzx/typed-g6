@@ -1,5 +1,3 @@
-import { Common } from './common';
-
 export namespace Model {
   export interface Data {
       nodes?: Node[];
@@ -27,7 +25,7 @@ export namespace Model {
       /** 关键形样式（优先级高于color） */
       style?: Common.Style;
       /** 文本标签 || 文本图形配置 */
-      label?: Common.Label;
+      label?: string;
       /** 所属组 */
       parent?: Common.ID;
       /** 渲染层级 */
@@ -54,7 +52,7 @@ export namespace Model {
       /** 关键形样式（优先级高于color） */
       style: Common.Style;
       /** 文本标签 || 文本图形配置 */
-      label?: Common.Label;
+      label?: string;
       /** 所属组 */
       parent?: Common.ID;
       /** 渲染层级 */
