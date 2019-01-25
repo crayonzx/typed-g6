@@ -73,11 +73,12 @@ namespace G6 {
   }
 
   export namespace GShape {
-    export type Base = G.Shapes.Base & { eventPreFix: string };
+    export type Base = G.Shapes.Base & { eventPreFix?: string; id?: string };
     export type ShapeType = G.Shapes.ShapeType;
     export type Attrs<T extends ShapeType = ShapeType> = G.Shapes.Attrs<T>;
     export type Shape<T extends ShapeType = ShapeType> = G.Shapes.Shape<T> & {
-      eventPreFix: string;
+      eventPreFix?: string;
+      id?: string;
     };
   }
 }
