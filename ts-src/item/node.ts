@@ -3,7 +3,6 @@
  * @author huangtonger@aliyun.com
  */
 import G6 from '..';
-import { Model } from '../model';
 import Edge from './edge';
 
 import Util = require('../util/');
@@ -11,8 +10,8 @@ import Item = require('./item');
 
 class Node extends Item {
   type: 'node';
-  anchorShapes: G6.GShape.Shape[];
-  model: Model.Node;
+  anchorShapes: G6.GShape.Shape<'marker'>[];
+  model: G6.Model.Node;
 
   constructor(cfg) {
     const defaultCfg = {

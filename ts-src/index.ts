@@ -8,77 +8,46 @@ import Global = require('./global');
 import version = require('./version');
 import G = require('@antv/g/lib');
 
-const G6: {
-  Graph: typeof import('./graph');
-  Tree: typeof import('./tree');
-  Util: typeof import('./util/');
-  Layouts: typeof import('./layouts/');
-  G: typeof G;
-  Plugins: typeof import('./plugins');
-  Components: {};
-  Global: typeof Global;
-  Shape: typeof Shape;
-  registerNode: typeof Shape.registerNode;
-  registerEdge: typeof Shape.registerEdge;
-  registerGroup: typeof Shape.registerGroup;
-  registerGuide: typeof Shape.registerGuide;
-  registerBehaviour: typeof Handler.registerBehaviour;
-  version: typeof version;
-  track: (track: any) => void;
-} = {
-  Graph: require('./graph'),
-  Tree: require('./tree'),
-  Util: require('./util/'),
-  Layouts: require('./layouts/'),
-  G,
-  Plugins: {},
-  Components: {},
-  Global,
-  Shape,
-  registerNode: Shape.registerNode,
-  registerEdge: Shape.registerEdge,
-  registerGroup: Shape.registerGroup,
-  registerGuide: Shape.registerGuide,
-  registerBehaviour: Handler.registerBehaviour,
-  version,
-  track(track) {
+namespace G6 {
+  export const Graph: typeof import('./graph') = require('./graph');
+  export const Tree: typeof import('./tree') = require('./tree');
+  export const Util: typeof import('./util/') = require('./util/');
+  export const Layouts: typeof import('./layouts/') = require('./layouts/');
+  export const G: typeof import('./global') = require('./global');
+  export const Plugins: typeof import('./plugins') = require('./plugins');
+  export const Components = {};
+  export const Global: typeof import('./global') = require('./global');
+  export const Shape: typeof import('./shape/') = require('./shape/');
+  export const registerNode: typeof Shape.registerNode = Shape.registerNode;
+  export const registerEdge: typeof Shape.registerEdge = Shape.registerEdge;
+  export const registerGroup: typeof Shape.registerGroup = Shape.registerGroup;
+  export const registerGuide: typeof Shape.registerGuide = Shape.registerGuide;
+  export const registerBehaviour: typeof Handler.registerBehaviour = Handler.registerBehaviour;
+  export const version: typeof import('./version') = require('./version');
+  export function track(track) {
     Global.track = track;
   }
-};
+}
 require('./track');
 
 export = G6;
 
-import Graph_ from './graph';
-import { Model as Model_ } from './model';
-import Item_ from './item';
+import Model_ from './model';
+import Item_ from './item-ns';
 namespace G6 {
-  export type Graph = Graph_;
-
-  export namespace Item {
-    export type Base = Item_.Base;
-    export type Node = Item_.Node;
-    export type Edge = Item_.Edge;
-    export type Group = Item_.Group;
-    export type Guide = Item_.Guide;
-  }
-
-  export namespace Model {
-    export type Base = Model_.Base;
-    export type Node = Model_.Node;
-    export type Edge = Model_.Edge;
-    export type Group = Model_.Group;
-    export type Guide = Model_.Guide;
-    export type Data = Model_.Data;
-  }
-
-  export namespace GShape {
-    export type Base = G.Shapes.Base & { eventPreFix?: string; id?: string };
-    export type ShapeType = G.Shapes.ShapeType;
-    export type Attrs<T extends ShapeType = ShapeType> = G.Shapes.Attrs<T>;
-    export type Shape<T extends ShapeType = ShapeType> = G.Shapes.Shape<T> & {
-      eventPreFix?: string;
-      id?: string;
-    };
-  }
+  export type Graph = import('./graph');
+  export import Item = Item_;
+  export import Model = Model_;
+  export import GShape = G.Shapes;
+  export import Common = G.Common;
 }
+
+/**
+ * This should work but doesn't
+ */
+// declare module '@antv/g/lib/core/shape-ex' {
+//   interface ShapeEx {
+//     eventPreFix?: string;
+//     id?: G.Common.ID;
+//   }
+// }

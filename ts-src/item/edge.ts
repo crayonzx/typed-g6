@@ -2,7 +2,7 @@
  * @fileOverview edge item
  * @author huangtonger@aliyun.com
  */
-import { Model } from '../model';
+import Model from '../model';
 import Node from './node';
 
 import Util = require('../util');

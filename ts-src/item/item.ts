@@ -4,7 +4,6 @@
  */
 import G from '@antv/g/lib';
 import G6 from '..';
-import { Model } from '../model';
 
 import Util = require('../util/');
 function getCollapsedParent(node, dataMap) {
@@ -27,7 +26,7 @@ class Item {
   type: string;
   id: Common.ID;
 
-  model: Model.Base;
+  model: G6.Model.Base;
   group: Item.GraphicGroup;
 
   isSelected: boolean;

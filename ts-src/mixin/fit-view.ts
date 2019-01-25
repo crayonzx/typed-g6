@@ -3,7 +3,7 @@
  * @author huangtonger@aliyun.com
  */
 
-import Item from '../item';
+import Item from '../item-ns';
 
 import Util = require('../util/');
 

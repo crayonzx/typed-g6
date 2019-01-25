@@ -1,4 +1,4 @@
-export namespace Model {
+namespace Model {
   export interface Data {
       nodes?: Node[];
       edges?: Edge[];
@@ -69,3 +69,4 @@ export namespace Model {
 
   export interface Guide extends Base {}
 }
+export default Model;

@@ -532,7 +532,7 @@ class Graph extends Base {
    * @param {object} model data model
    * @return {Item} target item
    */
-  add(type: string, model: Model.Base): Item.Base {
+  add(type: string, model: Model.Base): Item_.Base {
     const affectedItemIds = [];
     const ev = {
       action: 'add',
@@ -555,7 +555,7 @@ class Graph extends Base {
    * @param {string|Item} item - target item
    * @return {Graph} this
    */
-  remove(item: Common.ID | Item.Base) {
+  remove(item: Common.ID | Item_.Base) {
     item = this.getItem(item);
     if (!item || item.destroyed) {
       return;
@@ -600,7 +600,7 @@ class Graph extends Base {
    * @param {object} model data model
    * @return {Graph} this
    */
-  simpleUpdate(item: Item.Base, model: Partial<Model.Base>) {
+  simpleUpdate(item: Item_.Base, model: Partial<Model.Base>) {
     this._updateItems([ item ], [ model ]);
     this.draw();
     return this;
@@ -610,7 +610,7 @@ class Graph extends Base {
    * @param {object} model data model
    * @return {Graph} this
    */
-  update(item: Common.ID | Item.Base, model: Partial<Model.Base>) {
+  update(item: Common.ID | Item_.Base, model: Partial<Model.Base>) {
     const itemMap = this.get('_itemMap');
     item = this.getItem(item);
     if (!item || item.destroyed || !model) {
@@ -725,7 +725,7 @@ class Graph extends Base {
    * @param  {number} item  input item
    * @return {object} this
    */
-  hide(item: Item.Base) {
+  hide(item: Item_.Base) {
     item = this.getItem(item);
     let hideItemCache = [];
     const affectedItemIds = [];
@@ -763,7 +763,7 @@ class Graph extends Base {
    * @param  {number} item  input item
    * @return {object} this
    */
-  show(item: Item.Base) {
+  show(item: Item_.Base) {
     item = this.getItem(item);
     let showItemCache = [];
     const affectedItemIds = [];
@@ -843,7 +843,7 @@ class Graph extends Base {
    * item to front
    * @param  {object} item  item
    */
-  toFront(item: Item.Base) {
+  toFront(item: Item_.Base) {
     item = this.getItem(item);
     const itemGroup = this.get('_itemGroup');
     const group = item.getGraphicGroup();
@@ -854,7 +854,7 @@ class Graph extends Base {
    * item to back
    * @param  {object} item  item
    */
-  toBack(item: Item.Base) {
+  toBack(item: Item_.Base) {
     item = this.getItem(item);
     const itemGroup = this.get('_itemGroup');
     const group = item.getGraphicGroup();
@@ -892,7 +892,8 @@ Mixins.forEach(Mixin => {
 export = Graph;
 
 import Canvas from '@antv/g/lib/canvas';
-import { Model } from './model';
+import Model from './model';
+import Item_ from './item-ns';
 
 type MixedAugmentType = GUtil.MixArray<typeof Mixins, 'AUGMENT'>;
 interface Graph extends MixedAugmentType {

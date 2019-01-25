@@ -3,7 +3,7 @@
  * @author huangtonger@aliyun.com
  */
 
-import { Model } from '../model';
+import Model from '../model';
 
 import Util = require('../util/');
 import Node = require('./node');
