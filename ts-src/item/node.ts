@@ -2,7 +2,7 @@
  * @fileOverview node item
  * @author huangtonger@aliyun.com
  */
-import G from '@antv/g/lib';
+import G6 from '..';
 import { Model } from '../model';
 import Edge from './edge';
 
@@ -11,7 +11,7 @@ import Item = require('./item');
 
 class Node extends Item {
   type: 'node';
-  anchorShapes: G.Shapes.Base[];
+  anchorShapes: G6.GShape.Shape[];
   model: Model.Node;
 
   constructor(cfg) {

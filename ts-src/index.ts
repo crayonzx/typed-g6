@@ -51,8 +51,17 @@ export = G6;
 
 import Graph_ from './graph';
 import { Model as Model_ } from './model';
+import Item_ from './item';
 namespace G6 {
   export type Graph = Graph_;
+
+  export namespace Item {
+    export type Base = Item_.Base;
+    export type Node = Item_.Node;
+    export type Edge = Item_.Edge;
+    export type Group = Item_.Group;
+    export type Guide = Item_.Guide;
+  }
 
   export namespace Model {
     export type Base = Model_.Base;
@@ -67,6 +76,8 @@ namespace G6 {
     export type Base = G.Shapes.Base & { eventPreFix: string };
     export type ShapeType = G.Shapes.ShapeType;
     export type Attrs<T extends ShapeType = ShapeType> = G.Shapes.Attrs<T>;
-    export type Shape<T extends ShapeType> = G.Shapes.Shape<T> & { eventPreFix: string };
+    export type Shape<T extends ShapeType = ShapeType> = G.Shapes.Shape<T> & {
+      eventPreFix: string;
+    };
   }
 }
