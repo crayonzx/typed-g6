@@ -893,7 +893,7 @@ export = Graph;
 
 import Canvas from '@antv/g/lib/canvas';
 import Model from './model';
-import Item_ from './item-ns';
+import Item_ from './items';
 
 type MixedAugmentType = GUtil.MixArray<typeof Mixins, 'AUGMENT'>;
 interface Graph extends MixedAugmentType {

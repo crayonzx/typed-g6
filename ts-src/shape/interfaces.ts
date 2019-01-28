@@ -1,5 +1,5 @@
 import G from '@antv/g/lib';
-import Item from '../item-ns';
+import Item from '../items';
 import _Shape from './shape';
 
 interface Node {

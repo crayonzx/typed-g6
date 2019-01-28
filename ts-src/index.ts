@@ -33,7 +33,7 @@ require('./track');
 export = G6;
 
 import Model_ from './model';
-import Item_ from './item-ns';
+import Item_ from './items';
 namespace G6 {
   export type Graph = import('./graph');
   export import Item = Item_;

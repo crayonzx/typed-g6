@@ -2,7 +2,7 @@
  * @fileOverview graph query
  * @author huangtonger@aliyun.com
  */
-import Item from '../item-ns';
+import Item from '../items';
 
 import Util = require('../util/');
 const Mixin = function() {};
