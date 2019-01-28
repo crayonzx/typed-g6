@@ -33,7 +33,7 @@ class Item {
   destroyed: boolean;
 
   // keyShape: G.Shapes.Base;
-  keyShape: G6.GShape.Base;
+  keyShape: G.Shape;
 
   constructor(cfg) {
     const defaultCfg = {
@@ -277,7 +277,7 @@ class Item {
   getModel<T extends { model: {} }>(this: T): T['model'] {
     return this.model;
   }
-  getKeyShape() {
+  getKeyShape(): G.Shape {
     return this.keyShape;
   }
   getGraphicGroup() {
