@@ -16,6 +16,3 @@ const Item = {
 };
 
 export = Item;
-
-import Item_ from '../items';
-import Item = Item_;
