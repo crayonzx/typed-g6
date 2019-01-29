@@ -7,22 +7,22 @@ import Item from './items';
 
 // @ts-ignore
 interface Event {
-  addListener: <T extends { _events: Event.Events<K, any[]> }, K extends string>(
+  addListener: <T extends { _events: Event.Events<any, any[]> }, K extends keyof T['_events']>(
     this: T,
     event: K,
-    listener: Event.EventHandler<Event.EventArgs<T['_events'], K>>
+    listener: Event.EventHandler<Event.EventArgs<T['_events'][K]>>
   ) => this;
 
-  addListeners: <T extends { _events: Event.Events<K, any[]> }, K extends string>(
+  addListeners: <T extends { _events: Event.Events<any, any[]> }, K extends keyof T['_events']>(
     this: T,
     event: K,
-    listeners: Array<Event.EventHandler<Event.EventArgs<T['_events'], K>>>
+    listeners: Array<Event.EventHandler<Event.EventArgs<T['_events'][K]>>>
   ) => this;
 
-  emit: <T extends { _events: Event.Events<K, any[]> }, K extends string>(
+  emit: <T extends { _events: Event.Events<any, any[]> }, K extends keyof T['_events']>(
     this: T,
     event: K,
-    ...args: Event.EventArgs<T['_events'], K>
+    ...arg: Event.EventArgs<T['_events'][K]>
   ) => this;
 
   removeListener: Event['addListener'];
@@ -48,20 +48,14 @@ interface Event {
 }
 
 namespace Event {
-  /**
-   * Actually it should be `{ [event in E]: Array<EventHandler<T>> }`
-   */
-  export type Events<E extends string, T extends any[]> = { [event in E]: T };
+  /** HACK: '__eventArgsType' is only to help to get type of event args. */
+  type EventValue<T extends any[]> = Array<EventHandler<T>> & { __eventArgsType?: T };
+
+  export type Events<E extends string, T extends any[]> = { [event in E]: EventValue<T> };
 
   export type EventHandler<T extends any[]> = (...args: T) => any;
 
-  // export type EventArgs<T extends Events<K, any[]>, K extends string> = T[K] extends Events<
-  //   K,
-  //   infer U
-  // >[K]
-  //   ? U
-  //   : never;
-  export type EventArgs<T extends Events<K, any[]>, K extends string> = T[K];
+  export type EventArgs<T extends EventValue<any>> = Required<T>['__eventArgsType'];
 
   export type MouseEvent =
     | 'click'
