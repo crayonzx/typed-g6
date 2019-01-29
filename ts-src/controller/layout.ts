@@ -12,7 +12,7 @@ class Controller extends Base {
        * graph object
        * @type {object}
        */
-      graph: null,
+      graph: null as Graph,
 
       /**
        * if auto layout afterchange
@@ -105,3 +105,7 @@ class Controller extends Base {
 }
 
 export = Controller;
+
+import Graph from '../graph';
+interface Controller extends ReturnType<Controller['getDefaultCfg']> {
+}

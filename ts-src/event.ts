@@ -1,26 +1,28 @@
 import EventEmitter from 'wolfy87-eventemitter';
+import G from '@antv/g/lib';
+import Item from './items';
 
 // @ts-ignore
-class Event extends EventEmitter {}
+// class Event extends EventEmitter { }
 
 // @ts-ignore
 interface Event {
-  addListener: <T extends { _events: Event.Events<any, any[]> }, K extends keyof T['_events']>(
+  addListener: <T extends { _events: Event.Events<K, any[]> }, K extends string>(
     this: T,
     event: K,
-    listener: T['_events'][K][number]
+    listener: Event.EventHandler<Event.EventArgs<T['_events'], K>>
   ) => this;
 
-  addListeners: <T extends { _events: Event.Events<any, any[]> }, K extends keyof T['_events']>(
+  addListeners: <T extends { _events: Event.Events<K, any[]> }, K extends string>(
     this: T,
     event: K,
-    listeners: Array<T['_events'][K][number]>
+    listeners: Array<Event.EventHandler<Event.EventArgs<T['_events'], K>>>
   ) => this;
 
-  emit: <T extends { _events: Event.Events<any, any[]> }, K extends keyof T['_events']>(
+  emit: <T extends { _events: Event.Events<K, any[]> }, K extends string>(
     this: T,
     event: K,
-    ...args: Event.EventArgs<T['_events'][K][number]>
+    ...args: Event.EventArgs<T['_events'], K>
   ) => this;
 
   removeListener: Event['addListener'];
@@ -46,13 +48,77 @@ interface Event {
 }
 
 namespace Event {
-  export type Events<E extends string, T extends any[]> = { [event in E]: Array<EventHandler<T>> };
+  /**
+   * Actually it should be `{ [event in E]: Array<EventHandler<T>> }`
+   */
+  export type Events<E extends string, T extends any[]> = { [event in E]: T };
 
-  export type EventHandler<T extends any[]> = (...args: T) => void;
+  export type EventHandler<T extends any[]> = (...args: T) => any;
 
-  export type EventArgs<
-    T extends EventHandler<any[]> | Array<EventHandler<any[]>>
-  > = T extends EventHandler<infer U> ? U : T extends Array<EventHandler<infer V>> ? V : never;
+  // export type EventArgs<T extends Events<K, any[]>, K extends string> = T[K] extends Events<
+  //   K,
+  //   infer U
+  // >[K]
+  //   ? U
+  //   : never;
+  export type EventArgs<T extends Events<K, any[]>, K extends string> = T[K];
+
+  export type MouseEvent =
+    | 'click'
+    | 'dblclick'
+    | 'mouseenter'
+    | 'mouseleave'
+    | 'mousedown'
+    | 'mouseup'
+    | 'mousemove'
+    | 'dragstart'
+    | 'drag'
+    | 'dragend'
+    | 'dragenter'
+    | 'dragleave'
+    | 'drop'
+    | 'contextmenu'
+    | 'wheel'
+    | 'mousewheel';
+
+  export type KeyboardEvent = 'keydown' | 'keyup' | 'keypress';
+
+  export type DomEventMap = HTMLElementEventMap;
+  type BaseEvent = DomEventMap['close'];
+
+  export type EventObject<E extends BaseEvent = BaseEvent> = {
+    /** drag 拖动子项 */
+    currentItem: Item;
+    /** drag 拖动图形 */
+    currentShape: G.Shapes.Base;
+    /** 图形对象 */
+    shape: G.Shapes.Base;
+    /** 子项 */
+    item: Item;
+    /** 原生的 dom 事件 */
+    domEvent: Document['addEventListener'];
+    /** 图横坐标 */
+    x: number;
+    /** 图纵坐标 */
+    y: number;
+    /** dom横坐标 */
+    domX: number;
+    /** dom纵坐标 */
+    domY: number;
+    /** 数据变更动作 add、update、remove、changeData */
+    action?: 'add' | 'update' | 'remove' | 'changeData';
+    /** mouseleave、dragleave 到达的图形 */
+    toShape?: G.Shapes.Base;
+    /** mouseleave、dragleave 到达的子项 */
+    toItem?: Item;
+    /** mouseleave、dragleave 来自的图形 */
+    fromShape?: G.Shapes.Base;
+    /** 鼠标左中右键 */
+    button: 0 | 1 | 2;
+  };
+
+  export type MouseEventObject = EventObject<DomEventMap['click']>;
+  export type KeyboardEventObject = EventObject<DomEventMap['keypress']>;
 }
 
 export default Event;

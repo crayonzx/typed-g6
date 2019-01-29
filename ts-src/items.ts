@@ -10,5 +10,5 @@ namespace Item {
   export interface Group extends Group_ {}
   export interface Guide extends Guide_ {}
 }
-// type Item = Item.Base;
+type Item = Item.Base;
 export default Item;

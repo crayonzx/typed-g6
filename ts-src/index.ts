@@ -34,10 +34,12 @@ export = G6;
 
 import Model_ from './model';
 import Item_ from './items';
+import Event_ from './event';
 namespace G6 {
   export type Graph = import('./graph');
   export import Item = Item_;
   export import Model = Model_;
+  export import Event = Event_;
   export import GShape = G.Shapes;
   export import Common = G.Common;
 }

@@ -36,7 +36,7 @@ class Graph extends Base {
        * Container could be dom object or dom id
        * @type {object|string|undefined}
        */
-      container: undefined as unknown as string | object,
+      container: undefined as unknown as string | HTMLElement,
 
       /**
        * Canvas width
@@ -100,12 +100,12 @@ class Graph extends Base {
       _dataMap: {},
       _itemMap: {},
       _freezMap: {},
-      _data: {},
+      _data: {} as Model.Data,
       _delayRunObj: {}
     };
   }
 
-  constructor(inputCfg: Config) {
+  constructor(inputCfg: Graph.Config) {
     const cfg = {};
 
     Mixins.forEach(Mixin => {
@@ -894,18 +894,83 @@ export = Graph;
 import Canvas from '@antv/g/lib/canvas';
 import Model from './model';
 import Item_ from './items';
+import Event from './event';
 
-type MixedAugmentType = GUtil.MixArray<typeof Mixins, 'AUGMENT'>;
-interface Graph extends MixedAugmentType {
-  _cfg: Required<Config> & {
+interface Graph extends Graph.MixedAugmentType {
+  _cfg: Required<Graph.Config> & {
+    id: string; // container id
     _canvas: Canvas;
     _rootGroup: G.Group;
     _itemGroup: G.Group;
     _sourceData: Model.Data;
+    _containerDOM: HTMLElement;
+    _graphContainer: ReturnType<typeof Util['createDOM']>;
   };
+
+  _events: Event.Events<
+      | 'beforeinit' | 'afterinit'
+      | 'beforesource' | 'aftersource'
+      | 'beforerender' | 'afterrender'
+      | 'beforedrawinner' | 'afterdrawinner'
+      | 'beforedestroy' | 'afterdestroy'
+      | 'beforeclear' | 'afterclear'
+      | 'beforechangesize' | 'afterchangesize'
+      | 'beforelayout' | 'afterlayout'
+      | 'beforefilter' | 'afterfilter'
+      | 'beforeupdatenodeposition' | 'afterupdatenodeposition',
+      []
+    > &
+    Event.Events<
+      'beforehide' | 'afterhide' | 'beforeshow' | 'aftershow',
+      [{ item: Item_.Base; affectedItemIds: G.Common.ID[]; }]
+    > &
+    Event.Events<'beforechange' | 'afterchange', [Graph.ChangeEventObject]> &
+    Event.Events<
+      | 'beforeitemdraw' | 'afteritemdraw'
+      | 'beforeitemhide' | 'afteritemhide'
+      | 'beforeitemshow' | 'afteritemshow'
+      | 'beforeitemdestroy' | 'afteritemdestroy',
+      [{ item: Item_.Base }]
+    > &
+    Event.Events<
+      | 'beforeviewportchange' | 'afterviewportchange'
+      | 'beforezoom' | 'afterzoom',
+      [{ updateMatrix: G.Common.Matrix, originMatrix: G.Common.Matrix }]
+    > &
+    Event.Events<Event.MouseEvent, [Event.MouseEventObject]> &
+    Event.Events<Event.KeyboardEvent, [Event.KeyboardEventObject]>;
 }
 
-type MixedCfgType = GUtil.MixArray<typeof Mixins, 'CFG'>;
-type DefaultCfgType = ReturnType<Graph['getDefaultCfg']>;
-interface Config extends Partial<MixedCfgType & DefaultCfgType> {
+namespace Graph {
+  export type MixedAugmentType = GUtil.MixArray<typeof Mixins, 'AUGMENT'>;
+  export type MixedCfgType = GUtil.MixArray<typeof Mixins, 'CFG'>;
+  export type DefaultCfgType = ReturnType<Graph['getDefaultCfg']>;
+  export type Config = Partial<MixedCfgType & DefaultCfgType>;
+
+  export type ChangeEventObject =
+    | {
+        action: 'add';
+        item?: Item_.Base;
+        model: Model.Base;
+        affectedItemIds: G.Common.ID[];
+      }
+    | {
+        action: 'remove';
+        item: Item_.Base;
+        affectedItemIds: G.Common.ID[];
+      }
+    | {
+        action: 'update';
+        item: Item_.Base;
+        originModel: Model.Base;
+        updateModel: Model.Base;
+        affectedItemIds: G.Common.ID[];
+      }
+    | {
+        action: 'changeData';
+        data: Model.Data;
+      }
+    | {
+        action: string;
+      };
 }

@@ -36,8 +36,8 @@ const DomUtil1 = BaseUtil.mix(DomUtil, {
    * @param  {object}  css css
    * @return  {domobject}  dom
    */
-  createDOM(str, css) {
-    let dom;
+  createDOM(str: HTMLElement | string, css?: Partial<CSSStyleDeclaration>) {
+    let dom: DomObject;
     if (BaseUtil.isString(str)) {
       dom = BaseUtil.createDom(str);
     } else {
@@ -74,7 +74,7 @@ const DomUtil1 = BaseUtil.mix(DomUtil, {
     dom.css(css);
     return dom;
   },
-  initDOMContainer(container, className) {
+  initDOMContainer(container: HTMLElement | string, className: string): HTMLElement {
     if (container) {
       if (BaseUtil.isString(container)) {
         container = document.getElementById(container);
@@ -86,3 +86,15 @@ const DomUtil1 = BaseUtil.mix(DomUtil, {
   }
 });
 export = DomUtil1;
+
+type DomObject = HTMLElement & {
+  bbox: ReturnType<HTMLElement['getBoundingClientRect']>;
+  hide: () => DomObject;
+  show: () => DomObject;
+  css: (modifyCSS: Partial<CSSStyleDeclaration>) => DomObject;
+  width: () => number;
+  height: () => number;
+  destroy: () => void;
+  on: HTMLElement['addEventListener'];
+  off: HTMLElement['removeEventListener'];
+};
