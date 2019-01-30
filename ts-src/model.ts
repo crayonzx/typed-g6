@@ -11,6 +11,8 @@ namespace Model {
   export interface Base {
       /** id 必须唯一 */
       id: G.Common.ID;
+      /** 所属组 */
+      parent?: G.Common.ID;
       /** 颜色 */
       color?: G.Common.Color;
       /** 尺寸 || [宽, 高] */
@@ -28,8 +30,6 @@ namespace Model {
       style?: G.Common.Style;
       /** 文本标签 || 文本图形配置 */
       label?: string;
-      /** 所属组 */
-      parent?: G.Common.ID;
       /** 渲染层级 */
       index?: number;
       /** 填充颜色 */
@@ -55,8 +55,6 @@ namespace Model {
       style: G.Common.Style;
       /** 文本标签 || 文本图形配置 */
       label?: string;
-      /** 所属组 */
-      parent?: G.Common.ID;
       /** 渲染层级 */
       index?: number;
 
