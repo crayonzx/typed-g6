@@ -895,8 +895,9 @@ import Canvas from '@antv/g/lib/canvas';
 import Model from './model';
 import Item_ from './items';
 import Event from './event';
+import GraphEx from './graph-ex';
 
-interface Graph extends Graph.MixedAugmentType {
+interface Graph extends Graph.MixedAugmentType, GraphEx {
   _cfg: Required<Graph.Config> & {
     id: string; // container id
     _canvas: Canvas;
@@ -939,6 +940,8 @@ interface Graph extends Graph.MixedAugmentType {
     > &
     Event.Events<Event.MouseEvent, [Event.MouseEventObject]> &
     Event.Events<Event.KeyboardEvent, [Event.KeyboardEventObject]>;
+
+  behaviourOn: Event['on'];
 }
 
 namespace Graph {
