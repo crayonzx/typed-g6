@@ -44,12 +44,9 @@ namespace G6 {
   export import Common = G.Common;
 }
 
-/**
- * This should work but doesn't
- */
-// declare module '@antv/g/lib/core/shape-ex' {
-//   interface ShapeEx {
-//     eventPreFix?: string;
-//     id?: G.Common.ID;
-//   }
-// }
+declare module '@antv/g/lib/core/shape-ex' {
+  interface ShapeEx {
+    eventPreFix?: string;
+    id?: G.Common.ID;
+  }
+}
