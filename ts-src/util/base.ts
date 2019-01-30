@@ -3,8 +3,6 @@
  * @author huangtonger@aliyun.com
  * @see https://github.com/lodash/lodash
  */
-import Interfaces from './interfaces';
-
 const MAX_LEVEL = 5;
 import Util = require('@antv/util/lib');
 Math.sign = function(x) {
@@ -42,7 +40,7 @@ const BaseUtil = {
    * @param  {function}    getChild    get child function
    * @param  {boolean}     runSelf     callback run self or not
    */
-  traverseTree<T extends object>(parent: T, callback: any, getChild: (p: T) => T, runSelf = false) {
+  traverseTree(parent, callback, getChild, runSelf = false) {
     const children = getChild(parent);
     runSelf && callback(parent, null, null);
     children && BaseUtil.each(children, (child, index) => {
@@ -164,6 +162,17 @@ BaseUtil.Array = {
   }
 };
 
-export = BaseUtil as GUtil.Overwrite<typeof BaseUtil, {
-  mix: Interfaces.Mix
+import Interfaces from './interfaces';
+
+export = BaseUtil as unknown as GUtil.Overwrite<typeof BaseUtil, {
+  mix: Interfaces.Mix,
+  traverseTree: <T>(
+    parent: T,
+    callback: (child: T, parent?: T, index?: number) => void,
+    getChild: (p: T) => T[],
+    runSelf?: boolean
+  ) => void;
+  Array: {
+    remove<T>(arr: T[], obj: T): void;
+  };
 }>;

@@ -2,6 +2,7 @@
  * @fileOverview graph query
  * @author huangtonger@aliyun.com
  */
+import Common from '@antv/g/lib/common';
 import Item from '../items';
 
 import Util = require('../util/');

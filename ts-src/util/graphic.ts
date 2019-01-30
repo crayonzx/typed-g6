@@ -2,6 +2,7 @@
  * @fileOverview graphic util
  * @author huangtonger@aliyun.com
  */
+import G from '@antv/g/lib';
 
 import MathUtil = require('./math');
 import BaseUtil = require('./base');
@@ -42,7 +43,7 @@ const GraphicUtil = {
    * @return {object} left top point
    */
   getNineBoxPosition(position, containerBox, width, height, padding) {
-    const startPoint = {};
+    const startPoint = {} as G.Common.Point;
     switch (position) {
       case 'tl':
         startPoint.y = containerBox.x + padding[0];
@@ -171,7 +172,7 @@ const GraphicUtil = {
         maxY = boxMaxY;
       }
     });
-    const box = {
+    const box: G.Common.BBox = {
       minX,
       minY,
       maxX,
@@ -191,7 +192,7 @@ const GraphicUtil = {
    * @param  {number} root    g group (should be element parent) or matix
    * @return {object} applied point
    */
-  getBBox(element, root) {
+  getBBox(element: G.Shape, root): G.Common.BBox {
     const bbox = element.getBBox();
     let leftTop = {
       x: bbox.minX,

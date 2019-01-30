@@ -12,6 +12,7 @@ class Node extends Item {
   type: 'node';
   anchorShapes: G6.GShape.Shape<'marker'>[];
   model: G6.Model.Node;
+  isNode: true;
 
   constructor(cfg) {
     const defaultCfg = {

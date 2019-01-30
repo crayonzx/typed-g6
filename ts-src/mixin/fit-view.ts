@@ -2,8 +2,9 @@
  * @fileOverview graph fit canvas
  * @author huangtonger@aliyun.com
  */
-
+import Common from '@antv/g/lib/common';
 import Item from '../items';
+import Graph from '../graph';
 
 import Util = require('../util/');
 
@@ -32,7 +33,7 @@ Mixin.CFG = {
   maxZoom: 10
 };
 Mixin.AUGMENT = {
-  getBBox(): { minX: number, minY: number, maxX: number, maxY: number } {
+  getBBox(this: Graph) {
     const itemGroup = this.get('_itemGroup');
     const itemMap = this.get('_itemMap');
     let children = itemGroup.get('children');

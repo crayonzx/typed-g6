@@ -10,6 +10,7 @@ import Item = require('./item');
 class Guide extends Item {
   type: 'guide';
   model: Model.Guide;
+  isGuide: true;
 
   constructor(cfg) {
     const defaultCfg = {

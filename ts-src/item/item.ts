@@ -4,6 +4,7 @@
  */
 import G from '@antv/g/lib';
 import G6 from '..';
+import Graph from '../graph';
 
 import Util = require('../util/');
 function getCollapsedParent(node, dataMap) {
@@ -23,18 +24,6 @@ function getCollapsedParent(node, dataMap) {
 }
 
 class Item {
-  type: string;
-  id: Common.ID;
-
-  model: G6.Model.Base;
-  group: Item.GraphicGroup;
-
-  isSelected: boolean;
-  destroyed: boolean;
-
-  // keyShape: G.Shapes.Base;
-  keyShape: G.Shape;
-
   constructor(cfg) {
     const defaultCfg = {
       /**
@@ -47,7 +36,7 @@ class Item {
        * 类型
        * @type {string}
        */
-      type: null as any as string,
+      type: null,
 
       /**
        * data model
@@ -198,7 +187,7 @@ class Item {
     }
     shapeObj.afterDraw && shapeObj.afterDraw(this);
   }
-  deepEach(callback:() => void, getParent?:() => void) {
+  deepEach(this: Item, callback: Function, getParent?: (parent: Item) => Item[]) {
     Util.traverseTree(this, callback, getParent ? getParent : parent => {
       return parent.getChildren();
     });
@@ -210,7 +199,7 @@ class Item {
     const dataMap = this.dataMap;
     this.collapsedParent = getCollapsedParent(this.model, dataMap);
   }
-  isVisible(): boolean {
+  isVisible() {
     return this.visible;
   }
   hide() {
@@ -252,21 +241,12 @@ class Item {
   getCenter() {
     const bbox = this.getBBox();
     return {
-      x: bbox.centerX!,
-      y: bbox.centerY!
+      x: bbox.centerX,
+      y: bbox.centerY
     };
   }
-  getBBox(): {
-    maxX: number;
-    maxY: number;
-    minX: number;
-    minY: number;
-    height: number;
-    width: number;
-    centerX: number;
-    centerY: number;
-  } {
-    return this.bbox || this._calculateBBox();
+  getBBox() {
+    return (this.bbox || this._calculateBBox());
   }
   layoutUpdate() {
     this.isVisible() && this.draw();
@@ -287,7 +267,7 @@ class Item {
     const graph = this.graph;
     return graph.getHierarchy(this);
   }
-  getParent(): Item {
+  getParent() {
     const model = this.model;
     const itemMap = this.itemMap;
     return itemMap[model.parent];
@@ -349,8 +329,44 @@ class Item {
 
 export = Item;
 
+interface Item {
+  type: string;
+  id: G.Common.ID;
+
+  model: G6.Model.Base;
+  group: Item.GraphicGroup;
+  graph: G6.Graph;
+
+  isSelected: boolean;
+  destroyed: boolean;
+
+  keyShape: G.Shape;
+
+  isItem: true;
+  isNode?: boolean;
+  isEdge?: boolean;
+  isGroup?: boolean;
+  isGuide?: boolean;
+
+  visible: boolean;
+  zIndex: number;
+
+  bbox?: G.Common.BBox;
+
+  /** The followings are from 'Graph._addItems' */
+  mapper: any;
+  itemMap: Graph.ItemMap;
+  // animate,
+  // dataMap,
+  // defaultIntersectBox
+}
+
 namespace Item {
   export interface GraphicGroup extends G.Group {
     item: Item;
+    isItemContainer: boolean;
+    id: G.Common.ID;
+    itemType: string;
+    model: G6.Model.Base;
   }
 }

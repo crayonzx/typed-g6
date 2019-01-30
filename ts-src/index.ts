@@ -41,6 +41,7 @@ namespace G6 {
   export import Model = Model_;
   export import Event = Event_;
   export import GShape = G.Shapes;
+  export type GGroup = G.Group;
   export import Common = G.Common;
 }
 

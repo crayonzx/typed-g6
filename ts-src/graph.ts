@@ -98,7 +98,7 @@ class Graph extends Base {
       _controllers: {},
       _timers: {},
       _dataMap: {},
-      _itemMap: {},
+      _itemMap: {} as Graph.ItemMap,
       _freezMap: {},
       _data: {} as Model.Data,
       _delayRunObj: {}
@@ -891,7 +891,6 @@ Mixins.forEach(Mixin => {
 });
 export = Graph;
 
-import Canvas from '@antv/g/lib/canvas';
 import Model from './model';
 import Item_ from './items';
 import Event from './event';
@@ -900,7 +899,7 @@ import GraphEx from './graph-ex';
 interface Graph extends Graph.MixedAugmentType, GraphEx {
   _cfg: Required<Graph.Config> & {
     id: string; // container id
-    _canvas: Canvas;
+    _canvas: G.Canvas;
     _rootGroup: G.Group;
     _itemGroup: G.Group;
     _sourceData: Model.Data;
@@ -976,4 +975,14 @@ namespace Graph {
     | {
         action: string;
       };
+
+  export type ItemMap = {
+    _nodes: Item_.Node[];
+    _edges: Item_.Edge[];
+    _groups: Item_.Group[];
+    _guides: Item_.Guide[];
+  } & {
+    [id: string]: Item_.Base;
+    [id: number]: Item_.Base;
+  };
 }

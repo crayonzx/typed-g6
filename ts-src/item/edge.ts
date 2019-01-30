@@ -11,6 +11,10 @@ import Item = require('./item');
 class Edge extends Item {
   type: 'edge';
   model: Model.Edge;
+  isEdge: true;
+
+  target: Node | G.Common.Point;
+  source: Node | G.Common.Point;
 
   constructor(cfg) {
     const defaultCfg = {

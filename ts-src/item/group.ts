@@ -9,8 +9,12 @@ import Util = require('../util/');
 import Node = require('./node');
 
 class Group extends Node {
-  // type: 'group';
+  // @ts-ignore
+  type: 'group';
   model: Model.Group;
+  // @ts-ignore
+  isNode: false;
+  isGroup: true;
 
   constructor(cfg) {
     const defaultCfg = {

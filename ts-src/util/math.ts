@@ -2,6 +2,7 @@
  * @fileOverview math util
  * @author huangtonger@aliyun.com
  */
+import G from '@antv/g/lib';
 
 import BaseUtil = require('./base');
 const tolerance = 0.001;
@@ -132,7 +133,7 @@ const MathUtil = {
    * @param  {number} tag     could be 0 or 1
    * @return {object} transformed point
    */
-  applyMatrix(point, matrix, tag = 1) {
+  applyMatrix(point: G.Common.Point, matrix, tag = 1) {
     const vector = [ point.x, point.y, tag ];
     BaseUtil.vec3.transformMat3(vector, vector, matrix);
     return {
