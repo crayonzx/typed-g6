@@ -555,7 +555,7 @@ class Graph extends Base {
    * @param {string|Item} item - target item
    * @return {Graph} this
    */
-  remove(item: Common.ID | Item_.Base) {
+  remove(item: G.Common.ID | Item_.Base) {
     item = this.getItem(item);
     if (!item || item.destroyed) {
       return;
@@ -610,7 +610,7 @@ class Graph extends Base {
    * @param {object} model data model
    * @return {Graph} this
    */
-  update(item: Common.ID | Item_.Base, model: Partial<Model.Base>) {
+  update(item: G.Common.ID | Item_.Base, model: Partial<Model.Base>) {
     const itemMap = this.get('_itemMap');
     item = this.getItem(item);
     if (!item || item.destroyed || !model) {

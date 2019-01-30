@@ -6,35 +6,35 @@ interface Node {
   /** 绘制, 返回的图形既是该图项的 keyShape -- 关键形 */
   draw?(item: Item.Node): G.Shapes.Base;
   /** 获取锚点 */
-  anchor?: Common.Points;
+  anchor?: G.Common.Points;
   /** 默认样式 */
-  getStyle?(item: Item.Node): Common.Style;
+  getStyle?(item: Item.Node): G.Common.Style;
   /** 选中样式 */
-  getSelectedStyle?(item: Item.Node): Common.Style;
+  getSelectedStyle?(item: Item.Node): G.Common.Style;
 }
 
 interface Edge {
   /** 绘制, 返回的图形既是该图项的 keyShape -- 关键形 */
   draw?(item: Item.Edge): G.Shapes.Shape<'path'>;
   /* 获取路径 */
-  getPath?(item: Item.Edge): Common.SVGPath;
+  getPath?(item: Item.Edge): G.Common.SVGPath;
   /* 起始箭头 */
   startArrow?: {
     /* 路径 */
-    path?(item: Item.Edge): Common.SVGPath;
+    path?(item: Item.Edge): G.Common.SVGPath;
     /* 线缩短偏移 */
     shorten?(item: Item.Edge): number;
     /* 样式 */
-    style?(item: Item.Edge): Common.Style;
+    style?(item: Item.Edge): G.Common.Style;
   };
   /* 结束箭头 */
   endArrow?: {
     /* 路径 */
-    path?(item: Item.Edge): Common.SVGPath;
+    path?(item: Item.Edge): G.Common.SVGPath;
     /* 线缩短偏移 */
     shorten?(item: Item.Edge): number;
     /* 样式 */
-    style?(item: Item.Edge): Common.Style;
+    style?(item: Item.Edge): G.Common.Style;
   };
 
   /** 默认样式 */
@@ -49,7 +49,7 @@ interface Group {
   /** 绘制, 返回的图形既是该图项的 keyShape -- 关键形 */
   draw?(item: Item.Group): G.Shapes.Base;
   /** 获取锚点 */
-  anchor?: Common.Points;
+  anchor?: G.Common.Points;
 }
 
 interface Guide {}
