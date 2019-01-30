@@ -24,7 +24,7 @@ function getCollapsedParent(node, dataMap) {
 
 class Item {
   type: string;
-  id: Common.ID;
+  id: G.Common.ID;
 
   model: G6.Model.Base;
   group: Item.GraphicGroup;

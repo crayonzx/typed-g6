@@ -2,6 +2,7 @@
  * @fileOverview node item
  * @author huangtonger@aliyun.com
  */
+import G from '@antv/g/lib';
 import G6 from '..';
 import Edge from './edge';
 
@@ -10,7 +11,7 @@ import Item = require('./item');
 
 class Node extends Item {
   type: 'node';
-  anchorShapes: G6.GShape.Shape<'marker'>[];
+  anchorShapes: Array<G6.GShape.Shape<'marker'>>;
   model: G6.Model.Node;
 
   constructor(cfg) {
@@ -130,7 +131,7 @@ class Node extends Item {
    * @param {number} index the index of points
    * @return {array} anchorPoints
    */
-  getAnchorPoints(index?: number): Common.Point[] {
+  getAnchorPoints(index?: number): G.Common.Point[] {
     const shapeObj = this.shapeObj;
     const bbox = this.getBBox();
     const anchorPoints = [];

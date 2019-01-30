@@ -2,6 +2,7 @@
  * @fileOverview edge item
  * @author huangtonger@aliyun.com
  */
+import G from '@antv/g/lib';
 import Model from '../model';
 import Node from './node';
 
@@ -158,7 +159,7 @@ class Edge extends Item {
     || source.isVisible() || target.isVisible()
     || (source.collapsedParent !== target.collapsedParent);
   }
-  getSource(): Node | Common.Point {
+  getSource(): Node | G.Common.Point {
     const source = this.source;
     const collapsedParent = source.collapsedParent;
     const itemMap = this.itemMap;
@@ -167,7 +168,7 @@ class Edge extends Item {
     }
     return source;
   }
-  getTarget(): Node | Common.Point {
+  getTarget(): Node | G.Common.Point {
     const target = this.target;
     const collapsedParent = target.collapsedParent;
     const itemMap = this.itemMap;
@@ -176,7 +177,7 @@ class Edge extends Item {
     }
     return target;
   }
-  getPoints(): Common.Point[] {
+  getPoints(): G.Common.Point[] {
     const source = this.getSource();
     const target = this.getTarget();
     const model = this.model;
