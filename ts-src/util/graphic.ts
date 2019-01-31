@@ -3,6 +3,7 @@
  * @author huangtonger@aliyun.com
  */
 import G from '@antv/g/lib';
+import GShape from '@antv/g/lib/core/shape';
 
 import MathUtil = require('./math');
 import BaseUtil = require('./base');
