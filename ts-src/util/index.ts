@@ -2,7 +2,6 @@
  * @fileOverview util
  * @author huangtonger@aliyun.com
  */
-import '../../types';
 import GShape from '@antv/g/lib/core/shape';
 
 const Util = {};
