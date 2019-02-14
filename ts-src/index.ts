@@ -14,7 +14,7 @@ namespace G6 {
   export const Util: typeof import('./util/') = require('./util/');
   export const Layouts: typeof import('./layouts/') = require('./layouts/');
   export const G: typeof import('./global') = require('./global');
-  export const Plugins: typeof import('./plugins') = require('./plugins');
+  export const Plugins: typeof import('./plugins') = {};
   export const Components = {};
   export const Global: typeof import('./global') = require('./global');
   export const Shape: typeof import('./shape/') = require('./shape/');

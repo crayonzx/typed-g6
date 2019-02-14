@@ -3,7 +3,7 @@
  * @author huangtonger@aliyun.com
  */
 import G from '@antv/g/lib';
-import GShape from '@antv/g/lib/core/shape';
+// import GShape from '@antv/g/lib/core/shape';
 
 import MathUtil = require('./math');
 import BaseUtil = require('./base');
@@ -193,7 +193,7 @@ const GraphicUtil = {
    * @param  {number} root    g group (should be element parent) or matix
    * @return {object} applied point
    */
-  getBBox(element: G.Shape, root): G.Common.BBox {
+  getBBox(element, root): G.Common.BBox {
     const bbox = element.getBBox();
     let leftTop = {
       x: bbox.minX,
