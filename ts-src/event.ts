@@ -11,19 +11,19 @@ interface Event {
     this: T,
     event: K,
     listener: Event.EventHandler<Event.EventArgs<T['_events'][K]>>
-  ) => this;
+  ) => T;
 
   addListeners: <T extends { _events: Event.Events<any, any[]> }, K extends keyof T['_events']>(
     this: T,
     event: K,
     listeners: Array<Event.EventHandler<Event.EventArgs<T['_events'][K]>>>
-  ) => this;
+  ) => T;
 
   emit: <T extends { _events: Event.Events<any, any[]> }, K extends keyof T['_events']>(
     this: T,
     event: K,
     ...arg: Event.EventArgs<T['_events'][K]>
-  ) => this;
+  ) => T;
 
   removeListener: Event['addListener'];
   on: Event['addListener'];

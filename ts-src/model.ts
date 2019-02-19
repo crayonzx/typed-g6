@@ -18,7 +18,7 @@ namespace Model {
       /** 尺寸 || [宽, 高] */
       size?: [number, number];
       /** 所用图形 */
-      shape: string;
+      shape?: string;
   }
 
   export interface Node extends Base {
