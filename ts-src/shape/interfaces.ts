@@ -2,11 +2,12 @@ import G from '@antv/g/lib';
 import Item from '../items';
 import _Shape from './shape';
 
+type anchorConfigs = Array<[number, number] | [number, number, any]>;
 interface Node {
   /** 绘制, 返回的图形既是该图项的 keyShape -- 关键形 */
   draw?(item: Item.Node): G.Shapes.Base;
   /** 获取锚点 */
-  anchor?: G.Common.Points;
+  anchor?: ((item: Item.Node) => anchorConfigs) | anchorConfigs;
   /** 默认样式 */
   getStyle?(item: Item.Node): G.Common.Style;
   /** 选中样式 */
