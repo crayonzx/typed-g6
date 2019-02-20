@@ -49,5 +49,6 @@ declare module '@antv/g/lib/core/shape-ex' {
   interface ShapeEx {
     eventPreFix?: string;
     id?: G.Common.ID;
+    index?: number;
   }
 }
