@@ -32,10 +32,6 @@ namespace Model {
       label?: string;
       /** 渲染层级 */
       index?: number;
-      /** 填充颜色 */
-      fillColor?: string;
-      /** 边框颜色 */
-      strokeColor?: string;
   }
 
   export interface Edge extends Base {
