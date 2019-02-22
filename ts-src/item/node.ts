@@ -71,7 +71,7 @@ class Node extends Item {
     * @param {Object | Number} point - start point
     * @return {array} - all anchor points sorted by angle, ASC
     */
-  getLinkPoints(point) {
+  getLinkPoints(point: { x: number, y: number } | number) {
     const anchorPoints = this.getAnchorPoints();
     if (Util.isNumber(point) && anchorPoints[point]) {
       return [ anchorPoints[point] ];
