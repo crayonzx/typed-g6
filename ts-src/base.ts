@@ -46,6 +46,8 @@ namespace Base {
 
 // @ts-ignore
 interface Base {
+  destroyed: boolean;
+
   addListener: Event['addListener'];
   addListeners: Event['addListeners'];
   emit: Event['emit'];

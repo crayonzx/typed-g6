@@ -43,6 +43,10 @@ namespace G6 {
   export import GShape = G.Shapes;
   export type GGroup = G.Group;
   export import Common = G.Common;
+
+  export namespace Graph {
+    export type Config = import('./graph').Config;
+  }
 }
 
 declare module '@antv/g/lib/core/shape-ex' {
