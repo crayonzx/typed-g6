@@ -53,7 +53,7 @@ namespace G6 {
 declare module '@antv/g/lib/core/shape-ex' {
   interface ShapeEx {
     eventPreFix?: string;
-    id?: G.Common.ID;
+    id?: G_.Common.ID;
     index?: number;
   }
 }
