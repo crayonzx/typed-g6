@@ -12,7 +12,7 @@ Mixin.CFG = {
    * animate switch
    * @type {boolean}
    */
-  animate: false
+  animate: false as boolean | Partial<ReturnType<Animate['getDefaultCfg']>>
 };
 Mixin.AUGMENT = {
   _initAnimate() {

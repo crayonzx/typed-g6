@@ -16,37 +16,37 @@ class Controller extends Base {
        * show animate
        * @type {function|string}
        */
-      show: 'scaleIn' as (() => {})|string,
+      show: 'scaleIn' as string | Controller.ConfigCallback,
 
       /**
        * hide animate
        * @type {function|string}
        */
-      hide: 'scaleOut' as (() => {})|string,
+      hide: 'scaleOut' as string | Controller.ConfigCallback,
 
       /**
        * enter animate
        * @type {function|string}
        */
-      enter: 'scaleIn' as (() => {})|string,
+      enter: 'scaleIn' as string | Controller.ConfigCallback,
 
       /**
        * leave animate
        * @type {function|string}
        */
-      leave: 'scaleOut' as (() => {})|string,
+      leave: 'scaleOut' as string | Controller.ConfigCallback,
 
       /**
        * update animate
        * @type {function}
        */
-      update({ element, endKeyFrame }) {
+      update: (({ element, endKeyFrame }) => {
         const { props } = endKeyFrame;
         element.animate({
           matrix: props.matrix,
           ...props.attrs
         }, Global.updateDuration, Global.updateEasing);
-      },
+      }) as string | Controller.ConfigCallback,
       graph: null,
       startCache: {},
       endCache: {},
@@ -290,3 +290,35 @@ class Controller extends Base {
 }
 
 export = Controller;
+
+import G from '@antv/g/lib';
+import Item from '../item/item';
+
+namespace Controller {
+  export interface KeyFrame {
+    props: {
+      matrix: {},
+      attrs: {}
+    };
+    element: G.Shape | G.Group;
+  }
+
+  export interface Config {
+    /** G.Shape || G.Group */
+    element: G.Shape | G.Group;
+    /** G6 图项 */
+    item: Item;
+    /** 该图元的起始关键帧 */
+    startKeyFrame: KeyFrame;
+    /** 该图元的结束关键帧 */
+    endKeyFrame: KeyFrame;
+    /** 起始关键帧的缓存集（有时候某个图元的动画会跟其它图元有关） */
+    startStashes: any;
+    /** 结束关键帧的缓存集（有时候某个图元的动画会跟其它图元有关） */
+    endStashes: any;
+    /** 动画结束后执行（由于动画是异步执行的，所以需要有个方法告诉 G6 这个补间是否已经结束） */
+    done: () => void;
+  }
+
+  export type ConfigCallback = (cfg: Config) => void;
+}
