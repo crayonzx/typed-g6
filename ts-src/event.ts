@@ -55,7 +55,7 @@ namespace Event {
 
   export type EventHandler<T extends any[]> = (...args: T) => any;
 
-  export type EventArgs<T extends EventValue<any>> = Required<T>['__eventArgsType'];
+  export type EventArgs<T extends EventValue<any[]>> = NonNullable<T['__eventArgsType']>;
 
   export type MouseEvent =
     | 'click'
