@@ -90,7 +90,7 @@ namespace Event {
     /** 子项 */
     item: Item;
     /** 原生的 dom 事件 */
-    domEvent: Document['addEventListener'];
+    domEvent: E;
     /** 图横坐标 */
     x: number;
     /** 图纵坐标 */
