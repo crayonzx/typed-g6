@@ -6,14 +6,15 @@ import Shape = require('./shape/');
 import Handler = require('./handler');
 import Global = require('./global');
 import version = require('./version');
-import G = require('@antv/g/lib');
+import G_ = require('@antv/g/lib');
 
 namespace G6 {
   export const Graph: typeof import('./graph') = require('./graph');
   export const Tree: typeof import('./tree') = require('./tree');
   export const Util: typeof import('./util/') = require('./util/');
   export const Layouts: typeof import('./layouts/') = require('./layouts/');
-  export const G: typeof import('./global') = require('./global');
+  // export const G: typeof import('@antv/g/lib') = require('@antv/g/lib');
+  export import G = G_;
   export const Plugins: typeof import('./plugins') = {} as  any;
   export const Components = {};
   export const Global: typeof import('./global') = require('./global');
