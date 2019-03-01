@@ -56,9 +56,9 @@ export interface Group {
 
 export interface Guide {}
 
-export type RegisterShape<T extends Node | Edge | Group | Guide> = <U extends T>(
+export type RegisterShape<T extends Node | Edge | Group | Guide> = <U>(
   name: string,
-  cfg: U,
+  cfg: U | T,
   extendShape?: string
 ) => U & T;
 

@@ -3,6 +3,7 @@
  * @author huangtonger@aliyun.com
  */
 import Group from '../../item/group';
+import Path from '@antv/g/lib/shapes/path';
 
 import Shape = require('../shape');
 import Util = require('../../util/');
@@ -65,7 +66,7 @@ export = Shape.registerGroup('common', {
       ]);
     }
   },
-  drawKeyShape(item: Group, box) {
+  drawKeyShape(item: Group, box): Path {
     const { x, y, width, height } = box;
     const model = item.getModel();
     const group = item.getGraphicGroup();

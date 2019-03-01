@@ -3,6 +3,7 @@
  * @author huangtonger@aliyun.com
  */
 import Edge from '../../item/edge';
+import Path from '@antv/g/lib/shapes/path';
 
 import Shape = require('../shape');
 import Util = require('../../util/');
@@ -45,7 +46,7 @@ export = Shape.registerEdge('common', {
     this.drawLabel(item, keyShape);
     return keyShape;
   },
-  drawKeyShape(item: Edge) {
+  drawKeyShape(item: Edge): Path {
     const group = item.getGraphicGroup();
     const style = this.getStyle(item);
 

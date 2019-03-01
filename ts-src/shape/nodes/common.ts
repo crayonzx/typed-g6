@@ -41,7 +41,7 @@ export = Shape.registerNode('common', {
     const model = item.getModel();
     return model.label;
   },
-  drawKeyShape(item: Node) {
+  drawKeyShape(item: Node): Path {
     const group = item.getGraphicGroup();
     const style = this.getStyle(item);
     const path = this.getPath(item);
