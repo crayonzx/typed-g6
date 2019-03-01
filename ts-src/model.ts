@@ -25,7 +25,7 @@ namespace Model {
       x: number;
       y: number;
       /** 尺寸 || [宽, 高] */
-      size: [number, number];
+      size?: [number, number];
       /** 关键形样式（优先级高于color） */
       style?: G.Common.Style;
       /** 文本标签 || 文本图形配置 */
@@ -48,7 +48,7 @@ namespace Model {
       /** 尺寸(对线来说没啥用) */
       // size?: number;
       /** 关键形样式（优先级高于color） */
-      style: G.Common.Style;
+      style?: G.Common.Style;
       /** 文本标签 || 文本图形配置 */
       label?: string;
       /** 渲染层级 */

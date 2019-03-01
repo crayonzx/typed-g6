@@ -2,19 +2,20 @@ import G from '@antv/g/lib';
 import Item from '../items';
 import _Shape from './shape';
 
-type anchorConfigs = Array<[number, number] | [number, number, any]>;
-interface Node {
+export type Anchors = Array<[number, number] | [number, number, any]>;
+
+export interface Node {
   /** 绘制, 返回的图形既是该图项的 keyShape -- 关键形 */
   draw?(item: Item.Node): G.Shapes.Base;
   /** 获取锚点 */
-  anchor?: ((item: Item.Node) => anchorConfigs) | anchorConfigs;
+  anchor?: ((item: Item.Node) => Anchors) | Anchors;
   /** 默认样式 */
   getStyle?(item: Item.Node): G.Common.Style;
   /** 选中样式 */
   getSelectedStyle?(item: Item.Node): G.Common.Style;
 }
 
-interface Edge {
+export interface Edge {
   /** 绘制, 返回的图形既是该图项的 keyShape -- 关键形 */
   draw?(item: Item.Edge): G.Shapes.Shape<'path'>;
   /* 获取路径 */
@@ -46,20 +47,20 @@ interface Edge {
   afterDraw?(item: Item.Edge): void;
 }
 
-interface Group {
+export interface Group {
   /** 绘制, 返回的图形既是该图项的 keyShape -- 关键形 */
   draw?(item: Item.Group): G.Shapes.Base;
   /** 获取锚点 */
   anchor?: G.Common.Points;
 }
 
-interface Guide {}
+export interface Guide {}
 
-export type RegisterShape<T extends Node | Edge | Group | Guide> = (
+export type RegisterShape<T extends Node | Edge | Group | Guide> = <U extends T>(
   name: string,
-  cfg: T,
+  cfg: U,
   extendShape?: string
-) => void;
+) => U & T;
 
 export type Shape = {
   registerShapeManager<T>(type: string, cfg: T): ShapeManager<T>;

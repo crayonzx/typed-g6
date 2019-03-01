@@ -3,6 +3,7 @@
  * @author huangtonger@aliyun.com
  */
 import Node from '../../item/node';
+import Rect from '@antv/g/lib/shapes/rect';
 
 import Shape = require('../shape');
 import Util = require('../../util/');

@@ -3,6 +3,7 @@
  * @author huangtonger@aliyun.com
  */
 import Node from '../../item/node';
+import Path from '@antv/g/lib/shapes/path';
 
 import Shape = require('../shape');
 import Util = require('../../util/');
