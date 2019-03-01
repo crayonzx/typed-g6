@@ -49,13 +49,13 @@ interface Event {
 
 namespace Event {
   /** HACK: '__eventArgsType' is only to help to get type of event args. */
-  type EventValue<T extends any[]> = Array<EventHandler<T>> & { __eventArgsType?: T };
+  type EventValue<T extends any[]> = Array<EventHandler<T>> & { __eventArgsType: T };
 
   export type Events<E extends string, T extends any[]> = { [event in E]: EventValue<T> };
 
   export type EventHandler<T extends any[]> = (...args: T) => any;
 
-  export type EventArgs<T extends EventValue<any[]>> = NonNullable<T['__eventArgsType']>;
+  export type EventArgs<T extends EventValue<any[]>> = T['__eventArgsType'];
 
   export type MouseEvent =
     | 'click'
