@@ -11,7 +11,6 @@ import Item = require('./item');
 
 class Node extends Item {
   type: 'node';
-  anchorShapes: G6.GShape.Base[];
   model: G6.Model.Node;
   isNode: true;
 
