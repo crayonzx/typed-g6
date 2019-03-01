@@ -2,15 +2,16 @@
  * @fileOverview group shapes
  * @author huangtonger@aliyun.com
  */
+import G from '@antv/g/lib';
+import GShape from '@antv/g/lib/core/shape';
 import Group from '../../item/group';
-import Path from '@antv/g/lib/shapes/path';
 
 import Shape = require('../shape');
 import Util = require('../../util/');
 import Global = require('../../global');
 
 export = Shape.registerGroup('common', {
-  draw(item: Group) {
+  draw(item: Group): GShape {
     const model = item.getModel();
     let keyShape;
     if (model.collapsed) {
@@ -26,7 +27,7 @@ export = Shape.registerGroup('common', {
     const model = item.getModel();
     return model.label;
   },
-  drawLabel(item: Group, x, y) {
+  drawLabel(item: Group, x: number, y: number) {
     const label = this.getLabel(item);
     if (!label) {
       return;
@@ -66,7 +67,7 @@ export = Shape.registerGroup('common', {
       ]);
     }
   },
-  drawKeyShape(item: Group, box): Path {
+  drawKeyShape(item: Group, box: G.Common.BBox): GShape {
     const { x, y, width, height } = box;
     const model = item.getModel();
     const group = item.getGraphicGroup();
@@ -79,7 +80,7 @@ export = Shape.registerGroup('common', {
       })
     });
   },
-  getChildrenBBox(item: Group) {
+  getChildrenBBox(item: Group): G.Common.BBox {
     const box = {
       ...item.lastChildrenBox
     };
@@ -102,13 +103,13 @@ export = Shape.registerGroup('common', {
     }
     return box;
   },
-  drawExpanded(item: Group) {
+  drawExpanded(item: Group): GShape {
     const box = this.getChildrenBBox(item);
     const keyShape = this.drawKeyShape(item, box);
     this.drawLabel(item, box.x, box.y);
     return keyShape;
   },
-  drawCollapsed(item: Group) {
+  drawCollapsed(item: Group): GShape {
     const box = this.getChildrenBBox(item);
     box.width = this.defaultWidth;
     box.height = this.defaultHeight;

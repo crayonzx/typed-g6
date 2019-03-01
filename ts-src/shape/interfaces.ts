@@ -60,7 +60,7 @@ export type RegisterShape<T extends Node | Edge | Group | Guide> = <U>(
   name: string,
   cfg: U | T,
   extendShape?: string
-) => U & T;
+) => U & Pick<T, Exclude<keyof T, keyof U>>;
 
 export type Shape = {
   registerShapeManager<T>(type: string, cfg: T): ShapeManager<T>;

@@ -2,15 +2,15 @@
  * @fileOverview common node shape
  * @author huangtonger@aliyun.com
  */
+import GShape from '@antv/g/lib/core/shape';
 import Node from '../../item/node';
-import Path from '@antv/g/lib/shapes/path';
 
 import Shape = require('../shape');
 import Util = require('../../util/');
 import Global = require('../../global');
 
 export = Shape.registerNode('common', {
-  draw(item: Node) {
+  draw(item: Node): GShape {
     const group = item.getGraphicGroup();
     const label = this.drawLabel(item);
     const keyShape = this.drawKeyShape(item);
@@ -41,7 +41,7 @@ export = Shape.registerNode('common', {
     const model = item.getModel();
     return model.label;
   },
-  drawKeyShape(item: Node): Path {
+  drawKeyShape(item: Node): GShape {
     const group = item.getGraphicGroup();
     const style = this.getStyle(item);
     const path = this.getPath(item);
@@ -51,7 +51,7 @@ export = Shape.registerNode('common', {
       })
     });
   },
-  drawLabel(item: Node) {
+  drawLabel(item: Node): GShape {
     const group = item.getGraphicGroup();
     const label = this.getLabel(item);
     const model = item.getModel();

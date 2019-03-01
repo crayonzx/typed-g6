@@ -2,15 +2,16 @@
  * @fileOverview edge shapes
  * @author huangtonger@aliyun.com
  */
-import Edge from '../../item/edge';
+import G from '@antv/g/lib';
 import Path from '@antv/g/lib/shapes/path';
+import Edge from '../../item/edge';
 
 import Shape = require('../shape');
 import Util = require('../../util/');
 import Global = require('../../global');
 const MIN_ARROW_SIZE = 3;
 const defaultArrow = {
-  path(item: Edge) {
+  path(item: Edge): G.Common.SVGPath {
     const keyShape = item.getKeyShape();
     let lineWidth = keyShape.attr('lineWidth');
     lineWidth = lineWidth > MIN_ARROW_SIZE ? lineWidth : MIN_ARROW_SIZE;
@@ -30,7 +31,7 @@ const defaultArrow = {
     const lineWidth = keyShape.attr('lineWidth');
     return (lineWidth > MIN_ARROW_SIZE ? lineWidth : MIN_ARROW_SIZE) * 3.1;
   },
-  style(item: Edge) {
+  style(item: Edge): G.Common.Style {
     const keyShape = item.getKeyShape();
     const { strokeOpacity, stroke } = keyShape.attr();
     return {
@@ -41,7 +42,7 @@ const defaultArrow = {
 };
 
 export = Shape.registerEdge('common', {
-  draw(item: Edge) {
+  draw(item: Edge): Path {
     const keyShape = this.drawKeyShape(item);
     this.drawLabel(item, keyShape);
     return keyShape;
@@ -57,7 +58,7 @@ export = Shape.registerEdge('common', {
       })
     });
   },
-  getStyle(item: Edge) {
+  getStyle(item: Edge): G.Common.Style {
     const model = item.getModel();
     return Util.mix(true, {}, {
       stroke: model.color || '#A3B1BF',
@@ -66,7 +67,7 @@ export = Shape.registerEdge('common', {
       lineWidth: model.size || 1
     }, model.style);
   },
-  getPath(item: Edge) {
+  getPath(item: Edge): G.Common.SVGPath {
     const points = item.getPoints();
     return Util.pointsToPolygon(points);
   },
@@ -74,7 +75,7 @@ export = Shape.registerEdge('common', {
     const model = item.getModel();
     return model.label;
   },
-  getDefaultLabelRectStyle(/* item*/) {
+  getDefaultLabelRectStyle(/* item*/): G.Common.Style {
     return {
       fill: 'white'
     };
@@ -82,7 +83,7 @@ export = Shape.registerEdge('common', {
   getDefaultLabelRectPadding(/* item*/) {
     return Util.toAllPadding([ 4, 8 ]);
   },
-  drawLabel(item, keyShape) {
+  drawLabel(item: Edge, keyShape: Path) {
     let label = this.getLabel(item);
     const group = item.getGraphicGroup();
     const model = item.getModel();
@@ -139,7 +140,7 @@ export = Shape.registerEdge('common', {
   startArrow: {
     ...defaultArrow,
     tangent(item: Edge) {
-      const keyShape = item.getKeyShape();
+      const keyShape = item.getKeyShape() as Path;
       return keyShape.getStartTangent();
     },
     ratio() {
@@ -149,7 +150,7 @@ export = Shape.registerEdge('common', {
   endArrow: {
     ...defaultArrow,
     tangent(item: Edge) {
-      const keyShape = item.getKeyShape();
+      const keyShape = item.getKeyShape() as Path;
       return keyShape.getEndTangent();
     },
     ratio() {
