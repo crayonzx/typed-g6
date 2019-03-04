@@ -3,4 +3,9 @@
  */
 export interface GraphEx {
 }
-export default GraphEx;
+
+/**
+ * To augment Item, augment ItemEx.
+ */
+export interface ItemEx {
+}

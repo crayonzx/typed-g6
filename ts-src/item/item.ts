@@ -329,7 +329,9 @@ class Item {
 
 export = Item;
 
-interface Item {
+import { ItemEx } from '../augments';
+
+interface Item extends ItemEx {
   type: string;
   id: G.Common.ID;
 
@@ -337,7 +339,6 @@ interface Item {
   group: Item.GraphicGroup;
   graph: G6.Graph;
 
-  isSelected: boolean;
   destroyed: boolean;
 
   keyShape: G.Shape;

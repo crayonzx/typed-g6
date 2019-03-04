@@ -894,7 +894,7 @@ export = Graph;
 import Model from './model';
 import Item_ from './items';
 import Event from './event';
-import GraphEx from './graph-ex';
+import { GraphEx } from './augments';
 
 interface Graph extends Graph.MixedAugmentType, GraphEx {
   _cfg: Required<Graph.Config> & {
