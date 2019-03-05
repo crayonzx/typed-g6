@@ -9,8 +9,7 @@ import Edge from './edge';
 import Util = require('../util/');
 import Item = require('./item');
 
-class Node extends Item {
-  type: 'node';
+class Node<T extends Item.Type = 'node'> extends Item<T> {
   model: G6.Model.Node;
   isNode: true;
 

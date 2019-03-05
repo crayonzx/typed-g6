@@ -8,12 +8,10 @@ import Model from '../model';
 import Util = require('../util/');
 import Node = require('./node');
 
-class Group extends Node {
-  // @ts-ignore
-  type: 'group';
+class Group extends Node<'group'> {
+  // type: 'group';
   model: Model.Group;
-  // @ts-ignore
-  isNode: false;
+  // isNode: false;
   isGroup: true;
 
   constructor(cfg) {

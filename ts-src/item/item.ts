@@ -331,8 +331,8 @@ export = Item;
 
 import { ItemEx } from '../augments';
 
-interface Item extends ItemEx {
-  type: string;
+interface Item<T extends Item.Type = Item.Type> extends ItemEx {
+  type: T;
   id: G.Common.ID;
 
   model: G6.Model.Base;
@@ -363,6 +363,8 @@ interface Item extends ItemEx {
 }
 
 namespace Item {
+  export type Type = 'node' | 'edge' | 'group' | 'guide';
+
   export interface GraphicGroup extends G.Group {
     item: Item;
     isItemContainer: boolean;

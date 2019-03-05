@@ -7,8 +7,8 @@ import Model from '../model';
 import Util = require('../util/');
 import Item = require('./item');
 
-class Guide extends Item {
-  type: 'guide';
+class Guide extends Item<'guide'> {
+  // type: 'guide';
   model: Model.Guide;
   isGuide: true;
 

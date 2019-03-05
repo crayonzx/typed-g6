@@ -9,8 +9,8 @@ import Node from './node';
 import Util = require('../util');
 import Item = require('./item');
 
-class Edge extends Item {
-  type: 'edge';
+class Edge extends Item<'edge'> {
+  // type: 'edge';
   model: Model.Edge;
   isEdge: true;
 
