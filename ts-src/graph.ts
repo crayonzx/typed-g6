@@ -439,7 +439,7 @@ class Graph extends Base {
    * @param  {object} data source data
    * @return {Graph} this
    */
-  source(data: Model.Data) {
+  source(data: Model.Data): void {
     this.emit('beforesource');
     this.set('_data', data);
     this.set('_sourceData', data);

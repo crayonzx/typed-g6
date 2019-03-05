@@ -129,7 +129,7 @@ class Tree extends Graph {
   /**
    * @param {object} data tree data
    */
-  source(data) {
+  source(data: Model.Data) {
     const _data = this.parseSource(data);
     this.emit('beforesource');
     this.set('_sourceData', data);
@@ -372,3 +372,5 @@ class Tree extends Graph {
 }
 
 export = Tree;
+
+import Model from './model';
