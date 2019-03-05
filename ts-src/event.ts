@@ -1,39 +1,47 @@
-import EventEmitter from 'wolfy87-eventemitter';
+// import EventEmitter from 'wolfy87-eventemitter';
 import G from '@antv/g/lib';
 import Item from './items';
 
-// @ts-ignore
 // class Event extends EventEmitter { }
 
-// @ts-ignore
-interface Event {
-  addListener: <T extends { _events: Event.Events<any, any[]> }, K extends keyof T['_events']>(
+declare class Event {
+  addListener: <T extends Event.Eventor<string, any[]>, K extends Event.EventKeys<T>>(
     this: T,
     event: K,
-    listener: Event.EventHandler<Event.EventArgs<T['_events'][K]>>
+    listener: Event.EventHandler<Event.EventArgs<T, K>>
   ) => T;
-
-  addListeners: <T extends { _events: Event.Events<any, any[]> }, K extends keyof T['_events']>(
-    this: T,
-    event: K,
-    listeners: Array<Event.EventHandler<Event.EventArgs<T['_events'][K]>>>
-  ) => T;
-
-  emit: <T extends { _events: Event.Events<any, any[]> }, K extends keyof T['_events']>(
-    this: T,
-    event: K,
-    ...arg: Event.EventArgs<T['_events'][K]>
-  ) => T;
-
-  removeListener: Event['addListener'];
-  on: Event['addListener'];
-  off: Event['addListener'];
   addOnceListener: Event['addListener'];
-  once: Event['addListener'];
+  removeListener: Event['addListener'];
 
+  emit: <T extends Event.Eventor<string, any[]>, K extends Event.EventKeys<T>>(
+    this: T,
+    event: K,
+    ...arg: Event.EventArgs<T, K>
+  ) => T;
+
+  on: Event['addListener'];
+  once: Event['addListener'];
+  off: Event['addListener'];
+
+  addListeners: <T extends Event.Eventor<string, any[]>, K extends Event.EventKeys<T>>(
+    this: T,
+    event: K,
+    listeners: Array<Event.EventHandler<Event.EventArgs<T, K>>>
+  ) => T;
   removeListeners: Event['addListeners'];
 
-  trigger: Event['emit'];
+  trigger: <T extends Event.Eventor<string, any[]>, K extends Event.EventKeys<T>>(
+    this: T,
+    event: K,
+    args: Event.EventArgs<T, K>
+  ) => T;
+  emitEvent: Event['trigger'];
+
+  removeEvent: <T extends Event.Eventor<string, any[]>, K extends Event.EventKeys<T>>(
+    this: T,
+    event?: K
+  ) => T;
+  removeAllListeners: Event['removeEvent'];
 
   // getListeners: EventEmitter['getListeners'];
   // flattenListeners: EventEmitter['flattenListeners'];
@@ -41,9 +49,6 @@ interface Event {
   // defineEvent: EventEmitter['defineEvent'];
   // defineEvents: EventEmitter['defineEvents'];
   // manipulateListeners: EventEmitter['manipulateListeners'];
-  // removeEvent: EventEmitter['removeEvent'];
-  // removeAllListeners: EventEmitter['removeAllListeners'];
-  // emitEvent: EventEmitter['emitEvent'];
   // setOnceReturnValue: EventEmitter['setOnceReturnValue'];
 }
 
@@ -55,7 +60,14 @@ namespace Event {
 
   export type EventHandler<T extends any[]> = (...args: T) => any;
 
-  export type EventArgs<T extends EventValue<any[]>> = T['__eventArgsType'];
+  export type Eventor<E extends string, T extends any[]> = { _events: Event.Events<E, T> };
+
+  export type EventKeys<T extends Eventor<string, any[]>> = keyof T['_events'];
+
+  export type EventArgs<
+    T extends Eventor<string, any[]>,
+    K extends EventKeys<T>
+  > = T['_events'][K]['__eventArgsType'];
 
   export type MouseEvent =
     | 'click'
