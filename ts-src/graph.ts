@@ -56,7 +56,7 @@ class Graph extends Base {
        * Plugins
        * @type {array}
        */
-      plugins: [] as string[],
+      plugins: [] as object[],
 
       /**
        * FontFamily

@@ -48,6 +48,11 @@ namespace G6 {
   export namespace Graph {
     export type Config = import('./graph').Config;
   }
+
+  type PluginsMap = typeof G6.Plugins;
+  type PluginNames = keyof PluginsMap;
+  type Instance<T> = T extends new (...args: any[]) => any ? InstanceType<T> : T;
+  export type Plugins = { [x in PluginNames]: Instance<PluginsMap[x]> };
 }
 
 declare module '@antv/g/lib/core/shape-ex' {
