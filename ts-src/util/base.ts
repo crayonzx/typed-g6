@@ -176,3 +176,5 @@ export = BaseUtil as unknown as GUtil.Overwrite<typeof BaseUtil, {
     remove<T>(arr: T[], obj: T): void;
   };
 }>;
+
+type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;

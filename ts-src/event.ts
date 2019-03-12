@@ -23,6 +23,10 @@ declare class Event {
   once: Event['addListener'];
   off: Event['addListener'];
 
+  getListeners: <T extends Event.Eventor<string, any[]>, K extends Event.EventKeys<T>>(
+    this: T,
+    event?: K
+  ) => Array<Event.EventHandler<Event.EventArgs<T, K>>>;
   addListeners: <T extends Event.Eventor<string, any[]>, K extends Event.EventKeys<T>>(
     this: T,
     event: K,
@@ -43,7 +47,6 @@ declare class Event {
   ) => T;
   removeAllListeners: Event['removeEvent'];
 
-  // getListeners: EventEmitter['getListeners'];
   // flattenListeners: EventEmitter['flattenListeners'];
   // getListenersAsObject: EventEmitter['getListenersAsObject'];
   // defineEvent: EventEmitter['defineEvent'];
