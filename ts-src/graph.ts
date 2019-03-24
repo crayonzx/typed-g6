@@ -894,7 +894,7 @@ export = Graph;
 import Model from './model';
 import Item_ from './items';
 import Event from './event';
-import { GraphEx } from './augments';
+import { GraphEx, EventsEx } from './augments';
 
 interface Graph extends Graph.MixedAugmentType, GraphEx {
   _cfg: Required<Graph.Config> & {
@@ -938,7 +938,8 @@ interface Graph extends Graph.MixedAugmentType, GraphEx {
       [{ updateMatrix: G.Common.Matrix, originMatrix: G.Common.Matrix }]
     > &
     Event.Events<Event.MouseEvent, [Event.MouseEventObject]> &
-    Event.Events<Event.KeyboardEvent, [Event.KeyboardEventObject]>;
+    Event.Events<Event.KeyboardEvent, [Event.KeyboardEventObject]> &
+    EventsEx;
 
   behaviourOn: Event['on'];
 }

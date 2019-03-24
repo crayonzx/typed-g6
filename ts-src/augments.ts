@@ -9,3 +9,9 @@ export interface GraphEx {
  */
 export interface ItemEx {
 }
+
+/**
+ * To augment graph events, augment EventsEx.
+ */
+export interface EventsEx {
+}
