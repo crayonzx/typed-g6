@@ -19,6 +19,8 @@ namespace Model {
       size?: [number, number];
       /** 所用图形 */
       shape?: string;
+      /** 文本标签 || 文本图形配置 */
+      label?: string;
       /** 描述信息 */
       description?: string;
   }
@@ -30,8 +32,6 @@ namespace Model {
       size: [number, number];
       /** 关键形样式（优先级高于color） */
       style?: G.Common.Style;
-      /** 文本标签 || 文本图形配置 */
-      label?: string;
       /** 渲染层级 */
       index?: number;
   }
@@ -51,8 +51,6 @@ namespace Model {
       // size?: number;
       /** 关键形样式（优先级高于color） */
       style?: G.Common.Style;
-      /** 文本标签 || 文本图形配置 */
-      label?: string;
       /** 渲染层级 */
       index?: number;
 
