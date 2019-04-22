@@ -1,6 +1,6 @@
 import G from '@antv/g/lib';
 
-namespace Model {
+export namespace Model {
   export interface Data {
       nodes?: Node[];
       edges?: Edge[];
