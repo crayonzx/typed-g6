@@ -18,7 +18,7 @@ export namespace Model {
       /** 尺寸 || [宽, 高] */
       size?: [number, number];
       /** 所用图形 */
-      shape?: string;
+      shape: string;
       /** 文本标签 || 文本图形配置 */
       label?: string;
       /** 描述信息 */
