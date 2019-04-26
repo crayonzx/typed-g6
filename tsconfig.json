@@ -1,12 +1,13 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "rootDir": "ts-src",
-    "outDir": "dist",
-    "declarationDir": "lib",
+    "outDir": "lib",
     "module": "commonjs",
     "target": "es5",
     "lib": ["es6", "dom"],
     "declaration": true,
+    "emitDeclarationOnly": true,
     "noImplicitReturns": false,
     "noImplicitThis": false,
     "noImplicitAny": false,
@@ -14,6 +15,9 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "importHelpers": true,
+    "paths": {
+      "@antv/g6": ["./ts-src"]
+    },
     "plugins": [
       {
         "name": "typescript-tslint-plugin",
