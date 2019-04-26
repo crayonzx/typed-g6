@@ -15,13 +15,13 @@ class Layout {
        * width
        * @type  {number}
        */
-      width: null as any as number,
+      width: null as number,
 
       /**
        * height
        * @type  {number}
        */
-      height: null as any as number,
+      height: null as number,
 
       /**
        * the center of the layout

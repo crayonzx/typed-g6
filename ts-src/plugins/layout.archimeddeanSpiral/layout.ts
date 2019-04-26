@@ -13,13 +13,13 @@ class Layout {
        * 宽
        * @type  {number}
        */
-      width: null as any as number,
+      width: null as number,
 
       /**
        * 高
        * @type  {number}
        */
-      height: null as any as number,
+      height: null as number,
 
       /**
        * 图中心

@@ -20,13 +20,13 @@ class Plugin {
        * 子项类型
        * @type  {String}
        */
-      itemType: null as any as string,
+      itemType: null as string,
 
       /**
        * 数据纬度
        * @type  {String}
        */
-      dim: null as any as string,
+      dim: null as string,
 
       /**
        * 映射域
@@ -38,7 +38,7 @@ class Plugin {
        * 视觉通道
        * @type  {String}
        */
-      channel: null as any as string,
+      channel: null as string,
 
       /**
        * 度量配置

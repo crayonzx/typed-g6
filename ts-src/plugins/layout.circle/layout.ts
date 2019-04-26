@@ -19,13 +19,13 @@ class Layout {
        * 圆半径
        * @type  {number}
        */
-      radius: null as any as number,
+      radius: null as number,
 
       /**
        * 起始点和结束点之间有多少个弧度
        * @type  {number}
        */
-      sweep: null as any as number,
+      sweep: null as number,
 
       /**
        * 是否避免重叠
@@ -49,13 +49,13 @@ class Layout {
        * 宽
        * @type  {number}
        */
-      width: null as any as number,
+      width: null as number,
 
       /**
        * 高
        * @type  {number}
        */
-      height: null as any as number,
+      height: null as number,
 
       /**
        * 图中心
