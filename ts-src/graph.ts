@@ -532,7 +532,7 @@ class Graph extends Base {
    * @param {object} model data model
    * @return {Item} target item
    */
-  add(type: 'node' | 'edge' | 'guide' | 'group', model: Model.Base): Item_.Base {
+  add(type: Item_.Type, model: Model.Base): Item_.Base {
     const affectedItemIds = [];
     const ev = {
       action: 'add',
