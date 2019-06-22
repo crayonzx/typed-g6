@@ -27,7 +27,7 @@ Mixin.AUGMENT = {
    * @param  {array} channels mapping channel
    * @return {object} nodeMapper
    */
-  node(channels) {
+  node(channels: Mapper.Channels) {
     const nodeMapper = this._getController('nodeMapper');
     channels && nodeMapper.addChannels(channels);
     return nodeMapper;
@@ -37,7 +37,7 @@ Mixin.AUGMENT = {
    * @param  {array} channels mapping channel
    * @return {object} edgeMapper
    */
-  edge(channels) {
+  edge(channels: Mapper.Channels) {
     const edgeMapper = this._getController('edgeMapper');
     channels && edgeMapper.addChannels(channels);
     return edgeMapper;
@@ -47,7 +47,7 @@ Mixin.AUGMENT = {
    * @param  {array} channels mapping channel
    * @return {object} groupMapper
    */
-  group(channels) {
+  group(channels: Mapper.Channels) {
     const groupMapper = this._getController('groupMapper');
     channels && groupMapper.addChannels(channels);
     return this._getController('groupMapper');
@@ -57,7 +57,7 @@ Mixin.AUGMENT = {
    * @param  {array} channels mapping channel
    * @return {object} guideMapper
    */
-  guide(channels) {
+  guide(channels: Mapper.Channels) {
     const guideMapper = this._getController('guideMapper');
     channels && guideMapper.addChannels(channels);
     return this._getController('guideMapper');

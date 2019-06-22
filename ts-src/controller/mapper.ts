@@ -43,3 +43,18 @@ class Controller extends Base {
 }
 
 export = Controller;
+
+import Model from '../model';
+
+namespace Controller {
+  type ChannalType = string | number | object | boolean | null | undefined | ((model: Model.Base) => any);
+
+  export interface Channels {
+    color?: ChannalType;
+    shape?: ChannalType;
+    size?: ChannalType;
+    label?: ChannalType;
+    style?: ChannalType;
+    [x: string]: ChannalType;
+  }
+}
