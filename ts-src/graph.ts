@@ -263,7 +263,7 @@ class Graph extends Base {
    * @param  {string} type item type
    * @param  {array} models models
    */
-  _addItems(type, models) {
+  _addItems(type: Item_.Type, models: Model.Base[]) {
     this._addDatas(type, models);
     if (type === 'group') this._sortGroup(models);
     const Type = Util.upperFirst(type);
@@ -865,7 +865,7 @@ class Graph extends Base {
    * set cantainer css
    * @param  {object} style container dom css
    */
-  css(style) {
+  css(style: CSS.Properties<string | number>) {
     const graphContainer = this.getGraphContainer();
     Util.modifyCSS(graphContainer, style);
   }
@@ -895,6 +895,7 @@ import Model from './model';
 import Item_ from './items';
 import Event from './event';
 import { GraphEx, EventsEx } from './augments';
+import * as CSS from 'csstype';
 
 interface Graph extends Graph.MixedAugmentType, GraphEx {
   _cfg: Required<Graph.Config> & {
