@@ -254,7 +254,7 @@ class Item {
   update() {
     this.draw();
   }
-  getModel<T extends { model: {} }>(this: T): T['model'] {
+  getModel() {
     return this.model;
   }
   getKeyShape(): G.Shape {
@@ -360,6 +360,10 @@ interface Item<T extends Item.Type = Item.Type> extends ItemEx {
   // animate,
   // dataMap,
   // defaultIntersectBox
+
+  getModel<T extends { model: {} }>(this: T): T['model'];
+  getModel<T extends G6.Item.Type>(): G6.Model.Map<T>;
+  getModel<T extends G6.Model.Base>(): T;
 }
 
 namespace Item {

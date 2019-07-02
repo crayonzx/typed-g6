@@ -395,7 +395,7 @@ class Graph extends Base {
    * @param  {object} model data model
    * @return {object} shapeObj
    */
-  getShapeObj(type: string, model: Model.Base) {
+  getShapeObj(type: Item_.Type | Item_.Base, model?: Pick<Model.Base, 'shape'>) {
     if (!Util.isObject(type)) {
       const Type = Util.upperFirst(type);
       const shapeManager = Shape[Type];
@@ -610,7 +610,7 @@ class Graph extends Base {
    * @param {object} model data model
    * @return {Graph} this
    */
-  update(item: G.Common.ID | Item_.Base, model: Partial<Model.Base>) {
+  update(item: G.Common.ID | Item_.Base, model: Partial<Model.Base> & Graph.AnyModel) {
     const itemMap = this.get('_itemMap');
     item = this.getItem(item);
     if (!item || item.destroyed || !model) {
@@ -943,6 +943,9 @@ interface Graph extends Graph.MixedAugmentType, GraphEx {
     EventsEx;
 
   behaviourOn: Event['on'];
+
+  update<T extends Item_.Base>(item: T, model: Partial<Model.Map<T['type']>> & Graph.AnyModel);
+  update<T extends Item_.Type | 'base' = 'base'>(item: G.Common.ID, model: Partial<Model.Map<T>> & Graph.AnyModel);
 }
 
 namespace Graph {
@@ -987,4 +990,6 @@ namespace Graph {
     [id: string]: Item_.Base;
     [id: number]: Item_.Base;
   };
+
+  export interface AnyModel { [x: string]: any; }
 }

@@ -51,7 +51,7 @@ export = Shape.registerNode('common', {
       })
     });
   },
-  drawLabel(item: Node): GShape {
+  drawLabel(item: Node): (GShape | undefined) {
     const group = item.getGraphicGroup();
     const label = this.getLabel(item);
     const model = item.getModel();

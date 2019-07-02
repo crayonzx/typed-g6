@@ -99,7 +99,7 @@ Mixin.AUGMENT = {
   /**
    * @param {number|array} padding padding
    */
-  autoZoom(padding) {
+  autoZoom(padding?: number | number[]) {
     if (!padding) {
       padding = this.getFitViewPadding();
     }
@@ -175,7 +175,7 @@ Mixin.AUGMENT = {
    * @param {number} ratio scale ratio
    * @return {Graph} this
    */
-  zoomByDom(domPoint, ratio) {
+  zoomByDom(domPoint: Common.Point, ratio: number): Graph {
     const point = this.getPoint(domPoint);
     this.zoom(point, ratio);
     return this;
@@ -229,7 +229,7 @@ Mixin.AUGMENT = {
    * @param {object} domPoint domPoint
    * @return {object} graph point
    */
-  getPointByDom(domPoint) {
+  getPointByDom(domPoint: Common.Point): Common.Point {
     const rootGroup = this.get('_rootGroup');
     const matrix = rootGroup.getMatrix();
     return Util.invertMatrix(domPoint, matrix);
@@ -238,7 +238,7 @@ Mixin.AUGMENT = {
    * @param {object} canvasPoint - canvas point
    * @return {object} graph point
    */
-  getPointByCanvas(canvasPoint) {
+  getPointByCanvas(canvasPoint: Common.Point): Common.Point {
     const canvas = this.get('_canvas');
     const pixelRatio = canvas.get('pixelRatio');
     return this.getPoint({
@@ -250,7 +250,7 @@ Mixin.AUGMENT = {
    * @param {object} clientPoint - client point
    * @return {object} graph point
    */
-  getPointByClient(clientPoint) {
+  getPointByClient(clientPoint: Common.Point): Common.Point {
     const canvas = this.get('_canvas');
     const canvasPoint = canvas.getPointByClient(clientPoint.x, clientPoint.y);
     return this.getPointByCanvas(canvasPoint);
@@ -268,7 +268,7 @@ Mixin.AUGMENT = {
    * @param {object} point graph point
    * @return {object} canvas point
    */
-  getCanvasPoint(point) {
+  getCanvasPoint(point: Common.Point): Common.Point {
     const canvas = this.get('_canvas');
     const pixelRatio = canvas.get('pixelRatio');
     const domPoint = this.getDomPoint(point);
@@ -281,7 +281,7 @@ Mixin.AUGMENT = {
    * @param {object} point graph point
    * @return {object} client point
    */
-  getClientPoint(point) {
+  getClientPoint(point: Common.Point): Common.Point {
     const canvasPoint = this.getCanvasPoint(point);
     const canvas = this.get('_canvas');
     const clientPoint = canvas.getClientByPoint(canvasPoint.x, canvasPoint.y);
@@ -294,7 +294,7 @@ Mixin.AUGMENT = {
    * @param {object} item item or itemId
    * @return {Graph} this
    */
-  focus(item: Common.ID | Item.Base) {
+  focus(item: Common.ID | Item.Base): Graph {
     if (Util.isString(item)) {
       item = this.find(item);
     }
@@ -308,7 +308,7 @@ Mixin.AUGMENT = {
    * @param {object} point graph point
    * @return {Graph} this
    */
-  focusPoint(point: Common.Point) {
+  focusPoint(point: Common.Point): Graph {
     const rootGroup = this.get('_rootGroup');
     const matrix = rootGroup.getMatrix();
     const width = this.get('width');
@@ -322,7 +322,7 @@ Mixin.AUGMENT = {
    * @param {object} domPoint dom point
    * @return {Graph} this
    */
-  focusPointByDom(domPoint) {
+  focusPointByDom(domPoint: Common.Point): Graph {
     const point = this.getPoint(domPoint);
     this.focusPoint(point);
     return this;

@@ -62,7 +62,7 @@ export type RegisterShape<T extends Node | Edge | Group | Guide> = <U>(
   extendShape?: string
 ) => U & Pick<T, Exclude<keyof T, keyof U>>;
 
-export type Shape = {
+export interface Shape {
   registerShapeManager<T>(type: string, cfg: T): ShapeManager<T>;
 
   registerNode: RegisterShape<Node>;
@@ -83,7 +83,7 @@ export type Shape = {
   Guide: ShapeManager<{ defaultShapeType: 'common' }> & {
     common: typeof import('./guides/common');
   };
-};
+}
 
 export type ShapeManager<T = {}> = GUtil.Overwrite<
   {

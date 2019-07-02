@@ -54,12 +54,12 @@ class Node<T extends Item.Type = 'node'> extends Item<T> {
       return model.source === this.id || model.target === this.id;
     });
   }
-  getInEdges() {
+  getInEdges(): Edge[] {
     return this.getEdges().filter(edge => {
       return edge.target === this;
     });
   }
-  getOutEdges() {
+  getOutEdges(): Edge[] {
     return this.getEdges().filter(edge => {
       return edge.source === this;
     });
@@ -69,7 +69,7 @@ class Node<T extends Item.Type = 'node'> extends Item<T> {
     * @param {Object | Number} point - start point
     * @return {array} - all anchor points sorted by angle, ASC
     */
-  getLinkPoints(point: { x: number, y: number } | number): Array<{ x: number, y: number }> {
+  getLinkPoints(point: G.Common.Point | number): G.Common.Point[] {
     const anchorPoints = this.getAnchorPoints();
     if (Util.isNumber(point) && anchorPoints[point]) {
       return [ anchorPoints[point] ];
@@ -130,7 +130,7 @@ class Node<T extends Item.Type = 'node'> extends Item<T> {
    * @param {number} index the index of points
    * @return {array} anchorPoints
    */
-  getAnchorPoints(index?: number): G.Common.Point[] {
+  getAnchorPoints(index?: number): Array<G.Common.Point & { index: number, [x: string]: any}> {
     const shapeObj = this.shapeObj;
     const bbox = this.getBBox();
     const anchorPoints = [];

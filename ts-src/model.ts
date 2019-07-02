@@ -1,4 +1,5 @@
 import G from '@antv/g/lib';
+import Item from './items';
 
 export namespace Model {
   export interface Data {
@@ -64,5 +65,15 @@ export namespace Model {
   export interface Group extends Node {}
 
   export interface Guide extends Base {}
+
+  interface ModelMap {
+    node: Node;
+    edge: Edge;
+    group: Group;
+    guide: Guide;
+    base: Base;
+  }
+  export type Map<T extends Item.Type | 'base'> = ModelMap[T];
 }
+
 export default Model;

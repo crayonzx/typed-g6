@@ -11,7 +11,7 @@ export = {
    * @param  {object}  item item
    * @return {boolean} bool
    */
-  isNode(item) {
+  isNode(item: object): item is Item.Node {
     return item && BaseUtil.isObject(item) && item.type === 'node';
   },
   /**
@@ -19,7 +19,7 @@ export = {
    * @param  {object}  item item
    * @return {boolean} bool
    */
-  isEdge(item) {
+  isEdge(item: object): item is Item.Edge {
     return item && BaseUtil.isObject(item) && item.type === 'edge';
   },
   /**
@@ -27,7 +27,9 @@ export = {
    * @param  {object}  item item
    * @return {boolean} bool
    */
-  isGroup(item) {
+  isGroup(item: object): item is Item.Group {
     return item && BaseUtil.isObject(item) && item.type === 'group';
   }
 };
+
+import Item from '../items';
