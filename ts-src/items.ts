@@ -12,19 +12,17 @@ namespace Item {
     export type Guide = Item.Guide['type'];
   }
 
-  export interface Base extends Base_ {}
-  export interface Node extends Node_ {}
-  export interface Edge extends Edge_ {}
-  export interface Group extends Group_ {}
-  export interface Guide extends Guide_ {}
+  export interface Base extends Base_ { }
+  export interface Node extends Node_ { }
+  export interface Edge extends Edge_ { }
+  export interface Group extends Group_ { }
+  export interface Guide extends Guide_ { }
 
-  interface ItemMap {
-    node: Node;
-    edge: Edge;
-    group: Group;
-    guide: Guide;
-  }
-  export type Map<T extends Type> = ItemMap[T];
+  export type Map<T extends Type | 'base' = 'base'> =
+    T extends 'node' ? Node :
+    T extends 'edge' ? Edge :
+    T extends 'group' ? Group :
+    T extends 'guide' ? Guide : Base;
 }
 type Item = Item.Base;
 export default Item;

@@ -12,7 +12,7 @@ Math.sign = function(x) {
   }
   return x > 0 ? 1 : -1;
 };
-const BaseUtil = {
+const BaseUtil0 = {
   ...Util,
   throttle: require('lodash/throttle') as typeof import('lodash/throttle'),
   debounce: require('lodash/debounce') as typeof import('lodash/debounce'),
@@ -24,7 +24,7 @@ const BaseUtil = {
    * @param  {function}    array - condition array
    * @return  {object}     result object
    */
-  omit<T extends object, K extends keyof T>(object: T, array: K[]): Omit<T, K> {
+  omit<T extends object, K extends keyof T>(object: T, array: K[]): BaseUtil.Omit<T, K> {
     const rst = {};
     Util.each(object, (value, key) => {
       if (array.indexOf(key) === -1) {
@@ -40,14 +40,14 @@ const BaseUtil = {
    * @param  {function}    getChild    get child function
    * @param  {boolean}     runSelf     callback run self or not
    */
-  traverseTree(parent, callback, getChild, runSelf = false) {
+  traverseTree: function (parent, callback, getChild, runSelf = false) {
     const children = getChild(parent);
     runSelf && callback(parent, null, null);
     children && BaseUtil.each(children, (child, index) => {
       callback(child, parent, index);
       BaseUtil.traverseTree(child, callback, getChild);
     });
-  },
+  } as <T>(parent: T, callback: (child: T, parent?: T, index?: number) => void, getChild: (p: T) => T[], runSelf?: boolean) => void,
 
   /**
    * turn padding into [top, right, bottom, right]
@@ -126,6 +126,10 @@ const BaseUtil = {
       });
       c.ATTRS = BaseUtil.mix(temp, c.ATTRS);
     }
+  },
+
+  Array: {
+    remove<T>(arr: T[], obj: T): void {},
   }
 };
 
@@ -153,7 +157,7 @@ function deepMix(dst, src, level?: number) {
   }
 }
 
-BaseUtil.Array = {
+BaseUtil0.Array = {
   remove(arr, obj) {
     const index = BaseUtil.indexOf(arr, obj);
     if (index !== -1) {
@@ -162,19 +166,35 @@ BaseUtil.Array = {
   }
 };
 
-import Interfaces from './interfaces';
+const BaseUtil: BaseUtil = BaseUtil0;
+export = BaseUtil;
 
-export = BaseUtil as unknown as GUtil.Overwrite<typeof BaseUtil, {
-  mix: Interfaces.Mix,
-  traverseTree: <T>(
-    parent: T,
-    callback: (child: T, parent?: T, index?: number) => void,
-    getChild: (p: T) => T[],
-    runSelf?: boolean
-  ) => void;
-  Array: {
-    remove<T>(arr: T[], obj: T): void;
-  };
-}>;
+interface BaseUtil extends BaseUtil.Omit<typeof BaseUtil0, 'mix'> {
+  mix: BaseUtil.Mix;
+}
 
-type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
+namespace BaseUtil {
+  export interface Mix {
+    <T, U1, U2, U3, U4, U5, U6>(
+      deep: boolean,
+      dst: T,
+      src1: U1,
+      src2?: U2,
+      src3?: U3,
+      src4?: U4,
+      src5?: U5,
+      src6?: U6
+    ): GUtil.Overwrite<T, U1, U2, U3, U4, U5, U6>;
+    <T, U1, U2, U3, U4, U5, U6>(
+      dst: T,
+      src1: U1,
+      src2?: U2,
+      src3?: U3,
+      src4?: U4,
+      src5?: U5,
+      src6?: U6
+    ): GUtil.Overwrite<T, U1, U2, U3, U4, U5, U6>;
+  }
+
+  export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
+}

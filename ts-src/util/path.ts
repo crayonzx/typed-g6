@@ -16,7 +16,7 @@ const PathUtil1 = BaseUtil.mix(PathUtil, G.PathUtil, {
    * @param {Boolen} z if close path
    * @return {string} Path
    */
-  pointsToPolygon(points) {
+  pointsToPolygon(points: G.Common.Point[]): G.Common.SVGPath {
     const path = [
       [ 'M', points[0].x, points[0].y ]
     ];
@@ -34,7 +34,7 @@ const PathUtil1 = BaseUtil.mix(PathUtil, G.PathUtil, {
    * @param {number} ry vertical radius
    * @return {array} path
    */
-  getEllipsePath(x, y, rx, ry) {
+  getEllipsePath(x: number, y: number, rx: number, ry: number): G.Common.SVGPath {
     const rst = [
       [ 'M', x, y - ry ],
       [ 'a', rx, ry, 0, 1, 1, 0, 2 * ry ],

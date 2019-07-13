@@ -63,7 +63,7 @@ namespace Event {
 
   export type EventHandler<T extends any[]> = (...args: T) => any;
 
-  export type Eventor<E extends string, T extends any[]> = { _events: Event.Events<E, T> };
+  export interface Eventor<E extends string, T extends any[]> { _events: Event.Events<E, T> }
 
   export type EventKeys<T extends Eventor<string, any[]>> = keyof T['_events'];
 
@@ -95,7 +95,7 @@ namespace Event {
   export type DomEventMap = HTMLElementEventMap;
   type BaseEvent = DomEventMap['close'];
 
-  export type EventObject<E extends BaseEvent = BaseEvent> = {
+  export interface EventObject<E extends BaseEvent = BaseEvent> {
     /** drag 拖动子项 */
     currentItem: Item;
     /** drag 拖动图形 */
@@ -124,7 +124,7 @@ namespace Event {
     fromShape?: G.Shapes.Base;
     /** 鼠标左中右键 */
     button: 0 | 1 | 2;
-  };
+  }
 
   export type MouseEventObject = EventObject<DomEventMap['click']>;
   export type KeyboardEventObject = EventObject<DomEventMap['keypress']>;

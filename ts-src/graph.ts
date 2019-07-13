@@ -532,7 +532,7 @@ class Graph extends Base {
    * @param {object} model data model
    * @return {Item} target item
    */
-  add(type: Item_.Type, model: Model.Base): Item_.Base {
+  add<T extends Item_.Type>(type: T, model: Model.Map<T>): Item_.Map<T> {
     const affectedItemIds = [];
     const ev = {
       action: 'add',

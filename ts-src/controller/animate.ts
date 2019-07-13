@@ -40,13 +40,13 @@ class Controller extends Base {
        * update animate
        * @type {function}
        */
-      update: (({ element, endKeyFrame }) => {
+      update: function ({ element, endKeyFrame }) {
         const { props } = endKeyFrame;
         element.animate({
           matrix: props.matrix,
           ...props.attrs
         }, Global.updateDuration, Global.updateEasing);
-      }) as string | Controller.ConfigCallback,
+      } as string | Controller.ConfigCallback,
       graph: null,
       startCache: {},
       endCache: {},

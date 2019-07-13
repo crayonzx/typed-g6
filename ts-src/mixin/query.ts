@@ -2,14 +2,14 @@
  * @fileOverview graph query
  * @author huangtonger@aliyun.com
  */
-import Common from '@antv/g/lib/common';
+import G from '@antv/g';
 import Item from '../items';
 
 import Util = require('../util/');
 const Mixin = function() {};
 
 Mixin.AUGMENT = {
-  find(id: Common.ID): Item.Base | undefined {
+  find<T extends Item.Type | 'base' = 'base'>(id: G.Common.ID): Item.Map<T> | undefined {
     const itemMap = this.get('_itemMap');
     return itemMap[id];
   },
@@ -64,7 +64,7 @@ Mixin.AUGMENT = {
    * @param  {G.Shape} shape - the shape from g
    * @return {string}  item.id - id of the item
    */
-  getItemByShape(shape): Item.Base {
+  getItemByShape(shape: { id: G.Common.ID }): Item.Base | undefined | null {
     if (!shape) return null;
     return this.getItem(shape.id);
   },
@@ -73,7 +73,7 @@ Mixin.AUGMENT = {
    * @param  {object|string} item - the shape from g
    * @return {object}  item
    */
-  getItem(item: Common.ID | Item.Base): Item.Base {
+  getItem<T extends Item.Type | 'base' = 'base'>(item: G.Common.ID | Item.Map<T>): Item.Map<T> | undefined {
     const itemMap = this.get('_itemMap');
     if (Util.isObject(item)) {
       if (item.destroyed) {
