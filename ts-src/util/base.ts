@@ -1,3 +1,4 @@
+/// <reference types='@antv/util' />
 /**
  * @fileOverview The BaseUtil method based on the lodash.
  * @author huangtonger@aliyun.com
@@ -13,7 +14,7 @@ Math.sign = function(x) {
   return x > 0 ? 1 : -1;
 };
 const BaseUtil0 = {
-  ...Util,
+  // ...Util,
   throttle: require('lodash/throttle') as typeof import('lodash/throttle'),
   debounce: require('lodash/debounce') as typeof import('lodash/debounce'),
   /**
@@ -166,12 +167,12 @@ BaseUtil0.Array = {
   }
 };
 
-const BaseUtil: BaseUtil = BaseUtil0;
+declare const BaseUtil: BaseUtil;
 export = BaseUtil;
 
-interface BaseUtil extends BaseUtil.Omit<typeof BaseUtil0, 'mix'> {
+type BaseUtil = GUtil.Overwrite<typeof Util, typeof BaseUtil0, {
   mix: BaseUtil.Mix;
-}
+}>
 
 namespace BaseUtil {
   export interface Mix {
@@ -196,5 +197,6 @@ namespace BaseUtil {
     ): GUtil.Overwrite<T, U1, U2, U3, U4, U5, U6>;
   }
 
-  export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
+  export type Omit<T, K extends any> = Pick<T, Exclude<keyof T, K>>;
+  export type Overwrite<T, U> = Omit<T, keyof U> & U;
 }

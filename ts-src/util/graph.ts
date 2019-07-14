@@ -5,7 +5,7 @@
 
 import BaseUtil = require('./base');
 
-export = {
+const GraphUtil = {
   /**
    * determine whether a node
    * @param  {object}  item item
@@ -31,5 +31,8 @@ export = {
     return item && BaseUtil.isObject(item) && item.type === 'group';
   }
 };
+export = GraphUtil;
+
+type GraphUtil = typeof GraphUtil;
 
 import Item from '../items';

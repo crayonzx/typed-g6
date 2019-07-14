@@ -5,10 +5,11 @@
 
 import G = require('@antv/g/lib');
 import BaseUtil = require('./base');
-const PathUtil = {};
+const PathUtil: PathUtil = {};
 
-const PathUtil1 = BaseUtil.mix(PathUtil, G.PathUtil, {
-  getRectPath: G.PathUtil.rectPath,
+BaseUtil.mix(PathUtil, G.PathUtil, {} as typeof PathUtil0);
+declare const PathUtil0: {
+  getRectPath: typeof G.PathUtil.rectPath,
   /**
    * points to polygon
    * TODO improve performance
@@ -16,7 +17,7 @@ const PathUtil1 = BaseUtil.mix(PathUtil, G.PathUtil, {
    * @param {Boolen} z if close path
    * @return {string} Path
    */
-  pointsToPolygon(points: G.Common.Point[]): G.Common.SVGPath {
+  pointsToPolygon(points: G.Common.Point[]): G.Common.SVGPath /*{
     const path = [
       [ 'M', points[0].x, points[0].y ]
     ];
@@ -25,7 +26,7 @@ const PathUtil1 = BaseUtil.mix(PathUtil, G.PathUtil, {
       path.push([ 'L', point.x, point.y ]);
     }
     return path;
-  },
+  }*/,
   /**
    * get ellipse path
    * @param {number} x  horizontal coordinates
@@ -34,7 +35,7 @@ const PathUtil1 = BaseUtil.mix(PathUtil, G.PathUtil, {
    * @param {number} ry vertical radius
    * @return {array} path
    */
-  getEllipsePath(x: number, y: number, rx: number, ry: number): G.Common.SVGPath {
+  getEllipsePath(x: number, y: number, rx: number, ry: number): G.Common.SVGPath /*{
     const rst = [
       [ 'M', x, y - ry ],
       [ 'a', rx, ry, 0, 1, 1, 0, 2 * ry ],
@@ -42,7 +43,9 @@ const PathUtil1 = BaseUtil.mix(PathUtil, G.PathUtil, {
       [ 'z' ]
     ];
     return rst;
-  }
-});
+  }*/
+};
 
-export = PathUtil1;
+export = PathUtil;
+
+type PathUtil = BaseUtil.Overwrite<typeof G.PathUtil, typeof PathUtil0>;

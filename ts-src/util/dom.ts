@@ -4,8 +4,8 @@
  */
 
 import BaseUtil = require('./base');
-const DomUtil = {};
-const DomUtil1 = BaseUtil.mix(DomUtil, {
+// const DomUtil = {};
+const DomUtil = BaseUtil.mix({}, {
   /**
    * add event listener
    * @param  {object} target - event source
@@ -21,7 +21,7 @@ const DomUtil1 = BaseUtil.mix(DomUtil, {
           target.detachEvent('on' + eventType, callback);
         }
       };
-    } else if (target.addEventListener) {
+    }  if (target.addEventListener) {
       target.addEventListener(eventType, callback, false);
       return {
         remove() {
@@ -85,7 +85,9 @@ const DomUtil1 = BaseUtil.mix(DomUtil, {
     return container;
   }
 });
-export = DomUtil1;
+export = DomUtil;
+
+type DomUtil = typeof DomUtil;
 
 type DomObject = HTMLElement & {
   bbox: ReturnType<HTMLElement['getBoundingClientRect']>;

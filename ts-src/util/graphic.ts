@@ -2,8 +2,6 @@
  * @fileOverview graphic util
  * @author huangtonger@aliyun.com
  */
-import G from '@antv/g/lib';
-// import GShape from '@antv/g/lib/core/shape';
 
 import MathUtil = require('./math');
 import BaseUtil = require('./base');
@@ -96,7 +94,7 @@ const GraphicUtil = {
    * @param  {array} boxes boxes
    * @return {object} box
    */
-  getTotalBBox(boxes) {
+  getTotalBBox(boxes: G.Common.BBox[]): G.Common.BBox {
     let minX = Infinity;
     let maxX = -Infinity;
     let minY = Infinity;
@@ -132,7 +130,7 @@ const GraphicUtil = {
    * @param  {array} children g children
    * @return {object} box
    */
-  getChildrenBBox(children) {
+  getChildrenBBox(children: Array<G.Shape | G.Group>): G.Common.BBox {
     let minX = Infinity;
     let maxX = -Infinity;
     let minY = Infinity;
@@ -173,7 +171,7 @@ const GraphicUtil = {
         maxY = boxMaxY;
       }
     });
-    const box: G.Common.BBox = {
+    const box = {
       minX,
       minY,
       maxX,
@@ -193,7 +191,7 @@ const GraphicUtil = {
    * @param  {number} root    g group (should be element parent) or matix
    * @return {object} applied point
    */
-  getBBox(element, root): G.Common.BBox {
+  getBBox(element: G.Shape | G.Group, root): G.Common.BBox {
     const bbox = element.getBBox();
     let leftTop = {
       x: bbox.minX,
@@ -230,16 +228,20 @@ const GraphicUtil = {
    * element to back
    * @param  {object} element g shape or group
    */
-  toBack(element) {
+  toBack(element: G.Shape | G.Group) {
     element.toBack();
   },
   /**
    * element to front
    * @param  {object} element g shape or group
    */
-  toFront(element) {
+  toFront(element: G.Shape | G.Group) {
     element.toFront();
   }
 };
 
 export = GraphicUtil;
+
+import G from '@antv/g/lib';
+
+type GraphicUtil = typeof GraphicUtil;

@@ -2,11 +2,10 @@
  * @fileOverview math util
  * @author huangtonger@aliyun.com
  */
-import G from '@antv/g/lib';
 
 import BaseUtil = require('./base');
 const tolerance = 0.001;
-const MathUtil = {
+const MathUtil0 = {
   /**
    * 是否在区间内
    * @param   {number}       value  值
@@ -221,4 +220,9 @@ const MathUtil = {
     return Math.acos((x1 * x2 + y1 * y2) / (v1 * v2));
   }
 };
-export = BaseUtil.mix({}, BaseUtil, MathUtil);
+const MathUtil: MathUtil = BaseUtil.mix({}, BaseUtil, MathUtil0)
+export = MathUtil;
+
+import G from '@antv/g/lib';
+
+type MathUtil = typeof BaseUtil & typeof MathUtil0;
