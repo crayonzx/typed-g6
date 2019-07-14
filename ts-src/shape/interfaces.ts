@@ -1,12 +1,11 @@
 import G from '@antv/g/lib';
 import Item from '../items';
-import _Shape from './shape';
 
 export type Anchors = Array<[number, number] | [number, number, any]>;
 
 export interface Node {
   /** 绘制, 返回的图形既是该图项的 keyShape -- 关键形 */
-  draw?(item: Item.Node): G.Shapes.Base;
+  draw?(item: Item.Node): G.Shape;
   /** 获取锚点 */
   anchor?: ((item: Item.Node) => Anchors) | Anchors;
   /** 默认样式 */
@@ -17,7 +16,7 @@ export interface Node {
 
 export interface Edge {
   /** 绘制, 返回的图形既是该图项的 keyShape -- 关键形 */
-  draw?(item: Item.Edge): G.Shapes.Shape<'path'>;
+  draw?(item: Item.Edge): G.Shape.Shape<'path'>;
   /* 获取路径 */
   getPath?(item: Item.Edge): G.Common.SVGPath;
   /* 起始箭头 */
@@ -40,16 +39,22 @@ export interface Edge {
   };
 
   /** 默认样式 */
-  getStyle?(item: Item.Edge): G.Shapes.Attrs<'path'>;
+  getStyle?(item: Item.Edge): G.Shape.Attrs<'path'>;
   /** 选中样式 */
-  getSelectedStyle?(item: Item.Edge): G.Shapes.Attrs<'path'>;
+  getSelectedStyle?(item: Item.Edge): G.Shape.Attrs<'path'>;
 
   afterDraw?(item: Item.Edge): void;
+
+  getPathByPoints?(
+    ps: Array<{ x: number; y: number }>,
+    source?: Item.Node,
+    target?: Item.Node
+  ): G.Common.SVGPath;
 }
 
 export interface Group {
   /** 绘制, 返回的图形既是该图项的 keyShape -- 关键形 */
-  draw?(item: Item.Group): G.Shapes.Base;
+  draw?(item: Item.Group): G.Shape;
   /** 获取锚点 */
   anchor?: G.Common.Points;
 }

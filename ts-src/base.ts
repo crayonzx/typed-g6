@@ -7,7 +7,7 @@
 import Util = require('./util/');
 import EventEmitter = require('wolfy87-eventemitter');
 
-const EE = EventEmitter as unknown as typeof Event;
+const EE = EventEmitter as unknown as new () => Event;
 
 class Base extends EE {
   _cfg: {};
@@ -26,11 +26,11 @@ class Base extends EE {
 
   get = function (name) {
     return this._cfg[name];
-  } as G.Canvas['get'];
+  } as Base.IGet;
 
   set = function (name, value) {
     this._cfg[name] = value;
-  } as G.Canvas['set'];
+  } as Base.ISet;
 
   destroy() {
     this._cfg = {};
@@ -45,6 +45,8 @@ import Event from './event';
 import G from '@antv/g';
 
 namespace Base {
+  export type IGet = G.Group['get'];
+  export type ISet = G.Group['set'];
   export type Events<E extends string, T extends any[]> = Event.Events<E, T>;
   export type EventHandler<T extends any[]> = Event.EventHandler<T>;
 }

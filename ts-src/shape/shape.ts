@@ -53,3 +53,21 @@ Shape.registerShapeManager = function(type, cfg) {
 };
 
 export = Shape;
+
+type Shape = typeof Shape;
+
+namespace Shape {
+  export type Anchors = Interfaces.Anchors;
+  export type Node = Interfaces.Node;
+  export type Edge = Interfaces.Edge;
+  export type Group = Interfaces.Group;
+  export type Guide = Interfaces.Guide;
+  export type registerNode = typeof Shape.registerNode;
+  export type registerEdge = typeof Shape.registerEdge;
+  export type registerGroup = typeof Shape.registerGroup;
+  export type registerGuide = typeof Shape.registerGuide;
+  export type NodeShapeManager = typeof Shape.Node;
+  export type EdgeShapeManager = typeof Shape.Edge;
+  export type GroupShapeManager = typeof Shape.Group;
+  export type GuideShapeManager = typeof Shape.Guide;
+}

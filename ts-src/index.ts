@@ -2,30 +2,29 @@
  * @fileOverview entry file
  * @author huangtonger@aliyun.com
  */
-import Shape = require('./shape/');
+import Shape_ = require('./shape/');
 import Handler = require('./handler');
-import Global = require('./global');
-import version = require('./version');
+import Global_ = require('./global');
+import version_ = require('./version');
 import G_ = require('@antv/g/lib');
 
-namespace G6 {
-  export const Graph: typeof import('./graph') = require('./graph');
-  export const Tree: typeof import('./tree') = require('./tree');
-  export const Util: typeof import('./util/') = require('./util/');
-  export const Layouts: typeof import('./layouts/') = require('./layouts/');
-  // export const G: typeof import('@antv/g/lib') = require('@antv/g/lib');
-  export import G = G_;
-  export const Plugins: typeof import('./plugins') = {} as  any;
-  export const Components = {};
-  export const Global: typeof import('./global') = require('./global');
-  export const Shape: typeof import('./shape/') = require('./shape/');
-  export const registerNode: typeof Shape.registerNode = Shape.registerNode;
-  export const registerEdge: typeof Shape.registerEdge = Shape.registerEdge;
-  export const registerGroup: typeof Shape.registerGroup = Shape.registerGroup;
-  export const registerGuide: typeof Shape.registerGuide = Shape.registerGuide;
-  export const registerBehaviour: typeof Handler.registerBehaviour = Handler.registerBehaviour;
-  export const version: typeof import('./version') = require('./version');
-  export function track(track) {
+declare namespace G6 {
+  export import Graph = Graph_,
+  const Tree: typeof import('./tree'),
+  const Util: typeof import('./util/'),
+  const Layouts: typeof import('./layouts/'),
+  export import G = G_,
+  const Plugins: typeof import('./plugins');
+  const Components: {};
+  const Global: typeof Global_,
+  export import Shape = Shape_,
+  const registerNode: Shape.registerNode,
+  const registerEdge: Shape.registerEdge,
+  const registerGroup: Shape.registerGroup,
+  const registerGuide: Shape.registerGuide,
+  const registerBehaviour: typeof Handler.registerBehaviour,
+  const version: typeof version_,
+  function track(track) {
     Global.track = track;
   }
 }
@@ -36,18 +35,16 @@ export = G6;
 import Model_ from './model';
 import Item_ from './items';
 import Event_ from './event';
-namespace G6 {
-  export type Graph = import('./graph');
+import Graph_ from './graph';
+
+declare namespace G6 {
   export import Item = Item_;
   export import Model = Model_;
   export import Event = Event_;
-  export import GShape = G.Shapes;
-  export type GGroup = G.Group;
-  export import Common = G.Common;
+  export import GShape = G_.Shape;
+  export import Common = G_.Common;
 
-  export namespace Graph {
-    export type Config = import('./graph').Config;
-  }
+  export type GGroup = G_.Group;
 
   type PluginsMap = typeof G6.Plugins;
   type PluginNames = keyof PluginsMap;
