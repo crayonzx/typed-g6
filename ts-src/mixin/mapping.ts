@@ -4,9 +4,9 @@
  */
 
 import Mapper = require('../controller/mapper');
-const Mixin = function() {};
-Mixin.INIT = '_initMapper';
-Mixin.AUGMENT = {
+const Mixin = {
+INIT: '_initMapper';
+AUGMENT: {
   _initMapper() {
     const controllers = this.get('_controllers');
     controllers.nodeMapper = new Mapper({
@@ -62,6 +62,8 @@ Mixin.AUGMENT = {
     channels && guideMapper.addChannels(channels);
     return this._getController('guideMapper');
   }
-};
+}; };
 
-export = Mixin as GUtil.ExcludeFunctionType<typeof Mixin>;
+export = Mixin;
+
+type Mixin = typeof Mixin;

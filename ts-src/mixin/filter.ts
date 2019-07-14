@@ -4,9 +4,9 @@
  * @author huangtonger@aliyun.com
  */
 import Util = require('../util/');
-const Mixin = function() {};
-Mixin.INIT = '_initFilter';
-Mixin.CFG = {
+const Mixin = {
+INIT: '_initFilter';
+CFG: {
   /**
    * filter or filters
    * @type {array|function|undefined}
@@ -14,7 +14,7 @@ Mixin.CFG = {
   filters: []
 };
 
-Mixin.AUGMENT = {
+AUGMENT: {
   _initFilter() {
     const filters = this.get('filters');
     if (Util.isFunction(filters)) {
@@ -75,5 +75,7 @@ Mixin.AUGMENT = {
       return shapeObj.filter !== false;
     });
   }
-};
-export = Mixin as GUtil.ExcludeFunctionType<typeof Mixin>;
+}; };
+export = Mixin;
+
+type Mixin = typeof Mixin;

@@ -22,7 +22,8 @@ import AnimateMixin = require('./mixin/animate');
 import DrawMixin = require('./mixin/draw');
 import FitView = require('./mixin/fit-view');
 import ForceFit = require('./mixin/force-fit');
-const Mixins = [ FilterMixin, MappingMixin, QueryMixin, LayoutMixin, AnimateMixin, DrawMixin, ForceFit, FitView, EventMixin, ModeMixin ];
+const Mixins: Mixins = [ FilterMixin, MappingMixin, QueryMixin, LayoutMixin, AnimateMixin, DrawMixin, ForceFit, FitView, EventMixin, ModeMixin ];
+type Mixins =     Array< FilterMixin| MappingMixin| QueryMixin| LayoutMixin| AnimateMixin| DrawMixin| ForceFit| FitView| EventMixin| ModeMixin >;
 const TAB_INDEX = 20;
 
 class Graph extends Base {
@@ -949,8 +950,8 @@ interface Graph extends Graph.MixedAugmentType, GraphEx {
 }
 
 namespace Graph {
-  export type MixedAugmentType = GUtil.MixArray<typeof Mixins, 'AUGMENT'>;
-  export type MixedCfgType = GUtil.MixArray<typeof Mixins, 'CFG'>;
+  export type MixedAugmentType = GUtil.MixArray<Mixins, 'AUGMENT'>;
+  export type MixedCfgType = GUtil.MixArray<Mixins, 'CFG'>;
   export type DefaultCfgType = ReturnType<Graph['getDefaultCfg']>;
   export type Config = Partial<MixedCfgType & DefaultCfgType>;
 

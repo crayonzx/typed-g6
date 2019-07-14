@@ -2,13 +2,12 @@
  * @fileOverview graph query
  * @author huangtonger@aliyun.com
  */
-import G from '@antv/g';
-import Item from '../items';
+
 
 import Util = require('../util/');
-const Mixin = function() {};
+const Mixin = {
 
-Mixin.AUGMENT = {
+AUGMENT: {
   find<T extends Item.Type | 'base' = 'base'>(id: G.Common.ID): Item.Map<T> | undefined {
     const itemMap = this.get('_itemMap');
     return itemMap[id];
@@ -84,6 +83,10 @@ Mixin.AUGMENT = {
     }
     return item;
   }
-};
+}; };
+export = Mixin;
 
-export = Mixin as GUtil.ExcludeFunctionType<typeof Mixin>;
+type Mixin = typeof Mixin;
+
+import G from '@antv/g';
+import Item from '../items';

@@ -5,16 +5,16 @@
 
 import Util = require('../util/');
 import Layout = require('../controller/layout');
-const Mixin = function() {};
-Mixin.CFG = {
+const Mixin = {
+CFG: {
   /**
    * Layout cfg
    * @type {object|function|undefined}
    */
   layout: undefined as unknown as object | Function
 };
-Mixin.INIT = '_initLayout';
-Mixin.AUGMENT = {
+INIT: '_initLayout';
+AUGMENT: {
   _initLayout() {
     const controllers = this.get('_controllers');
     const layoutCfg = this._getLayoutCfg();
@@ -28,7 +28,7 @@ Mixin.AUGMENT = {
     const layout = this.get('layout');
     if (Util.isPlainObject(layout)) {
       return layout;
-    } else if (Util.isFunction(layout) || Util.isObject(layout)) {
+    }  if (Util.isFunction(layout) || Util.isObject(layout)) {
       return {
         processor: layout
       };
@@ -92,6 +92,8 @@ Mixin.AUGMENT = {
   getLayout() {
     return this._getController('layout').getLayoutProcessor();
   }
-};
+}; };
 
-export = Mixin as GUtil.ExcludeFunctionType<typeof Mixin>;
+export = Mixin;
+
+type Mixin = typeof Mixin;

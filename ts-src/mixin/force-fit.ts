@@ -4,9 +4,9 @@
  */
 
 import Util = require('../util/');
-const Mixin = function() {};
-Mixin.INIT = '_initForceFit';
-Mixin.AUGMENT = {
+const Mixin = {
+INIT: '_initForceFit';
+AUGMENT: {
   _initForceFit() {
     const width = this.get('width');
     const height = this.get('height');
@@ -60,6 +60,8 @@ Mixin.AUGMENT = {
     this.changeSize(containerWidth, containerHeight);
     return this;
   }
-};
+}; };
 
-export = Mixin as GUtil.ExcludeFunctionType<typeof Mixin>;
+export = Mixin;
+
+type Mixin = typeof Mixin;

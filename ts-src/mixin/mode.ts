@@ -4,8 +4,8 @@
  */
 import Util = require('../util');
 import Handler = require('../handler');
-const Mixin = function() {};
-Mixin.CFG = {
+const Mixin = {
+CFG: {
   /**
     * mode list  key - value, key - mode name, value - behaviors
     * @type {object}
@@ -23,8 +23,8 @@ Mixin.CFG = {
   _eventCache: {}
 };
 
-Mixin.INIT = '_initModes';
-Mixin.AUGMENT = {
+INIT: '_initModes';
+AUGMENT: {
   _initModes() {
     const mode = this.get('mode');
     this.changeMode(mode);
@@ -109,5 +109,7 @@ Mixin.AUGMENT = {
     });
     this._eventCache = {};
   }
-};
-export = Mixin as GUtil.ExcludeFunctionType<typeof Mixin>;
+}; };
+export = Mixin;
+
+type Mixin = typeof Mixin;

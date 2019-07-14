@@ -2,14 +2,12 @@
  * @fileOverview graph fit canvas
  * @author huangtonger@aliyun.com
  */
-import Common from '@antv/g/lib/common';
-import Item from '../items';
-import Graph from '../graph';
+
 
 import Util = require('../util/');
 
-const Mixin = function() {};
-Mixin.CFG = {
+const Mixin = {
+CFG: {
   /**
    * Adaptive viewport
    * @type {string|undefined}
@@ -32,8 +30,8 @@ Mixin.CFG = {
    */
   maxZoom: 10
 };
-Mixin.AUGMENT = {
-  getBBox(this: Graph) {
+AUGMENT: {
+  getBBox(this: Graph): Common.BBox {
     const itemGroup = this.get('_itemGroup');
     const itemMap = this.get('_itemMap');
     let children = itemGroup.get('children');
@@ -327,5 +325,11 @@ Mixin.AUGMENT = {
     this.focusPoint(point);
     return this;
   }
-};
-export = Mixin as GUtil.ExcludeFunctionType<typeof Mixin>;
+}; };
+export = Mixin;
+
+type Mixin = typeof Mixin;
+
+import Common from '@antv/g/lib/common';
+import Item from '../items';
+import Graph from '../graph';

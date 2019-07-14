@@ -3,10 +3,10 @@
  * @author huangtonger@aliyun.com
  */
 
-const Mixin = function() {};
-Mixin.INIT = '_initDraw';
+const Mixin = {
+INIT: '_initDraw';
 
-Mixin.AUGMENT = {
+AUGMENT: {
   _initDraw() {
     const controllers = this.get('_controllers');
     const animateController = controllers.animate;
@@ -47,5 +47,7 @@ Mixin.AUGMENT = {
     const animateController = controllers.animate;
     animateController.run();
   }
-};
-export = Mixin as GUtil.ExcludeFunctionType<typeof Mixin>;
+}; };
+export = Mixin;
+
+type Mixin = typeof Mixin;

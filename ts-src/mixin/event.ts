@@ -3,22 +3,24 @@
  * @author wuyue.lwy <wyueliu@gmail.com>
  */
 
-const Mixin = function() {};
 import Controller = require('../controller/event');
-Mixin.INIT = '_initEvents';
-Mixin.CFG = {
+const Mixin = {
+INIT: '_initEvents';
+CFG: {
   /**
    * keyboard Enable
    * @type {boolean|function}
    */
   keyboardEnable: true
 };
-Mixin.AUGMENT = {
+AUGMENT: {
   _initEvents() {
     const controllers = this.get('_controllers');
     controllers.events = new Controller({
       graph: this
     });
   }
-};
-export = Mixin as GUtil.ExcludeFunctionType<typeof Mixin>;
+}; };
+export = Mixin;
+
+type Mixin = typeof Mixin;

@@ -5,16 +5,16 @@
 
 import Util = require('../util/');
 import Animate = require('../controller/animate');
-const Mixin = function() {};
-Mixin.INIT = '_initAnimate';
-Mixin.CFG = {
+const Mixin = {
+INIT: '_initAnimate';
+CFG: {
   /**
    * animate switch
    * @type {boolean}
    */
   animate: false as boolean | Partial<ReturnType<Animate['getDefaultCfg']>>
 };
-Mixin.AUGMENT = {
+AUGMENT: {
   _initAnimate() {
     const animate = this.get('animate');
     if (animate) {
@@ -31,6 +31,8 @@ Mixin.AUGMENT = {
       controllers.animate = new Animate(cfg);
     }
   }
-};
+}; };
 
-export = Mixin as GUtil.ExcludeFunctionType<typeof Mixin>;
+export = Mixin;
+
+type Mixin = typeof Mixin;
