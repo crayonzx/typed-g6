@@ -385,7 +385,7 @@ class Graph extends Base {
    * @param  {function} callback - callback
    * @return {Graph} this
    */
-  preventAnimate(callback) {
+  preventAnimate(callback: () => any) {
     this.set('_forcePreventAnimate', true);
     callback();
     this.set('_forcePreventAnimate', false);
@@ -611,7 +611,7 @@ class Graph extends Base {
    * @param {object} model data model
    * @return {Graph} this
    */
-  update(item: G.Common.ID | Item_.Base, model: Partial<Model.Base> & Graph.AnyModel) {
+  update(item: G.Common.ID | Item_.Base, model: Partial<Model.Base>) {
     const itemMap = this.get('_itemMap');
     item = this.getItem(item);
     if (!item || item.destroyed || !model) {
@@ -945,8 +945,8 @@ interface Graph extends Graph.MixedAugmentType, GraphEx {
 
   behaviourOn: Event['on'];
 
-  update<T extends Item_.Base>(item: T, model: Partial<Model.Map<T['type']>> & Graph.AnyModel);
-  update<T extends Item_.Type | 'base' = 'base'>(item: G.Common.ID, model: Partial<Model.Map<T>> & Graph.AnyModel);
+  update<T extends Item_.Base>(item: T, model: Partial<Model.Map<T['type']>>): this;
+  update<T extends Item_.Type | 'base' = 'base'>(item: G.Common.ID, model: Partial<Model.Map<T>>): this;
 }
 
 namespace Graph {
@@ -991,6 +991,4 @@ namespace Graph {
     [id: string]: Item_.Base;
     [id: number]: Item_.Base;
   };
-
-  export interface AnyModel { [x: string]: any; }
 }
