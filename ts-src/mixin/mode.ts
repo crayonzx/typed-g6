@@ -33,7 +33,7 @@ AUGMENT: {
     * change mode
     * @param {string} modeName - name of mode
     */
-  changeMode(modeName: string) {
+  changeMode(modeName?: string) {
     const modes = this.get('modes');
     if (Util.isEmpty(modes) || Util.isEmpty(modes[modeName])) {
       return;
