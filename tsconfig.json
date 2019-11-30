@@ -17,12 +17,6 @@
     "importHelpers": true,
     "paths": {
       "@antv/g6": ["./ts-src"]
-    },
-    "plugins": [
-      {
-        "name": "typescript-tslint-plugin",
-        "configFile": "./tslint.json"
-      }
-    ]
+    }
   }
 }
