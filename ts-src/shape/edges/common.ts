@@ -71,7 +71,7 @@ export = Shape.registerEdge('common', {
     const points = item.getPoints();
     return Util.pointsToPolygon(points);
   },
-  getLabel(item: Edge) {
+  getLabel(item: Edge): string | undefined {
     const model = item.getModel();
     return model.label;
   },

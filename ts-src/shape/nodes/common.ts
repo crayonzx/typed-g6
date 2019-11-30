@@ -17,7 +17,7 @@ export = Shape.registerNode('common', {
     label && Util.toFront(label, group);
     return keyShape;
   },
-  getSize(item: Node) {
+  getSize(item: Node): [number, number] {
     const model = item.getModel();
     const size = model.size;
     if (Util.isArray(size)) {
@@ -28,7 +28,7 @@ export = Shape.registerNode('common', {
     }
     return [ Global.defaultNodeSize, Global.defaultNodeSize ];
   },
-  getStyle(item: Node) {
+  getStyle(item: Node): GCommon.Style {
     const model = item.getModel();
     return Util.mix(true, {
       lineWidth: 1,
@@ -37,7 +37,7 @@ export = Shape.registerNode('common', {
       fillOpacity: 0.92
     }, model.style);
   },
-  getLabel(item: Node) {
+  getLabel(item: Node): string | undefined {
     const model = item.getModel();
     return model.label;
   },
